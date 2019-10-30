@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/timegame/timepage/static/css/main.b100e6da.chunk.css",
+    "main.js": "/timegame/timepage/static/js/main.3ac251c3.chunk.js",
+    "main.js.map": "/timegame/timepage/static/js/main.3ac251c3.chunk.js.map",
+    "runtime-main.js": "/timegame/timepage/static/js/runtime-main.b0ff690d.js",
+    "runtime-main.js.map": "/timegame/timepage/static/js/runtime-main.b0ff690d.js.map",
+    "static/js/2.66cfd510.chunk.js": "/timegame/timepage/static/js/2.66cfd510.chunk.js",
+    "static/js/2.66cfd510.chunk.js.map": "/timegame/timepage/static/js/2.66cfd510.chunk.js.map",
+    "index.html": "/timegame/timepage/index.html",
+    "precache-manifest.c44237fa3dae5c0a33debfa8bf36e78a.js": "/timegame/timepage/precache-manifest.c44237fa3dae5c0a33debfa8bf36e78a.js",
+    "service-worker.js": "/timegame/timepage/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/timegame/timepage/static/css/main.b100e6da.chunk.css.map",
+    "static/media/logo.svg": "/timegame/timepage/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b0ff690d.js",
+    "static/js/2.66cfd510.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.3ac251c3.chunk.js"
+  ]
+}
