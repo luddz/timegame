@@ -1,7 +1,7 @@
 {
   "name": "timepage",
   "version": "0.1.0",
-  "homepage": "https://luddz.github.io/timegame/timepage",
+  "homepage": "https://luddz.github.io/timegame",
   "private": true,
   "dependencies": {
     "gh-pages": "^2.1.1",
