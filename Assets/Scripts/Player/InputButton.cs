@@ -50,4 +50,8 @@ public class InputButton {
     public bool GetButton() {
         return pressed;
     }
+
+    public KeyCode GetKeyCode() {
+        return button;
+    }
 }
