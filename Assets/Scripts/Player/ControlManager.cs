@@ -9,17 +9,41 @@ using System.Collections;
 [System.Serializable]
 public class ControlManager : MonoBehaviour {
 
-    // Buttons
+    // Editor Button Set up
     [SerializeField] private KeyCode left;
     [SerializeField] private KeyCode right;
     [SerializeField] private KeyCode up;
     [SerializeField] private KeyCode down;
     [SerializeField] private KeyCode jump;
-    [SerializeField] private KeyCode shoot;
     [SerializeField] private KeyCode jumpAlt;
-    [SerializeField] private KeyCode shootAlt;
+
+    // Buttons
+    private InputButton leftButton;
+    private InputButton rightButton;
+    private InputButton upButton;
+    private InputButton downButton;
+    private InputButton jumpButton;
+    private InputButton jumpAltButton;
 
     [SerializeField] private float joyStickDeadZone = 0.5f;
+
+    void Awake() {
+        leftButton = new InputButton(left);
+        rightButton = new InputButton(right);
+        upButton = new InputButton(up);
+        downButton = new InputButton(down);
+        jumpButton = new InputButton(jump);
+        jumpAltButton = new InputButton(jumpAlt);
+    }
+
+    void FixedUpdate () {
+        leftButton.Update();
+        rightButton.Update();
+        upButton.Update();
+        downButton.Update();
+        jumpButton.Update();
+        jumpAltButton.Update();
+    }
 
     /**
 	 * Returns floating point value of horizontal movement, control stick and right and left buttons.
@@ -40,7 +64,7 @@ public class ControlManager : MonoBehaviour {
     }
 
     /**
-	 * Returns floating point value of verticaö movement, control stick and right and left buttons.
+	 * Returns floating point value of vertical movement, control stick and right and left buttons.
 	 */
     public float Vertical() {
         if (Input.GetKey(down))
@@ -58,25 +82,19 @@ public class ControlManager : MonoBehaviour {
     }
 
     /**
-	 * Returns the keycode for the jump button.
+	 * Returns bool for Jump button down event
 	 */
-    public KeyCode JumpButton() {
-        
-        if (Input.GetKey(jump) || Input.GetKeyUp(jump))
-            return jump;
-        else
-            return jumpAlt;
+    public bool JumpButtonDown() {
+
+        return jumpButton.GetButtonDown() || jumpAltButton.GetButtonDown();
     }
 
     /**
-	 * Returns the keycode for the shoot button.
-	 */
-    public KeyCode ShootButton() {
+    * Returns bool for Jump button up event
+    */
+    public bool JumpButtonUp() {
 
-        if (Input.GetKey(shoot) || Input.GetKeyUp(shoot))
-            return shoot;
-        else
-            return shootAlt;
+        return jumpButton.GetButtonUp() || jumpAltButton.GetButtonUp();
     }
 
 }

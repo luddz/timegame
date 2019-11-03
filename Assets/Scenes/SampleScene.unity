@@ -351,9 +351,9 @@ MonoBehaviour:
   right: 100
   up: 119
   down: 115
-  jump: 13
+  jump: 32
   shoot: 0
-  jumpAlt: 32
+  jumpAlt: 0
   shootAlt: 0
   joyStickDeadZone: 0.5
 --- !u!114 &505371821

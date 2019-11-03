@@ -51,12 +51,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Jumping
-        if (Input.GetKeyDown(controller.JumpButton()) && jumpDelay < maxJumpDelay) {
+        if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
             jumpDelay = maxJumpDelay;
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
         }
         //Height controlled by button press duration.
-        if (Input.GetKeyUp(controller.JumpButton()) && !analyser.IsGroundDown() && body.velocity.y > 0)
+        if (controller.JumpButtonUp() && !analyser.IsGroundDown() && body.velocity.y > 0)
             body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2); //Can be changed from 2, it's just that 2 worked pretty nicely.
 
         //Jumping after fall
