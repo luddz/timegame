@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ludd from './profile_studs.png';
+import ludd from './ludvig-kindberg-bw.png';
 // import Image from 'react-bootstrap/Image'
 import './about.css'
 // import '../App.css'
