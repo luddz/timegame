@@ -1,3 +1,30 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+  height: 70px;
+  color: #ffffff;
+  background: #EA4242;
+}
+
+.navBtn {
+  width: 100px;
+  height: 100%;
+  color: #ffffff;
+  background: #EA4242;
+  border: none;
+  outline: none;
+}
+
+.navBtn:hover {
+    color: #EA4242;
+    background: rgb(255, 255, 255);
+}
+
+.navBtn:focus {
+  outline: none;
+}
+
 .App {
   text-align: center;
 }
