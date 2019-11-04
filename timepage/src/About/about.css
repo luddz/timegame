@@ -1,17 +1,18 @@
 .aboutPageContainer {
     display: grid;
     grid-template-rows: auto auto auto;
+    background-color: #282c34;
+    color:white;
 }
 
 .aboutAppContainer {
     display: grid;
     grid-row-gap: 50px;
-    background-color: #fafafa;
     padding: 5% 20% 5% 20%;
 }
 
 .aboutUsContainer {
-    background-color: #fff3f2;
+    background-color: #282c30;
     padding: 5% 20% 5% 20%;
 }
 

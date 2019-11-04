@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ludd from './ludvig-kindberg-bw.png';
-// import Image from 'react-bootstrap/Image'
+import ludde from './ludvig-kindberg-bw.png';
+import 'bootstrap/dist/css/bootstrap.css';
 import './about.css'
 // import '../App.css'
 
@@ -21,7 +21,7 @@ class About extends Component {
         <h2>About us</h2>
           <div className="theTeam">
             <div>
-              <img className="imageCenter" src={ludd} height="200px" roundedCircle />
+              <img className="imageCenter" src={ludde} height="200px" roundedCircle />
               <p className="names"><b>Ludvig Kindberg</b></p>
               <ul>
                 <li>Placeholder</li>
@@ -31,7 +31,7 @@ class About extends Component {
               <p>Placeholder text, Placeholder Placeholder placeholder</p>
             </div>
           <div>
-            <img className="imageCenter" src={ludd} height="200px" roundedCircle />
+            <img className="imageCenter" src={ludde} height="200px" roundedCircle />
             <p className="names"><b>Tom Axblad</b></p>
             <ul>
               <li>Placeholder</li>
@@ -41,7 +41,7 @@ class About extends Component {
             <p>Placeholder text, Placeholder Placeholder placeholder </p>
           </div>
           <div>
-            <img className="imageCenter" src={ludd} height="200px" roundedCircle />
+            <img className="imageCenter" src={ludde} height="200px" roundedCircle />
             <p className="names"><b>Nathan Bhat</b></p>
             <ul>
               <li>Placeholder</li>
@@ -51,7 +51,7 @@ class About extends Component {
             <p>Placeholder text placeholder placeholder</p>
           </div>
           <div>
-            <img className="imageCenter" src={ludd} height="200px" roundedCircle />
+            <img className="imageCenter" src={ludde} height="200px" roundedCircle />
             <p className="names"><b>Alvin Hager</b></p>
             <ul>
               <li>Placeholder</li>

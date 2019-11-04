@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import About from './About/about'
 // This site has 3 pages, all of which are rendered
@@ -19,21 +20,18 @@ import About from './About/about'
 export default function BasicExample() {
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-
-        <hr />
-
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Timegame</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link " href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/about">About</a>
+          </div>
+        </div>
+      </nav>
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
@@ -52,7 +50,6 @@ export default function BasicExample() {
             <Dashboard />
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }
