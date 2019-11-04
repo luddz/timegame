@@ -1,0 +1,67 @@
+.aboutPageContainer {
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+.aboutAppContainer {
+    display: grid;
+    grid-row-gap: 50px;
+    background-color: #fafafa;
+    padding: 5% 20% 5% 20%;
+}
+
+.aboutUsContainer {
+    background-color: #fff3f2;
+    padding: 5% 20% 5% 20%;
+}
+
+.aboutApp {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 30px;
+    font-size: 18px;
+}
+
+.aboutImage {
+    background-color: #EA4242;
+    padding: 5% 5% 5% 5%;
+}
+
+.aboutAppContainer > h2 {
+    padding: 0;
+}
+
+.theTeam {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+
+}
+
+.names {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.videoTutorialContainer {
+    display: grid;
+    grid-template-rows: auto 400px;
+    padding: 5% 20% 5% 20%;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
+}
+
+.theTeam > img {
+    border-radius:50%;
+}
+
+.imageCenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
