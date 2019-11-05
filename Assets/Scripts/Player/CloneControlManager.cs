@@ -113,25 +113,19 @@ public class CloneControlManager : MonoBehaviour, IControlManager {
      */
     private IEnumerator PerformEvent(InputEvent inputEvent) {
         yield return new WaitForSeconds(inputEvent.startTime);
+        isPressed[(int)inputEvent.buttonEnum] = true;
+        isDown[(int)inputEvent.buttonEnum] = true;
 
-        if(inputEvent.isPositionPoll) {
-            transform.position = inputEvent.pos;
-            GetComponent<Rigidbody2D>().velocity = inputEvent.vel;
-        }
+        yield return new WaitForSeconds(Time.fixedDeltaTime);
+        isDown[(int)inputEvent.buttonEnum] = false;
 
-        else {
-            isPressed[(int)inputEvent.buttonEnum] = true;
-            isDown[(int)inputEvent.buttonEnum] = true;
+        yield return new WaitForSeconds(inputEvent.durationTime - Time.fixedDeltaTime);
+        isPressed[(int)inputEvent.buttonEnum] = false;
+        isUp[(int)inputEvent.buttonEnum] = true;
 
-            yield return null;
-            isDown[(int)inputEvent.buttonEnum] = false;
+        yield return new WaitForSeconds(Time.fixedDeltaTime);
+        isUp[(int)inputEvent.buttonEnum] = false;
 
-            yield return new WaitForSeconds(inputEvent.durationTime - Time.deltaTime);
-            isPressed[(int)inputEvent.buttonEnum] = false;
-            isUp[(int)inputEvent.buttonEnum] = true;
-
-            yield return null;
-            isUp[(int)inputEvent.buttonEnum] = false;
-        }
+        yield return null;
     }
 }
