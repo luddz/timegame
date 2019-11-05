@@ -39,7 +39,7 @@ public class PlayerControlManager : MonoBehaviour, IControlManager {
         resetTimeButton = new InputButton(resetTime);
     }
 
-    void FixedUpdate () {
+    void Update () {
         leftButton.Update();
         rightButton.Update();
         upButton.Update();
