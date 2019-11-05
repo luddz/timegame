@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementRecorder : MonoBehaviour {
-
-    [SerializeField] private float positionPollFrequency;
 
     private float runTime;
     private InputButton[] inputButtons;
@@ -22,13 +19,11 @@ public class MovementRecorder : MonoBehaviour {
         for (int i = 0; i < activeInputEvents.Length; i++) {
             activeInputEvents[i] = new InputEvent((Button)i);
         }
-
-        StartCoroutine(PositionPoll());
     }
 
-    void Update() {
+    void FixedUpdate() {
         // update runtime
-        runTime += Time.deltaTime;
+        runTime += Time.fixedDeltaTime;
 
         // check status of each button for the current update
         for (int i = 0; i < inputButtons.Length; i++) {
@@ -41,7 +36,7 @@ public class MovementRecorder : MonoBehaviour {
 
             // if button is currently beeing pressed, then update duration time
             else if (inputButtons[i].GetButton()) {
-                activeInputEvents[i].durationTime += Time.deltaTime;
+                activeInputEvents[i].durationTime += Time.fixedDeltaTime;
             }
 
             // if button just stopped beeing pressed, then save the input event to the list
@@ -82,14 +77,5 @@ public class MovementRecorder : MonoBehaviour {
         }
 
         return inputEvents;
-    }
-
-    private IEnumerator PositionPoll() {
-        while (true) {
-            yield return new WaitForSeconds(positionPollFrequency);
-            Vector3 pos = transform.position;
-            Vector3 vel = GetComponent<Rigidbody2D>().velocity;
-            recordedInputEvents.AddLast(new InputEvent(runTime, new Vector3(pos.x, pos.y, pos.z), new Vector3(vel.x, vel.y, vel.z)));
-        }
     }
 }

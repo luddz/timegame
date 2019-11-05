@@ -29,7 +29,7 @@ public class CharacterMovement : MonoBehaviour
         controller = GetComponent<IControlManager>();
     }
 
-    void Update() {
+    void FixedUpdate() {
         //Terminal velocity
         if (body.velocity.y < -terminalVelocity)
             body.velocity = new Vector2(body.velocity.x, -terminalVelocity);
