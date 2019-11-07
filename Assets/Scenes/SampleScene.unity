@@ -978,7 +978,7 @@ PrefabInstance:
     - target: {fileID: 6557204297891356254, guid: 2da52b95146225b4585b0f531f196d4b,
         type: 3}
       propertyPath: positionPollFrequency
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2da52b95146225b4585b0f531f196d4b, type: 3}

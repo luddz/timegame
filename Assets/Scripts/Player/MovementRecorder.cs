@@ -15,10 +15,10 @@ public class MovementRecorder : MonoBehaviour {
     void Start() {
         runTime = 0;
         recordedInputEvents = new LinkedList<InputEvent>();
-        inputButtons = GetComponent<PlayerControlManager>().getButtons();
+        inputButtons = GetComponent<ControlManager>().GetButtons();
 
         // active input events is a list of input events corresponding to the number of possible inputs.
-        activeInputEvents = new InputEvent[inputButtons.Length];
+        activeInputEvents = new InputEvent[(int)Button.nrButtons];
         for (int i = 0; i < activeInputEvents.Length; i++) {
             activeInputEvents[i] = new InputEvent((Button)i);
         }
@@ -46,6 +46,7 @@ public class MovementRecorder : MonoBehaviour {
 
             // if button just stopped beeing pressed, then save the input event to the list
             else if (inputButtons[i].GetButtonUp()) {
+                activeInputEvents[i].durationTime += Time.deltaTime;
                 recordedInputEvents.AddLast(activeInputEvents[i].Clone());
             }
         }

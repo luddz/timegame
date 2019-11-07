@@ -19,14 +19,14 @@ public class CharacterMovement : MonoBehaviour
     //Components
     private Rigidbody2D body;
     private CollisionAnalysis analyser;
-    private IControlManager controller;
+    private ControlManager controller;
 
     // Start is called before the first frame update
     void Start() {
         //Component Set up
         body = GetComponent<Rigidbody2D>();
         analyser = GetComponent<CollisionAnalysis>();
-        controller = GetComponent<IControlManager>();
+        controller = GetComponent<ControlManager>();
     }
 
     void Update() {
