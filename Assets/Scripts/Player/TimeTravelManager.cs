@@ -20,7 +20,7 @@ public class TimeTravelManager: MonoBehaviour
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
         GameObject newClone = Instantiate(clonePrefab);
         newClone.transform.SetParent(cloneWrapper.transform);
-        newClone.GetComponent<CloneControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
+        newClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
         clones.Add(newClone);
 
         // reset position and velocities of player
@@ -35,7 +35,7 @@ public class TimeTravelManager: MonoBehaviour
             startPos = clone.GetComponent<CharacterMovement>().GetStartPosition();
             clone.transform.position = startPos;
 
-            CloneControlManager cloneControlManager = clone.GetComponent<CloneControlManager>();
+            ControlManager cloneControlManager = clone.GetComponent<ControlManager>();
             cloneControlManager.StopEvents();
             cloneControlManager.StartEvents();
         }

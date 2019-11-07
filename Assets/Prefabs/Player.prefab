@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6557204297891356254}
   - component: {fileID: 3068179078355223741}
   - component: {fileID: 5635826310379369544}
-  - component: {fileID: 8947356588845087812}
+  - component: {fileID: 104869223437697638}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77c49cfa4ced3249bf50e7e02e845b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionPollFrequency: 0
 --- !u!114 &3068179078355223741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &8947356588845087812
+--- !u!114 &104869223437697638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,14 +203,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5635826310379369547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de1eb704e523714d9d42d3bdb9a587d, type: 3}
+  m_Script: {fileID: 11500000, guid: b7c47475e47b4b64ebd1b1b92fbf4152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 1
   left: 97
   right: 100
   up: 119
   down: 115
   jump: 32
-  jumpAlt: 0
+  jumpAlt: 273
   resetTime: 114
   joyStickDeadZone: 0.5

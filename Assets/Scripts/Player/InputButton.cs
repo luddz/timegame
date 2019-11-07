@@ -36,7 +36,18 @@ public class InputButton {
             buttonUp = true;
             pressed = false;
         }
+    }
 
+    public void SetButtonDown(bool buttonDown) {
+        this.buttonDown = buttonDown;
+    }
+
+    public void SetButtonUp(bool buttonUp) {
+        this.buttonUp = buttonUp;
+    }
+
+    public void SetButton(bool pressed) {
+        this.pressed = pressed;
     }
 
     public bool GetButtonDown() {
