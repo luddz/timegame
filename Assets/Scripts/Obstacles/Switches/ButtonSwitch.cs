@@ -23,13 +23,13 @@ public class ButtonSwitch : SwitchSystem
 
     protected override void ActivateSwitch() {
         activated = true;
-        switchable.SwitchTo(true);
+        switchable.Switch();
         //TODO add animation and SFX
     }
 
     protected override void DeactivateSwitch() {
         activated = false;
-        switchable.SwitchTo(false);
+        switchable.Switch();
         //TODO add animation and SFX
     }
 

@@ -7,7 +7,9 @@ public class Door : SwitchableSystem
     // Start is called before the first frame update
     void Start()
     {
-        
+        //If door open as default
+        if (isOn)
+            gameObject.SetActive(false); //TODO change sprite etc, not deactivate object.
     }
 
     // Update is called once per frame
