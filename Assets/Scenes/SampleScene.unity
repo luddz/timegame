@@ -772,6 +772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 926518431577690914, guid: 97106f11b49dbbe439a86ec630b679bf,
+        type: 3}
+      propertyPath: isOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 926518431577690943, guid: 97106f11b49dbbe439a86ec630b679bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -901,6 +906,11 @@ PrefabInstance:
       propertyPath: switchable
       value: 
       objectReference: {fileID: 2134299599}
+    - target: {fileID: 3926431468490683868, guid: 129bc08d0afcd7947a13917777415c30,
+        type: 3}
+      propertyPath: permanent
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129bc08d0afcd7947a13917777415c30, type: 3}
 --- !u!1001 &5635826309942290659
