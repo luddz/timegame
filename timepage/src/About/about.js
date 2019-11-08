@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ludde from './ludvig-kindberg-bw.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import './about.css'
+import shortVideo from '../Assets/shortened.mp4'
 // import '../App.css'
 
 class About extends Component {
@@ -12,8 +13,7 @@ class About extends Component {
           <h2>About Timegame</h2>
           <div className="aboutApp">
             <div>
-              placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text
-              placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text placeholder text
+              The game is a 2D puzzle platformer in which the player controls a humanoid character in an open-world setting. The gameplay is centered around the use of a time mechanic that allows the character to interact with past versions of itself to solve puzzles in a creative, non-deterministic manner. 
             </div>
           </div>
         </div>
@@ -64,7 +64,10 @@ class About extends Component {
         <div className="videoTutorialContainer">
           <h2>Video tutorial</h2>
           <div className="video">
-            <iframe class="video" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video width="640" height="480" controls>
+              <source src={shortVideo} type="video/mp4"/>
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
