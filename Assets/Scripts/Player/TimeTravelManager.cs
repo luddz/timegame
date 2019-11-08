@@ -24,20 +24,29 @@ public class TimeTravelManager: MonoBehaviour
         clones.Add(newClone);
 
         // reset position and velocities of player
-        player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        Vector3 startPos = player.GetComponent<CharacterMovement>().GetStartPosition();
-        player.transform.position = startPos;
+        ResetCharacter(player);
         movementRecorder.ResetRecording();
 
         // reset position, velocities, and input events for all clones
         foreach (GameObject clone in clones) {
-            clone.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            startPos = clone.GetComponent<CharacterMovement>().GetStartPosition();
-            clone.transform.position = startPos;
+            ResetCharacter(clone);
+
 
             ControlManager cloneControlManager = clone.GetComponent<ControlManager>();
             cloneControlManager.StopEvents();
             cloneControlManager.StartEvents();
         }
+    }
+
+    /**
+     * Resets various values during time reset.
+     */
+    private void ResetCharacter(GameObject character) {
+        character.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        character.layer = 9; //reset layer
+        character.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
+        Vector3 startPos = character.GetComponent<CharacterMovement>().GetStartPosition();
+        character.transform.position = startPos;
+        character.transform.rotation = Quaternion.identity;
     }
 }

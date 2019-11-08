@@ -183,17 +183,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1cc98b985d0334cb857e14290a33b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upRightEdge: {x: 0, y: 0}
-  upLeftEdge: {x: 0, y: 0}
-  downRightEdge: {x: -0.5, y: -0.7}
-  downLeftEdge: {x: 0.5, y: -0.7}
-  rightUpEdge: {x: 0, y: 0}
-  rightDownEdge: {x: 0, y: 0}
-  leftUpEdge: {x: 0, y: 0}
-  leftDownEdge: {x: 0, y: 0}
+  upRightEdge: {x: 0.5, y: 0.6}
+  upLeftEdge: {x: -0.5, y: 0.6}
+  downRightEdge: {x: 0.5, y: -0.6}
+  downLeftEdge: {x: -0.5, y: -0.6}
+  rightUpEdge: {x: 0.6, y: 0.5}
+  rightDownEdge: {x: 0.6, y: -0.5}
+  leftUpEdge: {x: -0.6, y: 0.5}
+  leftDownEdge: {x: -0.6, y: -0.5}
+  insideUpRight: {x: 0.4, y: 0.4}
+  insideUpLeft: {x: -0.4, y: 0.4}
+  insideDownRight: {x: 0.4, y: -0.4}
+  insideDownLeft: {x: -0.4, y: -0.4}
   ground:
     serializedVersion: 2
     m_Bits: 256
+  character:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &104869223437697638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,4 +221,5 @@ MonoBehaviour:
   jump: 32
   jumpAlt: 273
   resetTime: 114
+  solidify: 0
   joyStickDeadZone: 0.5

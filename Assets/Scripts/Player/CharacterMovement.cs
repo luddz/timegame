@@ -30,6 +30,16 @@ public class CharacterMovement : MonoBehaviour
     }
 
     void Update() {
+        // player presses reset time button
+        if (isPlayer && controller.ResetButtonUp()) {
+            timeTravelManager.ResetTime();
+        }
+
+        //If solid then stop moving.
+        if(gameObject.layer != 9) {
+            return;
+        }
+
         //Terminal velocity
         if (body.velocity.y < -terminalVelocity)
             body.velocity = new Vector2(body.velocity.x, -terminalVelocity);
@@ -65,9 +75,10 @@ public class CharacterMovement : MonoBehaviour
         else
             jumpDelay += jumpDelay < maxJumpDelay ? 1 : 0;
 
-        // player presses reset time button
-        if(isPlayer && controller.IsResetButtonUp()) {
-            timeTravelManager.ResetTime();
+        //Solidifying
+        if (controller.SolidifyButtonDown() && analyser.IsGroundDown() && !analyser.IsCharacterOverlapping()) {
+            gameObject.layer = 8;
+            body.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
