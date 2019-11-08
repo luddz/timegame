@@ -28,10 +28,15 @@ public class ControlManager : MonoBehaviour {
     private KeyCode[] keyCodes;
     private InputButton[] inputButtons;
     private LinkedList<InputEvent> inputEvents;
+    private bool syncMovementState;
+    private CollisionAnalysis analyser;
 
     void Awake() {
+        syncMovementState = true;
+        analyser = GetComponent<CollisionAnalysis>();
         keyCodes = new KeyCode[] { left, right, up, down, jump, jumpAlt, resetTime, solidify };
         inputButtons = new InputButton[(int)Button.nrButtons];
+        
 
         for (int i = 0; i < (int)Button.nrButtons; i++) {
             inputButtons[i] = new InputButton(keyCodes[i]);
@@ -79,6 +84,8 @@ public class ControlManager : MonoBehaviour {
             inputButtons[i].SetButtonDown(false);
             inputButtons[i].SetButtonUp(false);
         }
+
+        syncMovementState = true;
     }
 
     /**
@@ -146,12 +153,21 @@ public class ControlManager : MonoBehaviour {
     private IEnumerator PerformEvent(InputEvent inputEvent) {
         yield return new WaitForSeconds(inputEvent.startTime);
 
-        if(inputEvent.isPositionPoll) {
-            transform.position = inputEvent.pos;
-            GetComponent<Rigidbody2D>().velocity = inputEvent.vel;
+        if(inputEvent.isMovementState && syncMovementState) {
+            transform.position = inputEvent.movementState.pos;
+            GetComponent<Rigidbody2D>().velocity = inputEvent.movementState.vel;
+
+            // if collision does not sync after correction. Something has changed in the world and syncing is disabled
+            if ( analyser.IsGroundUp()      != inputEvent.movementState.isGroundUp      ||
+                 analyser.IsGroundDown()    != inputEvent.movementState.isGroundDown    ||
+                 analyser.IsGroundRight()   != inputEvent.movementState.isGroundRight   ||
+                 analyser.IsGroundLeft()    != inputEvent.movementState.isGroundLeft
+                 ) {
+                syncMovementState = false;
+            }
         }
 
-        else {
+        else if(!inputEvent.isMovementState) {
             inputButtons[(int)inputEvent.buttonEnum].SetButton(true);
             inputButtons[(int)inputEvent.buttonEnum].SetButtonDown(true);
 
