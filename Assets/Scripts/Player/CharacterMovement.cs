@@ -85,4 +85,12 @@ public class CharacterMovement : MonoBehaviour
     public Vector3 GetStartPosition() {
         return startPosition;
     }
+
+    /**
+     * Sets a new start position
+     */
+    public void SetStartPosition(Vector3 newStartPosition) {
+        startPosition = newStartPosition;
+        timeTravelManager.ResetTime(); // Reset time when you set a new start position
+    }
 }
