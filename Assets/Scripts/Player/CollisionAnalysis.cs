@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /**
  * Class to analyze if an object of a certain layer is adjacent to the object with this script attached.
@@ -16,9 +17,14 @@ public class CollisionAnalysis : MonoBehaviour {
     [SerializeField] private Vector2 rightDownEdge;
     [SerializeField] private Vector2 leftUpEdge;
     [SerializeField] private Vector2 leftDownEdge;
+    [SerializeField] private Vector2 insideUpRight; //Inside the player
+    [SerializeField] private Vector2 insideUpLeft;
+    [SerializeField] private Vector2 insideDownRight;
+    [SerializeField] private Vector2 insideDownLeft;
 
     //Layers
     [SerializeField] private LayerMask ground;
+    [SerializeField] private LayerMask character;
 
     /**
 	 * Returns whether or not there is ground above.
@@ -55,6 +61,21 @@ public class CollisionAnalysis : MonoBehaviour {
         Vector2 leftUpWorld = (Vector2)transform.position + leftUpEdge;
         Vector2 leftDownWorld = (Vector2)transform.position + leftDownEdge;
         return Physics2D.OverlapPoint(leftUpWorld, ground) || Physics2D.OverlapPoint(leftDownWorld, ground);
+    }
+
+    public bool IsCharacterOverlapping() {
+        Vector2 UpRightWorld = (Vector2)transform.position + insideUpRight;
+        Vector2 UpLeftWorld = (Vector2)transform.position + insideUpLeft;
+        Vector2 DownRightWorld = (Vector2)transform.position + insideDownRight;
+        Vector2 DownLeftWorld = (Vector2)transform.position + insideDownLeft;
+        List<Collider2D> results = new List<Collider2D> ();
+        ContactFilter2D layer = new ContactFilter2D();
+        layer.SetLayerMask(character);
+        if(Physics2D.OverlapPoint(UpRightWorld, layer, results) > 1) return true;
+        if(Physics2D.OverlapPoint(UpLeftWorld, layer, results) > 1) return true;
+        if(Physics2D.OverlapPoint(DownRightWorld, layer, results) > 1) return true;
+        if(Physics2D.OverlapPoint(DownLeftWorld, layer, results) > 1) return true;
+        return false;
     }
 
 }
