@@ -32,7 +32,7 @@ public class CharacterMovement : MonoBehaviour
     void Update() {
         // player presses reset time button
         if (isPlayer && controller.ResetButtonUp()) {
-            timeTravelManager.ResetTime();
+            timeTravelManager.ResetTime(true);
         }
 
         //If solid then stop moving.
@@ -80,6 +80,12 @@ public class CharacterMovement : MonoBehaviour
             gameObject.layer = 8;
             body.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+
+        //Clearing Checkpoint
+        if (isPlayer && analyser.IsCheckpointOverlapping() && controller.ClearButtonDown()) {
+            CheckpointManager.Instance.ClearCheckpoint();
+            timeTravelManager.ResetTime(false);
+        }
     }
 
     public Vector3 GetStartPosition() {
@@ -91,6 +97,6 @@ public class CharacterMovement : MonoBehaviour
      */
     public void SetStartPosition(Vector3 newStartPosition) {
         startPosition = newStartPosition;
-        timeTravelManager.ResetTime(); // Reset time when you set a new start position
+        timeTravelManager.ResetTime(true); // Reset time when you set a new start position and creates a clone
     }
 }

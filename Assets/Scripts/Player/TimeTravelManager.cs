@@ -11,15 +11,17 @@ public class TimeTravelManager: MonoBehaviour
     }
 
     /**
-     * Resets time for the player and all clones
+     * Resets time for the player and all clones.
      */
-    public void ResetTime() {
+    public void ResetTime(bool createClone) {
         // create new clone based on recorded input events from player
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
-        GameObject newClone = Instantiate(clonePrefab);
-        newClone.transform.SetParent(cloneWrapper.transform);
-        newClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
-        CheckpointManager.Instance.AddClone(newClone);
+        if (createClone) {
+            GameObject newClone = Instantiate(clonePrefab);
+            newClone.transform.SetParent(cloneWrapper.transform);
+            newClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
+            CheckpointManager.Instance.AddClone(newClone);
+        }
 
         // reset position and velocities of player
         ResetCharacter(player);

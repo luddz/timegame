@@ -232,6 +232,9 @@ MonoBehaviour:
   character:
     serializedVersion: 2
     m_Bits: 512
+  checkpoint:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &104869223437697638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,4 +256,5 @@ MonoBehaviour:
   jumpAlt: 273
   resetTime: 114
   solidify: 113
+  clear: 101
   joyStickDeadZone: 0.5
