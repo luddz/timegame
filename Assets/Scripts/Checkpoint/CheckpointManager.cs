@@ -26,7 +26,7 @@ public class CheckpointManager : MonoBehaviour
 
     void Start() {
         clones = new Dictionary<Checkpoint, List<GameObject>>();
-        activeCheckpoint = startingCheckpoint;
+        SetActiveCheckpoint(startingCheckpoint);
     }
 
     public bool IsActiveCheckpoint(Checkpoint checkpoint) {
@@ -35,6 +35,8 @@ public class CheckpointManager : MonoBehaviour
 
     public void SetActiveCheckpoint(Checkpoint checkpoint) {
         activeCheckpoint = checkpoint;
+        if (!clones.ContainsKey(activeCheckpoint))
+            clones.Add(activeCheckpoint, new List<GameObject>());
     }
 
     public List<GameObject> GetClones () {
@@ -46,8 +48,6 @@ public class CheckpointManager : MonoBehaviour
     }
 
     public void AddClone(GameObject clone) {
-        if(!clones.ContainsKey(activeCheckpoint)) 
-            clones.Add(activeCheckpoint, new List<GameObject>());
         clones[activeCheckpoint].Add(clone);
     }
 

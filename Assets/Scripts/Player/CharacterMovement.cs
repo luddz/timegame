@@ -95,8 +95,10 @@ public class CharacterMovement : MonoBehaviour
     /**
      * Sets a new start position
      */
-    public void SetStartPosition(Vector3 newStartPosition) {
-        startPosition = newStartPosition;
-        timeTravelManager.ResetTime(true); // Reset time when you set a new start position and creates a clone
+    public void SetStartPosition(Vector3 newStartPosition, Checkpoint newCheckpoint) {
+        timeTravelManager.ResetTime(true); // Reset time before you set a new start position and creates a clone from the last start point
+        startPosition = newStartPosition; //Set new start position
+        CheckpointManager.Instance.SetActiveCheckpoint(newCheckpoint); //Set new checkpoint
+        timeTravelManager.ResetTime(false); // Reset time using the new startPosition
     }
 }
