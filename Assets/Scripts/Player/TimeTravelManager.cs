@@ -6,10 +6,8 @@ public class TimeTravelManager: MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private GameObject cloneWrapper;
-    private List<GameObject> clones;
 
     void Start() {
-        clones = new List<GameObject>();
     }
 
     /**
@@ -21,14 +19,14 @@ public class TimeTravelManager: MonoBehaviour
         GameObject newClone = Instantiate(clonePrefab);
         newClone.transform.SetParent(cloneWrapper.transform);
         newClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
-        clones.Add(newClone);
+        CheckpointManager.Instance.AddClone(newClone);
 
         // reset position and velocities of player
         ResetCharacter(player);
         movementRecorder.ResetRecording();
 
         // reset position, velocities, and input events for all clones
-        foreach (GameObject clone in clones) {
+        foreach (GameObject clone in CheckpointManager.Instance.GetClones()) {
             ResetCharacter(clone);
 
 
