@@ -227,45 +227,9 @@ Transform:
   m_Father: {fileID: 1507060364}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &483602266
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 483602267}
-  m_Layer: 9
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &483602267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483602266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 505371824}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505371816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5635826310379369547, guid: 2da52b95146225b4585b0f531f196d4b,
-    type: 3}
-  m_PrefabInstance: {fileID: 5635826309942290659}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &505371824 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5635826310379369545, guid: 2da52b95146225b4585b0f531f196d4b,
     type: 3}
   m_PrefabInstance: {fileID: 5635826309942290659}
   m_PrefabAsset: {fileID: 0}
@@ -1142,15 +1106,5 @@ PrefabInstance:
       propertyPath: timeTravelManager
       value: 
       objectReference: {fileID: 1542336391}
-    - target: {fileID: 6557204297891356254, guid: 2da52b95146225b4585b0f531f196d4b,
-        type: 3}
-      propertyPath: positionPollFrequency
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 104869223437697638, guid: 2da52b95146225b4585b0f531f196d4b,
-        type: 3}
-      propertyPath: solidify
-      value: 113
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2da52b95146225b4585b0f531f196d4b, type: 3}
