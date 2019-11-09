@@ -6,12 +6,10 @@ public class Checkpoint : MonoBehaviour
 {
     [SerializeField] private Vector3 newStartPosition;
 
-    private bool isCurrentCheckpoint; 
-
     // Start is called before the first frame update
     void Start()
     {
-        isCurrentCheckpoint = false;
+
     }
 
     // Update is called once per frame
@@ -21,9 +19,9 @@ public class Checkpoint : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "Player" && !isCurrentCheckpoint) {
+        if(other.tag == "Player" && !CheckpointManager.Instance.IsActiveCheckpoint(this)) {
             other.gameObject.GetComponent<CharacterMovement>().SetStartPosition(transform.position + newStartPosition);
-            isCurrentCheckpoint = true;
+            CheckpointManager.Instance.SetActiveCheckpoint(this);
         }
     }
 }
