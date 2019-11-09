@@ -12,7 +12,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private Checkpoint startingCheckpoint;
 
     private Checkpoint activeCheckpoint;
-    private Dictionary<Checkpoint, List<GameObject>> clones;
+    private Dictionary<Checkpoint, List<GameObject>> clones; //Dictionary of checkpoints and all clones that belong to each one
 
     public static CheckpointManager Instance { get { return instance; } }
 
@@ -33,12 +33,14 @@ public class CheckpointManager : MonoBehaviour
         return checkpoint == activeCheckpoint;
     }
 
+    //Set active checkpoint and create a List of clones for that checkpoint if none exists
     public void SetActiveCheckpoint(Checkpoint checkpoint) {
         activeCheckpoint = checkpoint;
         if (!clones.ContainsKey(activeCheckpoint))
             clones.Add(activeCheckpoint, new List<GameObject>());
     }
 
+    //Get a list of all clones in the game
     public List<GameObject> GetClones () {
         List<GameObject> result = new List<GameObject>();
         foreach(KeyValuePair<Checkpoint, List<GameObject>> entry in clones) {
@@ -51,6 +53,7 @@ public class CheckpointManager : MonoBehaviour
         clones[activeCheckpoint].Add(clone);
     }
 
+    //Remove all clones from the current checkpoint
     public void ClearCheckpoint() {
         foreach(GameObject clone in clones[activeCheckpoint]) {
             Destroy(clone);

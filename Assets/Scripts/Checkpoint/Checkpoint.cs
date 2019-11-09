@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    [SerializeField] private Vector3 newStartPosition;
+    [SerializeField] private Vector3 positionOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         //TODO add an animation or some buffer period so you don't suddenly snap to the startposition
         if(other.tag == "Player" && !CheckpointManager.Instance.IsActiveCheckpoint(this)) {
-            other.gameObject.GetComponent<CharacterMovement>().SetStartPosition(transform.position + newStartPosition, this); //Then Set Start Position and Reset
+            other.gameObject.GetComponent<CharacterMovement>().SetStartPosition(transform.position + positionOffset, this); //Then Set Start Position and Reset
         }
     }
 }
