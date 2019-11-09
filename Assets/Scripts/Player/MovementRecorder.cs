@@ -88,9 +88,7 @@ public class MovementRecorder : MonoBehaviour {
     private IEnumerator PositionPoll() {
         while (true) {
             yield return new WaitForSeconds(positionPollFrequency);
-            Vector3 pos = transform.position;
-            Vector3 vel = GetComponent<Rigidbody2D>().velocity;
-            recordedInputEvents.AddLast(new InputEvent(runTime, new Vector3(pos.x, pos.y, pos.z), new Vector3(vel.x, vel.y, vel.z)));
+            recordedInputEvents.AddLast(new InputEvent(runTime, new MovementState(gameObject)));
         }
     }
 }
