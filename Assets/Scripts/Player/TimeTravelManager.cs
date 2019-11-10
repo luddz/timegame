@@ -48,5 +48,6 @@ public class TimeTravelManager: MonoBehaviour
         Vector3 startPos = character.GetComponent<CharacterMovement>().GetStartPosition();
         character.transform.position = startPos;
         character.transform.rotation = Quaternion.identity;
+        character.SetActive(true);
     }
 }

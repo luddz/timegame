@@ -171,6 +171,8 @@ MonoBehaviour:
   deceleration: 40
   terminalVelocity: 40
   maxJumpDelay: 1
+  shotDistance: 5
+  shotOffset: 0.55
 --- !u!114 &5635826310379369544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,4 +228,5 @@ MonoBehaviour:
   resetTime: 114
   solidify: 113
   clear: 101
+  shoot: 99
   joyStickDeadZone: 0.5
