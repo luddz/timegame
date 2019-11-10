@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float deceleration;
     [SerializeField] private float terminalVelocity; //Vertical max speed
     [SerializeField] private int maxJumpDelay; //Amount of updates after falling off of a ledge where you can still jump
+    [SerializeField] private float shotDistance; //Distance that you can shoot
 
     //Movement Variables
     private int jumpDelay;
@@ -85,6 +86,11 @@ public class CharacterMovement : MonoBehaviour
         if (isPlayer && analyser.IsCheckpointOverlapping() && controller.ClearButtonDown()) {
             CheckpointManager.Instance.ClearCheckpoint();
             timeTravelManager.ResetTime(false);
+        }
+
+        //Shooting
+        if(true) {
+
         }
     }
 
