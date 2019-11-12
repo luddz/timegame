@@ -144,4 +144,14 @@ public class CharacterMovement : MonoBehaviour
         lr.SetPosition(1, end);
         GameObject.Destroy(myLine, duration);
     }
+
+    public void ResetCharacter() {
+        GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+        gameObject.layer = 9; //reset layer
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
+        transform.position = startPosition;
+        transform.rotation = Quaternion.identity;
+        facingRight = true;
+        gameObject.SetActive(true);
+    }
 }
