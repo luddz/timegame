@@ -17,7 +17,7 @@ public class CharacterMovement : MonoBehaviour
 
     //Movement Variables
     private int jumpDelay;
-    private bool facingRight; //Is the player facing right
+    private bool facingRight = true; //Is the player facing right
 
     //Components
     private Rigidbody2D body;
