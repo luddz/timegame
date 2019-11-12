@@ -32,6 +32,7 @@ public class CharacterMovement : MonoBehaviour
     void Update() {
         // player presses reset time button
         if (isPlayer && controller.ResetButtonUp()) {
+            FindObjectOfType<AudioManager>().Play("resetPlayer");
             timeTravelManager.ResetTime();
         }
 
