@@ -12,9 +12,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float deceleration;
     [SerializeField] private float terminalVelocity; //Vertical max speed
     [SerializeField] private int maxJumpDelay; //Amount of updates after falling off of a ledge where you can still jump
+    [SerializeField] private float shotDistance; //Distance that you can shoot
+    [SerializeField] private float shotOffset; //How far from the center of the player does the shot emerge from
 
     //Movement Variables
     private int jumpDelay;
+    private bool facingRight = true; //Is the player facing right
 
     //Components
     private Rigidbody2D body;
@@ -60,6 +63,13 @@ public class CharacterMovement : MonoBehaviour
             body.velocity = new Vector2(horizontalV, body.velocity.y);
         }
 
+        //Set facing variable
+        if(body.velocity.x > 0) {
+            facingRight = true;
+        } else if(body.velocity.x < 0) {
+            facingRight = false;
+        }
+
         //Jumping
         if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
             jumpDelay = maxJumpDelay;
@@ -86,6 +96,22 @@ public class CharacterMovement : MonoBehaviour
             CheckpointManager.Instance.ClearCheckpoint();
             timeTravelManager.ResetTime(false);
         }
+
+        //Shooting
+        if(controller.ShootButtonDown()) {
+            Vector2 forwardVector = (facingRight) ? Vector2.right : Vector2.left;
+            Vector2 origin = (Vector2)transform.position + forwardVector * shotOffset;
+            RaycastHit2D hit = Physics2D.Raycast(origin, forwardVector, shotDistance, LayerMask.GetMask("Character") | LayerMask.GetMask("Ground")); //Raycast forward
+            if (hit.collider != null) {
+                if (hit.collider.gameObject.layer == 9 && hit.collider.gameObject.tag != "Player") {
+                    hit.collider.gameObject.SetActive(false);
+                }
+                DrawLine(origin, hit.point, Color.red);
+            } else {
+                DrawLine(origin, origin + forwardVector * shotDistance, Color.red);
+            }
+
+        }
     }
 
     public Vector3 GetStartPosition() {
@@ -100,5 +126,32 @@ public class CharacterMovement : MonoBehaviour
         startPosition = newStartPosition; //Set new start position
         CheckpointManager.Instance.SetActiveCheckpoint(newCheckpoint); //Set new checkpoint
         timeTravelManager.ResetTime(false); // Reset time using the new startPosition
+    }
+
+    /**
+     * Draws a Line. (Somewhat stolen from this thread: https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html)
+     */
+    private void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.05f) {
+        GameObject myLine = new GameObject();
+        myLine.transform.position = start;
+        myLine.AddComponent<LineRenderer>();
+        LineRenderer lr = myLine.GetComponent<LineRenderer>();
+        lr.startColor = color;
+        lr.endColor = color;
+        lr.startWidth = 0.1f;
+        lr.endWidth = 0.02f;
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+        GameObject.Destroy(myLine, duration);
+    }
+
+    public void ResetCharacter() {
+        GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+        gameObject.layer = 9; //reset layer
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
+        transform.position = startPosition;
+        transform.rotation = Quaternion.identity;
+        facingRight = true;
+        gameObject.SetActive(true);
     }
 }
