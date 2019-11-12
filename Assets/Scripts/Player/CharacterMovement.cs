@@ -62,6 +62,8 @@ public class CharacterMovement : MonoBehaviour
 
         //Jumping
         if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
+            if (isPlayer)
+                FindObjectOfType<AudioManager>().Play("playerJump");
             jumpDelay = maxJumpDelay;
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
         }
