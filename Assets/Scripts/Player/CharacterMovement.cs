@@ -32,7 +32,7 @@ public class CharacterMovement : MonoBehaviour
     void Update() {
         // player presses reset time button
         if (isPlayer && controller.ResetButtonUp()) {
-            FindObjectOfType<AudioManager>().Play("resetPlayer");
+            AudioManager.Instance.Play("resetPlayer");
             timeTravelManager.ResetTime();
         }
 
@@ -64,7 +64,7 @@ public class CharacterMovement : MonoBehaviour
         //Jumping
         if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
             if (isPlayer)
-                FindObjectOfType<AudioManager>().Play("playerJump");
+                AudioManager.Instance.Play("playerJump");
             jumpDelay = maxJumpDelay;
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
         }
