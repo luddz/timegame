@@ -25,6 +25,7 @@ public class CollisionAnalysis : MonoBehaviour {
     //Layers
     [SerializeField] private LayerMask ground;
     [SerializeField] private LayerMask character;
+    [SerializeField] private LayerMask checkpoint;
 
     /**
 	 * Returns whether or not there is ground above.
@@ -76,6 +77,17 @@ public class CollisionAnalysis : MonoBehaviour {
         if(Physics2D.OverlapPoint(DownRightWorld, layer, results) > 1) return true;
         if(Physics2D.OverlapPoint(DownLeftWorld, layer, results) > 1) return true;
         return false;
+    }
+
+    public bool IsCheckpointOverlapping() {
+        Vector2 UpRightWorld = (Vector2)transform.position + insideUpRight;
+        Vector2 UpLeftWorld = (Vector2)transform.position + insideUpLeft;
+        Vector2 DownRightWorld = (Vector2)transform.position + insideDownRight;
+        Vector2 DownLeftWorld = (Vector2)transform.position + insideDownLeft;
+        return Physics2D.OverlapPoint(UpRightWorld, checkpoint) ||
+        Physics2D.OverlapPoint(UpLeftWorld, checkpoint) ||
+        Physics2D.OverlapPoint(DownRightWorld, checkpoint) ||
+        Physics2D.OverlapPoint(DownLeftWorld, checkpoint);
     }
 
 }

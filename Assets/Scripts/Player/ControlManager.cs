@@ -6,7 +6,7 @@ using UnityEngine;
  * Enum keeping track of all buttons, nrButtons is how many registered buttons there is in total (it has to be last!)
  */
 public enum Button {
-    left, right, up, down, jump, jumpAlt, resetTime, solidify, nrButtons
+    left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot, nrButtons
 }
 
 public class ControlManager : MonoBehaviour {
@@ -22,6 +22,8 @@ public class ControlManager : MonoBehaviour {
     [SerializeField] private KeyCode jumpAlt;
     [SerializeField] private KeyCode resetTime;
     [SerializeField] private KeyCode solidify;
+    [SerializeField] private KeyCode clear;
+    [SerializeField] private KeyCode shoot;
 
     [SerializeField] private float joyStickDeadZone = 0.5f;
 
@@ -34,7 +36,7 @@ public class ControlManager : MonoBehaviour {
     void Awake() {
         syncMovementState = true;
         analyser = GetComponent<CollisionAnalysis>();
-        keyCodes = new KeyCode[] { left, right, up, down, jump, jumpAlt, resetTime, solidify };
+        keyCodes = new KeyCode[] { left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot };
         inputButtons = new InputButton[(int)Button.nrButtons];
         
 
@@ -139,6 +141,20 @@ public class ControlManager : MonoBehaviour {
      public bool SolidifyButtonDown() {
         return inputButtons[(int)Button.solidify].GetButtonDown();
      }
+
+    /**
+     * Returns bool for Clear button down event
+     */
+    public bool ClearButtonDown() {
+        return inputButtons[(int)Button.clear].GetButtonDown();
+    }
+
+    /**
+     * Returns bool for Shoot button down event
+     */
+    public bool ShootButtonDown() {
+        return inputButtons[(int)Button.shoot].GetButtonDown();
+    }
 
     /**
     * Returns a list of all registered buttons
