@@ -31,23 +31,16 @@ public class LaserManager : MonoBehaviour
     }
 
     /**
-     * Draws a Line. (Somewhat stolen from this thread: https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html)
+     * Creates a new laser that has a set lifespan
      */
-    private void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.05f) {
-        GameObject myLine = new GameObject();
-        myLine.transform.position = start;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.startColor = color;
-        lr.endColor = color;
-        lr.startWidth = 0.1f;
-        lr.endWidth = 0.02f;
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        GameObject.Destroy(myLine, duration);
+    public void NewLaser(Vector3 start, Vector3 end, Color color, bool hit, float duration) {
+        
     }
 
-    public void NewLaser(Vector3 start, Vector3 end, Color color, bool hit, float duration = 0.05f) {
-
+    /**
+     * Creates a new laser that is persistant
+     */
+    public int NewLaser(Vector3 start, Vector3 end, Color color, bool hit) {
+        return lasers.Count - 1;
     }
 }
