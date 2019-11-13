@@ -14,6 +14,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private int maxJumpDelay; //Amount of updates after falling off of a ledge where you can still jump
     [SerializeField] private float shotDistance; //Distance that you can shoot
     [SerializeField] private float shotOffset; //How far from the center of the player does the shot emerge from
+    [Space]
+    [SerializeField] private GameObject laser;
+    [SerializeField] private float laserDuration;
 
     //Movement Variables
     private int jumpDelay;
@@ -108,9 +111,13 @@ public class CharacterMovement : MonoBehaviour
                 if (hit.collider.gameObject.layer == 9 && hit.collider.gameObject.tag != "Player") {
                     hit.collider.gameObject.SetActive(false);
                 }
-                DrawLine(origin, hit.point, Color.red);
+                GameObject currentLaser = Instantiate(laser);
+                currentLaser.GetComponent<Laser>().SetUpLaser(origin, hit.point, true);
+                Destroy(currentLaser, laserDuration);
             } else {
-                DrawLine(origin, origin + forwardVector * shotDistance, Color.red);
+                GameObject currentLaser = Instantiate(laser);
+                currentLaser.GetComponent<Laser>().SetUpLaser(origin, origin + forwardVector * shotDistance, false);
+                Destroy(currentLaser, laserDuration);
             }
 
         }
