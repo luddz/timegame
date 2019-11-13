@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1210215233403434460}
   - component: {fileID: 1210215233403434463}
   m_Layer: 0
-  m_Name: LaserDoor
-  m_TagString: Untagged
+  m_Name: Turret
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,3 +46,6 @@ MonoBehaviour:
   isOn: 1
   maxDistance: 10
   laser: {fileID: 4409856889504261068, guid: b8172f6ab6c91b444a01159bda376b62, type: 3}
+  steadyFire: 0
+  shotDelay: 0
+  shotDuration: 0

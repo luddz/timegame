@@ -26,6 +26,12 @@ public class TimeTravelManager: MonoBehaviour
             CheckpointManager.Instance.AddClone(newClone);
         }
 
+        //Reset Turrets
+        GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
+        foreach(GameObject turret in turrets) {
+            turret.GetComponent<Turret>().ResetTurret();
+        }
+
         // reset position and velocities of player
         player.GetComponent<CharacterMovement> ().ResetCharacter();
         movementRecorder.ResetRecording();

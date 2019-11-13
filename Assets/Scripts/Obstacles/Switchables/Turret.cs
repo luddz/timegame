@@ -62,4 +62,8 @@ public class Turret : SwitchableSystem
     protected override void SwitchOff() {
         laser.SetActive(false); //TODO add animations and SFX
     }
+
+    public void ResetTurret() {
+        timeElapsed = 0;
+    }
 }
