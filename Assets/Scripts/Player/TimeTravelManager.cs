@@ -14,6 +14,9 @@ public class TimeTravelManager: MonoBehaviour
      * Resets time for the player and all clones.
      */
     public void ResetTime(bool createClone) {
+        //Play SFX
+        AudioManager.Instance.Play("resetPlayer");
+
         // create new clone based on recorded input events from player
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
         if (createClone) {

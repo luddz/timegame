@@ -35,11 +35,10 @@ public class CharacterMovement : MonoBehaviour
     void Update() {
         // player presses reset time button
         if (isPlayer && controller.ResetButtonUp()) {
-            AudioManager.Instance.Play("resetPlayer");
             timeTravelManager.ResetTime(true);
         }
 
-        //If solid then stop moving.
+        //If solid or dead then stop moving.
         if(gameObject.layer != 9) {
             return;
         }
@@ -131,23 +130,6 @@ public class CharacterMovement : MonoBehaviour
         timeTravelManager.ResetTime(false); // Reset time using the new startPosition
     }
 
-    /**
-     * Draws a Line. (Somewhat stolen from this thread: https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html)
-     */
-    private void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.05f) {
-        GameObject myLine = new GameObject();
-        myLine.transform.position = start;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.startColor = color;
-        lr.endColor = color;
-        lr.startWidth = 0.1f;
-        lr.endWidth = 0.02f;
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        GameObject.Destroy(myLine, duration);
-    }
-
     public void ResetCharacter() {
         GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
         gameObject.layer = 9; //reset layer
@@ -156,5 +138,11 @@ public class CharacterMovement : MonoBehaviour
         transform.rotation = Quaternion.identity;
         facingRight = true;
         gameObject.SetActive(true);
+    }
+
+    public void Die() {
+        gameObject.SetActive(false);
+        if (isPlayer)
+            timeTravelManager.ResetTime(false); //Maybe also clear the checkpoint as punishment?
     }
 }
