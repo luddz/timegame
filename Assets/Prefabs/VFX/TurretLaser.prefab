@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52,
         type: 3}
       propertyPath: m_Name
-      value: DoorLaser
+      value: TurretLaser
       objectReference: {fileID: 0}
     - target: {fileID: 1955087918281264216, guid: a95a777269f298344b53af7d5a432a52,
         type: 3}
@@ -81,6 +81,11 @@ PrefabInstance:
         type: 3}
       propertyPath: color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955087918281264218, guid: a95a777269f298344b53af7d5a432a52,
+        type: 3}
+      propertyPath: width
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a95a777269f298344b53af7d5a432a52, type: 3}
