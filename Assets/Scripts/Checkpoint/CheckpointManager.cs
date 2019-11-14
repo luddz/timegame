@@ -27,6 +27,7 @@ public class CheckpointManager : MonoBehaviour
     void Start() {
         clones = new Dictionary<Checkpoint, List<GameObject>>();
         SetActiveCheckpoint(startingCheckpoint);
+        PlayerManager.Instance.GetComponent<CharacterMovement>().SetStartPosition(activeCheckpoint.GetSpawnPoint());
     }
 
     public bool IsActiveCheckpoint(Checkpoint checkpoint) {

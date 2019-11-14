@@ -3,9 +3,6 @@
 public class CharacterMovement : MonoBehaviour
 {
     // Editable Movement Constants
-    [SerializeField] private bool isPlayer;
-    [SerializeField] private TimeTravelManager timeTravelManager;
-    [Space]
     [SerializeField] private Vector3 startPosition;
     [SerializeField] private float maxHorizontalVelocity;
     [SerializeField] private float jumpVelocity;
@@ -37,8 +34,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Update() {
         // player presses reset time button
-        if (isPlayer && controller.ResetButtonUp()) {
-            timeTravelManager.ResetTime(true);
+        if (PlayerManager.Instance.IsPlayer(gameObject) && controller.ResetButtonUp()) {
+            TimeTravelManager.Instance.ResetTime(true);
         }
 
         //If solid or dead then stop moving.
@@ -75,7 +72,7 @@ public class CharacterMovement : MonoBehaviour
 
         //Jumping
         if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
-            if (isPlayer)
+            if (PlayerManager.Instance.IsPlayer(gameObject))
                 AudioManager.Instance.Play("playerJump");
             jumpDelay = maxJumpDelay;
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
@@ -97,9 +94,9 @@ public class CharacterMovement : MonoBehaviour
         }
 
         //Clearing Checkpoint
-        if (isPlayer && analyser.IsCheckpointOverlapping() && controller.ClearButtonDown()) {
+        if (PlayerManager.Instance.IsPlayer(gameObject) && analyser.IsCheckpointOverlapping() && controller.ClearButtonDown()) {
             CheckpointManager.Instance.ClearCheckpoint();
-            timeTravelManager.ResetTime(false);
+            TimeTravelManager.Instance.ResetTime(false);
         }
 
         //Shooting
@@ -131,10 +128,10 @@ public class CharacterMovement : MonoBehaviour
      * Sets a new start position
      */
     public void SetStartPosition(Vector3 newStartPosition, Checkpoint newCheckpoint) {
-        timeTravelManager.ResetTime(true); // Reset time before you set a new start position and creates a clone from the last start point
+        TimeTravelManager.Instance.ResetTime(true); // Reset time before you set a new start position and creates a clone from the last start point
         startPosition = newStartPosition; //Set new start position
         CheckpointManager.Instance.SetActiveCheckpoint(newCheckpoint); //Set new checkpoint
-        timeTravelManager.ResetTime(false); // Reset time using the new startPosition
+        TimeTravelManager.Instance.ResetTime(false); // Reset time using the new startPosition
     }
 
     /**
@@ -155,8 +152,8 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void Die() {
-        if (isPlayer)
-            timeTravelManager.ResetTime(false); //Maybe also clear the checkpoint as punishment?
+        if (PlayerManager.Instance.IsPlayer(gameObject))
+            TimeTravelManager.Instance.ResetTime(false); //Maybe also clear the checkpoint as punishment?
         else
             gameObject.SetActive(false); //Deactivating the player can mess with the movement recorder.
     }

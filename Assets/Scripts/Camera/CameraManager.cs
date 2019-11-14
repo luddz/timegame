@@ -6,9 +6,10 @@ public class CameraManager: MonoBehaviour
 {
     private static CameraManager instance;
 
-    [SerializeField] private Transform player;
     [SerializeField] private Transform roomPivot;
     [SerializeField] private float catchUpSpeed; //t in the Lerp
+
+    private Transform player;
 
     public static CameraManager Instance { get { return instance; } }
 
@@ -18,6 +19,10 @@ public class CameraManager: MonoBehaviour
         } else {
             instance = this;
         }
+    }
+
+    void Start () {
+        player = PlayerManager.Instance.transform;
     }
 
     // Update is called once per frame
