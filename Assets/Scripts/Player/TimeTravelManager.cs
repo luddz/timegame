@@ -3,9 +3,21 @@ using UnityEngine;
 
 public class TimeTravelManager: MonoBehaviour
 {
+    private static TimeTravelManager instance;
+
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private GameObject cloneWrapper;
+
+    public static TimeTravelManager Instance { get { return instance; } }
+
+    void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+        } else {
+            instance = this;
+        }
+    }
 
     void Start() {
     }
