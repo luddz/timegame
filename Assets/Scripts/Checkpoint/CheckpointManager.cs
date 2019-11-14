@@ -61,4 +61,8 @@ public class CheckpointManager : MonoBehaviour
         clones[activeCheckpoint].Clear();
     }
 
+    //Gets the active checkpoint
+    public Checkpoint GetActiveCheckpoint() {
+        return activeCheckpoint;
+    }
 }

@@ -14,6 +14,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private int maxJumpDelay; //Amount of updates after falling off of a ledge where you can still jump
     [SerializeField] private float shotDistance; //Distance that you can shoot
     [SerializeField] private float shotOffset; //How far from the center of the player does the shot emerge from
+    [Space]
+    [SerializeField] private GameObject laser;
+    [SerializeField] private float laserDuration;
 
     //Movement Variables
     private int jumpDelay;
@@ -35,11 +38,10 @@ public class CharacterMovement : MonoBehaviour
     void Update() {
         // player presses reset time button
         if (isPlayer && controller.ResetButtonUp()) {
-            AudioManager.Instance.Play("resetPlayer");
             timeTravelManager.ResetTime(true);
         }
 
-        //If solid then stop moving.
+        //If solid or dead then stop moving.
         if(gameObject.layer != 9) {
             return;
         }
@@ -109,9 +111,13 @@ public class CharacterMovement : MonoBehaviour
                 if (hit.collider.gameObject.layer == 9 && hit.collider.gameObject.tag != "Player") {
                     hit.collider.gameObject.SetActive(false);
                 }
-                DrawLine(origin, hit.point, Color.red);
+                GameObject currentLaser = Instantiate(laser);
+                currentLaser.GetComponent<Laser>().SetUpLaser(origin, hit.point, true);
+                Destroy(currentLaser, laserDuration);
             } else {
-                DrawLine(origin, origin + forwardVector * shotDistance, Color.red);
+                GameObject currentLaser = Instantiate(laser);
+                currentLaser.GetComponent<Laser>().SetUpLaser(origin, origin + forwardVector * shotDistance, false);
+                Destroy(currentLaser, laserDuration);
             }
 
         }
@@ -132,20 +138,10 @@ public class CharacterMovement : MonoBehaviour
     }
 
     /**
-     * Draws a Line. (Somewhat stolen from this thread: https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html)
+     * Sets a new start position without updating checkpoint
      */
-    private void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.05f) {
-        GameObject myLine = new GameObject();
-        myLine.transform.position = start;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.startColor = color;
-        lr.endColor = color;
-        lr.startWidth = 0.1f;
-        lr.endWidth = 0.02f;
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        GameObject.Destroy(myLine, duration);
+     public void SetStartPosition(Vector3 newStartPosition) {
+        startPosition = newStartPosition; //Set new start position
     }
 
     public void ResetCharacter() {
@@ -156,5 +152,12 @@ public class CharacterMovement : MonoBehaviour
         transform.rotation = Quaternion.identity;
         facingRight = true;
         gameObject.SetActive(true);
+    }
+
+    public void Die() {
+        if (isPlayer)
+            timeTravelManager.ResetTime(false); //Maybe also clear the checkpoint as punishment?
+        else
+            gameObject.SetActive(false); //Deactivating the player can mess with the movement recorder.
     }
 }
