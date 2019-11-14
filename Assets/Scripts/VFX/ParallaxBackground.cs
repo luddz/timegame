@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    [SerializeField] private GameObject camera;
     [SerializeField] private float parallaxAmount;
 
+    private GameObject camera;
     private float length;
     private float startPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        camera = CameraManager.Instance.gameObject;
         startPosition = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
