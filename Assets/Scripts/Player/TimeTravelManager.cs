@@ -14,13 +14,23 @@ public class TimeTravelManager: MonoBehaviour
      * Resets time for the player and all clones.
      */
     public void ResetTime(bool createClone) {
+        //Play SFX
+        AudioManager.Instance.Play("resetPlayer");
+
         // create new clone based on recorded input events from player
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
         if (createClone) {
             GameObject newClone = Instantiate(clonePrefab);
             newClone.transform.SetParent(cloneWrapper.transform);
+            newClone.GetComponent<CharacterMovement>().SetStartPosition(CheckpointManager.Instance.GetActiveCheckpoint().GetSpawnPoint());
             newClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
             CheckpointManager.Instance.AddClone(newClone);
+        }
+
+        //Reset Turrets
+        GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
+        foreach(GameObject turret in turrets) {
+            turret.GetComponent<Turret>().ResetTurret();
         }
 
         // reset position and velocities of player
