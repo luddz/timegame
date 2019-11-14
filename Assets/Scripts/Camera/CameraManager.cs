@@ -21,7 +21,7 @@ public class CameraManager: MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Set up desired position
         Vector3 desiredPos = (player.position + roomPivot.position) / 2;
