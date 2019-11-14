@@ -22,6 +22,7 @@ public class TimeTravelManager: MonoBehaviour
         if (createClone) {
             GameObject newClone = Instantiate(clonePrefab);
             newClone.transform.SetParent(cloneWrapper.transform);
+            newClone.GetComponent<CharacterMovement>().SetStartPosition(CheckpointManager.Instance.GetActiveCheckpoint().GetSpawnPoint());
             newClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
             CheckpointManager.Instance.AddClone(newClone);
         }

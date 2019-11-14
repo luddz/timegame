@@ -137,6 +137,13 @@ public class CharacterMovement : MonoBehaviour
         timeTravelManager.ResetTime(false); // Reset time using the new startPosition
     }
 
+    /**
+     * Sets a new start position without updating checkpoint
+     */
+     public void SetStartPosition(Vector3 newStartPosition) {
+        startPosition = newStartPosition; //Set new start position
+    }
+
     public void ResetCharacter() {
         GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
         gameObject.layer = 9; //reset layer
@@ -148,8 +155,9 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void Die() {
-        gameObject.SetActive(false);
         if (isPlayer)
             timeTravelManager.ResetTime(false); //Maybe also clear the checkpoint as punishment?
+        else
+            gameObject.SetActive(false); //Deactivating the player can mess with the movement recorder.
     }
 }
