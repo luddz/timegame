@@ -165,11 +165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  maxHorizontalVelocity: 10
+  maxHorizontalVelocity: 7
   jumpVelocity: 20
   deceleration: 40
-  terminalVelocity: 40
-  maxJumpDelay: 1
+  terminalVelocity: 20
+  maxJumpDelay: 10
   shotDistance: 5
   shotOffset: 0.55
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
