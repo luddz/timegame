@@ -7,8 +7,11 @@ public class Sound
     public string name;
     public AudioClip clip;
 
+    [Range(0f, 1f)]
+    public float cloneVolume;
+
     [Range(0f,1f)]
-    public float volume;
+    public float playervolume;
 
     [Range(.1f,3f)]
     public float pitch;
