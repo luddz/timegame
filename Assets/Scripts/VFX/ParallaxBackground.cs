@@ -19,7 +19,7 @@ public class ParallaxBackground : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float temp = camera.transform.position.x * (1 - parallaxAmount);
         float distance = camera.transform.position.x * parallaxAmount;
