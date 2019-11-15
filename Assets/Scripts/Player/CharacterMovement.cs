@@ -121,7 +121,10 @@ public class CharacterMovement : MonoBehaviour
                 Destroy(currentLaser, laserDuration);
             }
             //Play SFX
-            AudioManager.Instance.Play("LaserShoot");
+            if (PlayerManager.Instance.IsPlayer(gameObject))
+               AudioManager.Instance.Play("LaserShoot");
+            else
+                AudioManager.Instance.PlayCloneSound("LaserShoot");
         }
     }
 
