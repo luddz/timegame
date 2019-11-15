@@ -1414,6 +1414,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 34488782642910518, guid: dcca7bb7412e71448953e9b8d2a544b0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 34488782642910518, guid: dcca7bb7412e71448953e9b8d2a544b0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].cloneVolume
+      value: 0.228
+      objectReference: {fileID: 0}
+    - target: {fileID: 34488782642910518, guid: dcca7bb7412e71448953e9b8d2a544b0,
+        type: 3}
+      propertyPath: sounds.Array.data[0].playervolume
+      value: 0.759
+      objectReference: {fileID: 0}
+    - target: {fileID: 34488782642910518, guid: dcca7bb7412e71448953e9b8d2a544b0,
+        type: 3}
+      propertyPath: sounds.Array.data[1].playervolume
+      value: 0.804
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcca7bb7412e71448953e9b8d2a544b0, type: 3}
 --- !u!1001 &926518431295766765
@@ -1502,6 +1522,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 1210215233403434463, guid: 6343dc11a6f9beb4fa5ca225fd74502d,
+        type: 3}
+      propertyPath: steadyFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210215233403434463, guid: 6343dc11a6f9beb4fa5ca225fd74502d,
+        type: 3}
+      propertyPath: shotDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210215233403434463, guid: 6343dc11a6f9beb4fa5ca225fd74502d,
+        type: 3}
+      propertyPath: shotDuration
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1210215233403434460, guid: 6343dc11a6f9beb4fa5ca225fd74502d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1556,21 +1591,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1210215233403434463, guid: 6343dc11a6f9beb4fa5ca225fd74502d,
-        type: 3}
-      propertyPath: steadyFire
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1210215233403434463, guid: 6343dc11a6f9beb4fa5ca225fd74502d,
-        type: 3}
-      propertyPath: shotDelay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1210215233403434463, guid: 6343dc11a6f9beb4fa5ca225fd74502d,
-        type: 3}
-      propertyPath: shotDuration
-      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6343dc11a6f9beb4fa5ca225fd74502d, type: 3}
