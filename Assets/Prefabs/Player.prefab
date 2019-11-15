@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5635826310379369545}
   - component: {fileID: 5635826310379369546}
+  - component: {fileID: -8917201521151417345}
   - component: {fileID: 5635826310379369548}
   - component: {fileID: 5635826310379369549}
   - component: {fileID: 6557204297891356254}
   - component: {fileID: 3068179078355223741}
-  - component: {fileID: -8917201521151417345}
   - component: {fileID: 5635826310379369544}
   - component: {fileID: 104869223437697638}
+  - component: {fileID: -3665093496600302557}
   - component: {fileID: -1089850751362981485}
   m_Layer: 9
   m_Name: Player
@@ -88,6 +89,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-8917201521151417345
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635826310379369547}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 340cdc066c4b6c7e3ba2909ffad4f31f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &5635826310379369548
 Rigidbody2D:
   serializedVersion: 4
@@ -175,25 +195,6 @@ MonoBehaviour:
   shotOffset: 0.55
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
   laserDuration: 0.05
---- !u!95 &-8917201521151417345
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5635826310379369547}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5635826310379369544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +252,19 @@ MonoBehaviour:
   clear: 101
   shoot: 99
   joyStickDeadZone: 0.5
+--- !u!114 &-3665093496600302557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635826310379369547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f89f7be13f916da8e826fe11c43ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipDeadZone: 0.1
 --- !u!114 &-1089850751362981485
 MonoBehaviour:
   m_ObjectHideFlags: 0
