@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5635826310379369549}
   - component: {fileID: 6557204297891356254}
   - component: {fileID: 3068179078355223741}
+  - component: {fileID: -8917201521151417345}
   - component: {fileID: 5635826310379369544}
   - component: {fileID: 104869223437697638}
   - component: {fileID: -1089850751362981485}
@@ -174,6 +175,25 @@ MonoBehaviour:
   shotOffset: 0.55
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
   laserDuration: 0.05
+--- !u!95 &-8917201521151417345
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635826310379369547}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5635826310379369544
 MonoBehaviour:
   m_ObjectHideFlags: 0
