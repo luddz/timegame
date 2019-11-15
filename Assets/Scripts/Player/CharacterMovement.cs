@@ -72,6 +72,7 @@ public class CharacterMovement : MonoBehaviour
 
         //Jumping
         if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
+            //Play SFX 
             if (PlayerManager.Instance.IsPlayer(gameObject))
                 AudioManager.Instance.Play("playerJump");
             else
@@ -119,7 +120,8 @@ public class CharacterMovement : MonoBehaviour
                 currentLaser.GetComponent<Laser>().SetUpLaser(origin, origin + forwardVector * shotDistance, false);
                 Destroy(currentLaser, laserDuration);
             }
-
+            //Play SFX
+            AudioManager.Instance.Play("LaserShoot");
         }
     }
 
@@ -156,8 +158,14 @@ public class CharacterMovement : MonoBehaviour
 
     public void Die() {
         if (PlayerManager.Instance.IsPlayer(gameObject))
+        {
+            AudioManager.Instance.Play("LaserWall");
             TimeTravelManager.Instance.ResetTime(false); //Maybe also clear the checkpoint as punishment?
+        }
         else
+        {
+            AudioManager.Instance.PlayCloneSound("LaserWall");
             gameObject.SetActive(false); //Deactivating the player can mess with the movement recorder.
+        }
     }
 }
