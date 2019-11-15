@@ -28,9 +28,11 @@ public class TimeTravelManager: MonoBehaviour
     public void ResetTime(bool createClone) {
         //Play SFX
         AudioManager.Instance.Play("resetPlayer");
-
+        
         // create new clone based on recorded input events from player
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
+        movementRecorder.StopRecording();
+
         if (createClone) {
             GameObject newClone = Instantiate(clonePrefab);
             newClone.transform.SetParent(cloneWrapper.transform);
@@ -48,14 +50,11 @@ public class TimeTravelManager: MonoBehaviour
         // reset position and velocities of player
         player.GetComponent<CharacterMovement> ().ResetCharacter();
         movementRecorder.ResetRecording();
-
         // reset position, velocities, and input events for all clones
         foreach (GameObject clone in CheckpointManager.Instance.GetClones()) {
-            clone.GetComponent<CharacterMovement>().ResetCharacter();
-
-
             ControlManager cloneControlManager = clone.GetComponent<ControlManager>();
             cloneControlManager.StopEvents();
+            clone.GetComponent<CharacterMovement>().ResetCharacter();
             cloneControlManager.StartEvents();
         }
     }

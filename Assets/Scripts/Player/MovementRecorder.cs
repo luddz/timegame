@@ -52,6 +52,10 @@ public class MovementRecorder : MonoBehaviour {
         }
     }
 
+    public void StopRecording() {
+        StopAllCoroutines();
+    }
+
     /**
      * resets the recording and all active input events for valid inputs
      */
@@ -73,6 +77,7 @@ public class MovementRecorder : MonoBehaviour {
         }
 
         recordedInputEvents = new LinkedList<InputEvent>();
+        StartCoroutine(PositionPoll());
     }
 
     public LinkedList<InputEvent> GetRecordedInputEvents() {
