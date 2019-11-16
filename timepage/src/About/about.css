@@ -1,19 +1,10 @@
-.aboutPageContainer {
-    display: grid;
-    grid-template-rows: auto auto auto;
-    background-color: #282c34;
-    color:white;
-}
-
-.aboutAppContainer {
-    display: grid;
-    grid-row-gap: 50px;
-    padding: 5% 20% 5% 20%;
-}
-
 .aboutUsContainer {
     background-color: #282c30;
+    color:white;
     padding: 5% 20% 5% 20%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-row-gap: 100px;
 }
 
 .aboutApp {
@@ -44,17 +35,6 @@
     margin-top: 20px;
     font-size: 20px;
     text-align: center;
-}
-
-.videoTutorialContainer {
-    display: grid;
-    grid-template-rows: auto 400px;
-    padding: 5% 20% 5% 20%;
-}
-
-.video {
-    height: 100%;
-    width: 100%;
 }
 
 .theTeam > img {

@@ -1,9 +1,11 @@
 .App {
+  background-color: #282c34;
+  color: white;
   text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: radial-gradient(circle, black, grey, #282c34);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,4 +13,32 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-content-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+
+.About-content{
+  margin: 10px;
+}
+
+.imageCenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.videoTutorialContainer {
+    display: grid;
+    grid-template-rows: auto auto;
+    padding: 5% 20% 5% 20%;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
 }
