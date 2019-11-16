@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/timegame/precache-manifest.a298e11305826499acc9e426b968e855.js"
+  "/timegame/precache-manifest.e119e4ca5ff70406b54304138585a27f.js"
 );
 
 self.addEventListener('message', (event) => {
