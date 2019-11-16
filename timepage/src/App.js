@@ -3,6 +3,7 @@ import { withRouter, Switch, Route, NavLink } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import About from './About/about'
+import Homepage from './Homepage/homepage'
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
 //
@@ -22,33 +23,15 @@ class App extends Component {
         </header>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Homepage />
           </Route>
-          <Route exact path="/about"
-            render={() => (
-              <About />
-            )}>
+          <Route exact path="/about">
             <About />
           </Route>
         </Switch>
       </div>
     );
   }
-}
-// You can think of these components as "pages"
-// in your app.
-
-function Home() {
-  return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            The inital skeleton webpage for the time game in the course DH2650.
-            Placeholder text for now.
-          </p>
-        </header>
-      </div>
-  );
 }
 
 export default withRouter(App)
