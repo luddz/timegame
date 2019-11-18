@@ -45,14 +45,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: playerJump
-    clip: {fileID: 8300000, guid: 35f2374aab0fa40f78e2f9e7308eee40, type: 3}
-    volume: 0.759
+    clip: {fileID: 8300000, guid: 9519afc5abcaf45278b6bd7a24b14c38, type: 3}
+    cloneVolume: 0.144
+    playervolume: 0.815
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: resetPlayer
     clip: {fileID: 8300000, guid: cb6e1933c43c94585aa187bf641ede8b, type: 3}
-    volume: 0.759
+    cloneVolume: 0
+    playervolume: 0.9
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserWall
+    clip: {fileID: 8300000, guid: f720f1f37d05c485b8a316d8a7824d93, type: 3}
+    cloneVolume: 0.144
+    playervolume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Theme
+    clip: {fileID: 8300000, guid: 54c94c2a0ff2b4b1aa848d086c8f8bca, type: 3}
+    cloneVolume: 0.144
+    playervolume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: LasaerShoot
+    clip: {fileID: 8300000, guid: f8f2ca548e53c453c9c0ae9b74b99408, type: 3}
+    cloneVolume: 0.144
+    playervolume: 0.5
+    pitch: 0.61
     loop: 0
     source: {fileID: 0}
