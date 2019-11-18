@@ -72,7 +72,7 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: LasaerShoot
+  - name: LaserShoot
     clip: {fileID: 8300000, guid: f8f2ca548e53c453c9c0ae9b74b99408, type: 3}
     cloneVolume: 0.144
     playervolume: 0.5
