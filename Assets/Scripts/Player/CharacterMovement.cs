@@ -6,6 +6,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Vector3 startPosition;
     [SerializeField] private float maxHorizontalVelocity;
     [SerializeField] private float jumpVelocity;
+    [SerializeField] private float acceleration;
     [SerializeField] private float deceleration;
     [SerializeField] private float terminalVelocity; //Vertical max speed
     [SerializeField] private int maxJumpDelay; //Amount of updates after falling off of a ledge where you can still jump
@@ -59,8 +60,16 @@ public class CharacterMovement : MonoBehaviour
                 if (body.velocity.x > horizontalV)
                     body.velocity = new Vector2(horizontalV, body.velocity.y);
             }
-        } else if (horizontalV != 0) { //Walk
-            body.velocity = new Vector2(horizontalV, body.velocity.y);
+        } else if (Mathf.Abs(body.velocity.x) < Mathf.Abs(horizontalV)) { //Walk
+            if (horizontalV > 0) {
+                body.velocity += new Vector2(acceleration * Time.deltaTime, 0);
+                if (body.velocity.x > horizontalV)
+                    body.velocity = new Vector2(horizontalV, body.velocity.y);
+            } else if (horizontalV < 0) {
+                body.velocity -= new Vector2(acceleration * Time.deltaTime, 0);
+                if (body.velocity.x < horizontalV)
+                    body.velocity = new Vector2(horizontalV, body.velocity.y);
+            }
         }
 
         //Set facing variable
