@@ -14,14 +14,11 @@ public class Turret : SwitchableSystem
     private float timeElapsed;
     
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         laser = Instantiate(laser);
         timeElapsed = 0;
-        //If door open as default
-        if (isOn)
-            laser.SetActive(true);
-        else
-            laser.SetActive(false);
+        //If laser is on as default
+        laser.SetActive(isOn);
     }
 
     // Update is called once per frame
@@ -63,7 +60,8 @@ public class Turret : SwitchableSystem
         laser.SetActive(false); //TODO add animations and SFX
     }
 
-    public void ResetTurret() {
+    public override void ResetSwitchable() {
         timeElapsed = 0;
+        laser.SetActive(isOn);
     }
 }

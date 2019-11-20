@@ -10,7 +10,7 @@ public class ButtonSwitch : SwitchSystem
     private int currentPlayers; //How many players/clones are currently pressing the switch
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentPlayers = 0;
     }
@@ -22,6 +22,8 @@ public class ButtonSwitch : SwitchSystem
     }
 
     protected override void ActivateSwitch() {
+        if (activated) return; //Already activated
+
         activated = true;
         foreach(SwitchableSystem s in switchables) {
             s.Switch();
@@ -31,6 +33,8 @@ public class ButtonSwitch : SwitchSystem
     }
 
     protected override void DeactivateSwitch() {
+        if (!activated) return; //Already deactivated
+
         activated = false;
         foreach (SwitchableSystem s in switchables) {
             s.Switch();
@@ -39,11 +43,15 @@ public class ButtonSwitch : SwitchSystem
         //TODO add animation and SFX
     }
 
+    public override void ResetSwitch() {
+        DeactivateSwitch();
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player" || other.tag == "GameController")
             currentPlayers++;
 
-        if (currentPlayers >= playersRequired && !activated)
+        if (currentPlayers >= playersRequired)
             ActivateSwitch();
     }
 
@@ -51,7 +59,7 @@ public class ButtonSwitch : SwitchSystem
         if (other.tag == "Player" || other.tag == "GameController")
             currentPlayers--;
 
-        if (currentPlayers < playersRequired && activated && !permanent)
+        if (currentPlayers < playersRequired && !permanent)
             DeactivateSwitch();
     }
 }
