@@ -9,17 +9,32 @@ public class TimeTravelManager: MonoBehaviour
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private GameObject cloneWrapper;
 
+    private List<SwitchableSystem> switchables;
+    private List<SwitchSystem> switches;
+
     public static TimeTravelManager Instance { get { return instance; } }
 
     void Awake() {
         if (instance != null && instance != this) {
             Destroy(this.gameObject);
+            return;
         } else {
             instance = this;
         }
+
+        switchables = new List<SwitchableSystem>();
+        switches = new List<SwitchSystem>();
     }
 
     void Start() {
+    }
+
+    public void AddSwitch(SwitchSystem toAdd) {
+        switches.Add(toAdd);
+    }
+
+    public void AddSwitchable(SwitchableSystem toAdd) {
+        switchables.Add(toAdd);
     }
 
     /**
@@ -41,10 +56,14 @@ public class TimeTravelManager: MonoBehaviour
             CheckpointManager.Instance.AddClone(newClone);
         }
 
-        //Reset Turrets
-        GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
-        foreach(GameObject turret in turrets) {
-            turret.GetComponent<Turret>().ResetTurret();
+        //Reset Switches
+        foreach(SwitchSystem s in switches) {
+            s.ResetSwitch();
+        }
+
+        //Reset Switchables
+        foreach(SwitchableSystem s in switchables) {
+            s.ResetSwitchable();
         }
 
         // reset position and velocities of player

@@ -11,6 +11,10 @@ public abstract class SwitchableSystem : MonoBehaviour
     [SerializeField]
     protected bool isOn;
 
+    void Start() {
+        TimeTravelManager.Instance.AddSwitchable(this);
+    }
+
     //Switches the switchable to on if it is off or off if it is on.
     public void Switch() {
         isOn = !isOn;
@@ -37,4 +41,7 @@ public abstract class SwitchableSystem : MonoBehaviour
 
     //What happens when we turn off the switch?
     protected abstract void SwitchOff();
+
+    //Reset the switch
+    public abstract void ResetSwitchable();
 }

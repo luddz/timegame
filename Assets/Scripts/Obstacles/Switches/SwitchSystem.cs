@@ -15,9 +15,16 @@ public abstract class SwitchSystem : MonoBehaviour
     protected bool permanent; //When the switch is activated is it permanently activated?
     protected bool activated = false; //Is the switch activated
 
+    void Start() {
+        TimeTravelManager.Instance.AddSwitch(this);
+    }
+
     //Activate the switch
     protected abstract void ActivateSwitch();
 
     //Deactivate the switch
     protected abstract void DeactivateSwitch();
+
+    //Reset the switch
+    public abstract void ResetSwitch();
 }

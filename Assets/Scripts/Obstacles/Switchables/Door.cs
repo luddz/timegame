@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : SwitchableSystem
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //If door open as default
         if (isOn)
@@ -26,5 +26,9 @@ public class Door : SwitchableSystem
     // Close door
     protected override void SwitchOff() {
         gameObject.SetActive(true); //TODO add animations and SFX
+    }
+
+    public override void ResetSwitchable() {
+        gameObject.SetActive(!isOn);
     }
 }
