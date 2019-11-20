@@ -98,8 +98,8 @@ TextureImporter:
       name: turret_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 1
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -109,7 +109,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4f7ad65c4d2cf640bfa526dfa7e96bd
+      spriteID: f84ea29ab9dda824980815856ae2da57
       internalID: 2323917800338813707
       vertices: []
       indices: 
@@ -119,8 +119,8 @@ TextureImporter:
       name: turret_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 35
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -130,7 +130,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8daf02c975c8dff4d8a2a56b8e0ddcf5
+      spriteID: dcd682067973e8a408eaa9940b19b5ff
       internalID: 6219008580301899996
       vertices: []
       indices: 
@@ -140,8 +140,8 @@ TextureImporter:
       name: turret_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 69
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -151,7 +151,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efb1c92389f011b47a307c65444da0b3
+      spriteID: f670e76dc07db5e4d8c92b7296083ba6
       internalID: -5076354272350900210
       vertices: []
       indices: 

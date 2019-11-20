@@ -98,8 +98,8 @@ TextureImporter:
       name: laser_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 1
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -109,7 +109,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b363def40e78c6a4bad1b64508b61ca8
+      spriteID: ba601a7989db0424a9695acc17722db4
       internalID: -3966654026724937289
       vertices: []
       indices: 
@@ -119,8 +119,8 @@ TextureImporter:
       name: laser_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 35
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -130,7 +130,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15f19a23a88751842a4ef9c597ed2fce
+      spriteID: 38cf31441cf10ce4890293c9db70feea
       internalID: -6907599811341966104
       vertices: []
       indices: 
@@ -140,8 +140,8 @@ TextureImporter:
       name: laser_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 69
+        y: 1
         width: 32
         height: 32
       alignment: 0
@@ -151,7 +151,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a81a06cfd15e0f44a82212ea60c17d52
+      spriteID: 61453451f692f7c4b82a49cb1da80909
       internalID: 75752240409127395
       vertices: []
       indices: 
