@@ -10,7 +10,7 @@ using UnityEngine;
 public abstract class SwitchSystem : MonoBehaviour
 {
     [SerializeField]
-    protected SwitchableSystem switchable; // The switchable attached to this switch
+    protected SwitchableSystem[] switchables; // The switchable attached to this switch
     [SerializeField]
     protected bool permanent; //When the switch is activated is it permanently activated?
     protected bool activated = false; //Is the switch activated
