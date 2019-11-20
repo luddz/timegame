@@ -78,7 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 84847c9ba17c1d2469b350d2329da6b7, type: 3}
+  m_Sprite: {fileID: 5250757714165821188, guid: 6b1675f17e9420942adcf43bf67efba5,
+    type: 3}
   m_Color: {r: 0, g: 0.48977518, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,12 +155,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.5, y: 0.5}
-      - {x: -0.5, y: -0.4}
-      - {x: -0.4, y: -0.5}
-      - {x: 0.4, y: -0.5}
-      - {x: 0.5, y: -0.4}
-      - {x: 0.5, y: 0.5}
+    - - {x: -0.15, y: 0.4}
+      - {x: -0.15, y: -0.495}
+      - {x: -0.09, y: -0.5}
+      - {x: 0.09, y: -0.5}
+      - {x: 0.15, y: -0.495}
+      - {x: 0.15, y: 0.4}
 --- !u!114 &6557204297891356254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,11 +187,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  maxHorizontalVelocity: 7
-  jumpVelocity: 20
-  deceleration: 40
+  maxHorizontalVelocity: 6
+  jumpVelocity: 15
+  acceleration: 20
+  deceleration: 20
   terminalVelocity: 20
-  maxJumpDelay: 10
+  maxJumpDelay: 5
   shotDistance: 5
   shotOffset: 0.55
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
@@ -207,18 +209,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1cc98b985d0334cb857e14290a33b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upRightEdge: {x: 0.5, y: 0.6}
-  upLeftEdge: {x: -0.5, y: 0.6}
-  downRightEdge: {x: 0.5, y: -0.6}
-  downLeftEdge: {x: -0.5, y: -0.6}
-  rightUpEdge: {x: 0.6, y: 0.5}
-  rightDownEdge: {x: 0.6, y: -0.5}
-  leftUpEdge: {x: -0.6, y: 0.5}
-  leftDownEdge: {x: -0.6, y: -0.5}
-  insideUpRight: {x: 0.4, y: 0.4}
-  insideUpLeft: {x: -0.4, y: 0.4}
-  insideDownRight: {x: 0.4, y: -0.4}
-  insideDownLeft: {x: -0.4, y: -0.4}
+  upRightEdge: {x: 0.1, y: 0.5}
+  upLeftEdge: {x: -0.1, y: 0.5}
+  downRightEdge: {x: 0.1, y: -0.6}
+  downLeftEdge: {x: -0.1, y: -0.6}
+  rightUpEdge: {x: 0.2, y: 0.4}
+  rightDownEdge: {x: 0.2, y: -0.5}
+  leftUpEdge: {x: -0.2, y: 0.4}
+  leftDownEdge: {x: -0.2, y: -0.5}
+  insideUpRight: {x: 0.05, y: 0.3}
+  insideUpLeft: {x: -0.05, y: 0.3}
+  insideDownRight: {x: 0.05, y: -0.3}
+  insideDownLeft: {x: -0.05, y: -0.3}
   ground:
     serializedVersion: 2
     m_Bits: 256
