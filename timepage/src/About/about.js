@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ludde from './ludvig-kindberg-bw.png';
+import nathan from '../Assets/Nathan-bw.jpg';
 import 'bootstrap/dist/css/bootstrap.css';
 import './about.css'
 import Image from 'react-bootstrap/Image'
@@ -12,7 +13,7 @@ class About extends Component {
         <h1>About us</h1>
         <div className="theTeam">
           <div>
-            <Image className="imageCenter" src={ludde} height="200px" roundedCircle />
+            <Image className="imageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Ludvig Kindberg</b></p>
             <ul>
               <li>Placeholder</li>
@@ -22,7 +23,7 @@ class About extends Component {
             <p>Placeholder text, Placeholder Placeholder placeholder</p>
           </div>
           <div>
-            <Image className="imageCenter" src={ludde} height="200px" roundedCircle />
+            <Image className="imageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Tom Axblad</b></p>
             <ul>
               <li>Placeholder</li>
@@ -32,7 +33,7 @@ class About extends Component {
             <p>Placeholder text, Placeholder Placeholder placeholder </p>
           </div>
           <div>
-            <Image className="imageCenter" src={ludde} height="200px" roundedCircle />
+            <Image className="imageCenter" src={nathan} roundedCircle/>
             <p className="names"><b>Nathan Bhat</b></p>
             <ul>
               <li>Placeholder</li>
@@ -42,7 +43,7 @@ class About extends Component {
             <p>Placeholder text placeholder placeholder</p>
           </div>
           <div>
-            <Image className="imageCenter" src={ludde} height="200px" roundedCircle />
+            <Image className="imageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Alvin Hager</b></p>
             <ul>
               <li>Placeholder</li>
