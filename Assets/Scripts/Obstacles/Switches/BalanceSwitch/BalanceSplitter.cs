@@ -53,4 +53,9 @@ public class BalanceSplitter : BalanceComponent
     public override bool IsFulfilled() {
         return left.GetWeight() == right.GetWeight() && left.IsFulfilled() && right.IsFulfilled();
     }
+
+    public override void Reset() {
+        left.Reset();
+        right.Reset();
+    }
 }

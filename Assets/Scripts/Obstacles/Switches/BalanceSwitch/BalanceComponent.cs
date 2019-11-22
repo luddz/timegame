@@ -49,4 +49,6 @@ public abstract class BalanceComponent : MonoBehaviour
     public abstract uint GetWeight();
 
     public abstract bool IsFulfilled();
+
+    public abstract void Reset();
 }

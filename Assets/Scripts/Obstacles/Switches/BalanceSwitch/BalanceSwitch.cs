@@ -47,5 +47,6 @@ public class BalanceSwitch : SwitchSystem
 
     public override void ResetSwitch() {
         DeactivateSwitch();
+        transform.GetChild(0).GetComponent<BalanceSplitter>().Reset();
     }
 }
