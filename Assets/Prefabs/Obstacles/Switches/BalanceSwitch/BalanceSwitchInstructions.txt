@@ -1,0 +1,15 @@
+When you place out a balance switch it must have a child that is a balance splitter.
+Each balance spliter must have two children, that can be either balance splitters or balance platforms (note that this is recursive so every child that is a balance splitter must have two children as well).
+
+At bottom level (aka all the "leaves" in the tree structure) there can only be balance platform. Make sure that every "branch" ends in a balance platform.
+
+When you place out a balance switch system, place out the objects in the way you want them to look when the system is in perfect balance. The weights of the platform will automatically create the imbalance when the game is started.
+
+Note that scaling a balance component on the y-axis will affect the behavior.
+
+Every balance splitter has:
+    Max Weight Children: the weight difference in the two child balance components that will cause the platforms to stop moving.
+    Max Motion: the max distance the child balance components can travel in y-direction relative to this gameobject.
+
+Every Balance Platform has:
+    Weight: The weight of the platform. Each player/clone weighs 1 unit.

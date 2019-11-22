@@ -57,5 +57,7 @@ public class BalanceSplitter : BalanceComponent
     public override void Reset() {
         left.Reset();
         right.Reset();
+
+        transform.localPosition = balanced;
     }
 }

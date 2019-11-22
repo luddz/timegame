@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BalanceComponent : MonoBehaviour
 {
     private Vector2 moveTo; //Point to move towards smoothly
-    private Vector2 balanced; 
+    protected Vector2 balanced; 
 
     void Start() {
         balanced = transform.localPosition;

@@ -50,5 +50,6 @@ public class BalancePlatform : BalanceComponent
 
     public override void Reset() {
         objectsOnPlatform.Clear();
+        transform.localPosition = balanced;
     }
 }
