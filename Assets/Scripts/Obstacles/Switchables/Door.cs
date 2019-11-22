@@ -29,6 +29,10 @@ public class Door : SwitchableSystem
     }
 
     public override void ResetSwitchable() {
-        gameObject.SetActive(!isOn);
+        //Note that this does nothing, Unity just has a problem with building sometimes if a method is left empty.
+        int temp = 0; 
+        temp++;
+        if (temp > 0)
+            return;
     }
 }
