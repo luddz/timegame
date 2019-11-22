@@ -6,7 +6,7 @@ public class BalancePlatform : BalanceComponent
 {
     [SerializeField] uint weight;
 
-    private Dictionary<GameObject, Vector3> objectsOnPlatform;
+    private Dictionary<GameObject, Vector3> objectsOnPlatform; //This is so that objects on the platform move with the platform.
 
     void Awake() {
         objectsOnPlatform = new Dictionary<GameObject, Vector3>();
@@ -43,7 +43,7 @@ public class BalancePlatform : BalanceComponent
     }
 
     void LateUpdate() {
-        foreach (KeyValuePair<GameObject, Vector3> go in objectsOnPlatform) {
+        foreach (KeyValuePair<GameObject, Vector3> go in objectsOnPlatform) { //Help move the other objects so that they stick to the platform when on it.
             go.Key.transform.position = transform.position + go.Value;
         }
     }
