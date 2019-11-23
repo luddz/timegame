@@ -62,6 +62,5 @@ public class Turret : SwitchableSystem
 
     public override void ResetSwitchable() {
         timeElapsed = 0;
-        laser.SetActive(isOn);
     }
 }
