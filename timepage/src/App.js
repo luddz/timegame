@@ -7,12 +7,6 @@ import Homepage from './Homepage/homepage'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
-
-// <header className="app-header" fixed="top">
-//
-//   <NavLink className="navBtn" to="/"><button className="navBtn">Home</button></NavLink>
-//   <NavLink className="navBtn" to="/about"><button className="navBtn">About</button></NavLink>
-// </header>
 class App extends Component {
   render() {
     return (
