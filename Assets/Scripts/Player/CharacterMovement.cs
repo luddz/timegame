@@ -15,10 +15,14 @@ public class CharacterMovement : MonoBehaviour
     [Space]
     [SerializeField] private GameObject laser;
     [SerializeField] private float laserDuration;
+    [Space]
+    [SerializeField] private float speedUpMultiplier;
 
     //Movement Variables
     private int jumpDelay;
     private bool facingRight = true; //Is the player facing right
+    private bool speeding = false;
+    private Vector2 tempVelocity; //The velocity I had before I started speeding up time
 
     //Components
     private Rigidbody2D body;
@@ -41,6 +45,33 @@ public class CharacterMovement : MonoBehaviour
 
         //If solid or dead then stop moving.
         if(gameObject.layer != 9) {
+            return;
+        }
+
+        //Speed up time
+        if (controller.SpeedUpButtonDown()) {
+            //Only if player
+            if (PlayerManager.Instance.IsPlayer(gameObject)) {
+                Time.timeScale = speedUpMultiplier;
+            }
+            tempVelocity = body.velocity;
+            body.constraints = RigidbodyConstraints2D.FreezeAll;
+            speeding = true;
+        }
+
+        //Stop speeding up time
+        if (controller.SpeedUpButtonUp()) {
+            //Only if player
+            if (PlayerManager.Instance.IsPlayer(gameObject)) {
+                Time.timeScale = 1.0f;
+            }
+            body.constraints = RigidbodyConstraints2D.FreezeRotation;
+            body.velocity = tempVelocity;
+            speeding = false;
+        }
+
+        //If speeding, lock other input
+        if (speeding) {
             return;
         }
 

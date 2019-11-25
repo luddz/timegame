@@ -6,7 +6,7 @@ using UnityEngine;
  * Enum keeping track of all buttons, nrButtons is how many registered buttons there is in total (it has to be last!)
  */
 public enum Button {
-    left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot, nrButtons
+    left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot, speedUp, nrButtons
 }
 
 public class ControlManager : MonoBehaviour {
@@ -24,6 +24,7 @@ public class ControlManager : MonoBehaviour {
     [SerializeField] private KeyCode solidify;
     [SerializeField] private KeyCode clear;
     [SerializeField] private KeyCode shoot;
+    [SerializeField] private KeyCode speedUp;
 
     [SerializeField] private float joyStickDeadZone = 0.5f;
 
@@ -36,7 +37,7 @@ public class ControlManager : MonoBehaviour {
     void Awake() {
         syncMovementState = true;
         analyser = GetComponent<CollisionAnalysis>();
-        keyCodes = new KeyCode[] { left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot };
+        keyCodes = new KeyCode[] { left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot, speedUp };
         inputButtons = new InputButton[(int)Button.nrButtons];
         
 
@@ -154,6 +155,20 @@ public class ControlManager : MonoBehaviour {
      */
     public bool ShootButtonDown() {
         return inputButtons[(int)Button.shoot].GetButtonDown();
+    }
+
+    /**
+     * Returns bool for Speed Up time button down event
+     */
+    public bool SpeedUpButtonDown() {
+        return inputButtons[(int)Button.speedUp].GetButtonDown();
+    }
+
+    /**
+     * Returns bool for Speed Up time button up event
+     */
+    public bool SpeedUpButtonUp() {
+        return inputButtons[(int)Button.speedUp].GetButtonUp();
     }
 
     /**
