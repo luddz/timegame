@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/timegame/static/css/main.e9a48dab.chunk.css",
-    "main.js": "/timegame/static/js/main.3d633ce8.chunk.js",
-    "main.js.map": "/timegame/static/js/main.3d633ce8.chunk.js.map",
+    "main.css": "/timegame/static/css/main.bcf8be21.chunk.css",
+    "main.js": "/timegame/static/js/main.81d42827.chunk.js",
+    "main.js.map": "/timegame/static/js/main.81d42827.chunk.js.map",
     "runtime-main.js": "/timegame/static/js/runtime-main.b9e1e91f.js",
     "runtime-main.js.map": "/timegame/static/js/runtime-main.b9e1e91f.js.map",
     "static/css/2.510409cd.chunk.css": "/timegame/static/css/2.510409cd.chunk.css",
-    "static/js/2.1cccb82a.chunk.js": "/timegame/static/js/2.1cccb82a.chunk.js",
-    "static/js/2.1cccb82a.chunk.js.map": "/timegame/static/js/2.1cccb82a.chunk.js.map",
+    "static/js/2.8f091be8.chunk.js": "/timegame/static/js/2.8f091be8.chunk.js",
+    "static/js/2.8f091be8.chunk.js.map": "/timegame/static/js/2.8f091be8.chunk.js.map",
     "index.html": "/timegame/index.html",
-    "precache-manifest.a1f2555b45c0f8651f80e7f8f3ae2940.js": "/timegame/precache-manifest.a1f2555b45c0f8651f80e7f8f3ae2940.js",
+    "precache-manifest.9f0dbe460ae32ec5571f46a0c6c1da2f.js": "/timegame/precache-manifest.9f0dbe460ae32ec5571f46a0c6c1da2f.js",
     "service-worker.js": "/timegame/service-worker.js",
     "static/css/2.510409cd.chunk.css.map": "/timegame/static/css/2.510409cd.chunk.css.map",
-    "static/css/main.e9a48dab.chunk.css.map": "/timegame/static/css/main.e9a48dab.chunk.css.map",
+    "static/css/main.bcf8be21.chunk.css.map": "/timegame/static/css/main.bcf8be21.chunk.css.map",
     "static/media/DemoScreenShot.png": "/timegame/static/media/DemoScreenShot.b85267ec.png",
-    "static/media/Nathan-bw.jpg": "/timegame/static/media/Nathan-bw.f50a2eec.jpg",
+    "static/media/Nathan-bw.jpg": "/timegame/static/media/Nathan-bw.7315562a.jpg",
+    "static/media/Tom-bw.jpeg": "/timegame/static/media/Tom-bw.1267a980.jpeg",
     "static/media/ludvig-kindberg-bw.png": "/timegame/static/media/ludvig-kindberg-bw.bf779840.png",
     "static/media/shortened.mp4": "/timegame/static/media/shortened.e2788385.mp4"
   },
   "entrypoints": [
     "static/js/runtime-main.b9e1e91f.js",
     "static/css/2.510409cd.chunk.css",
-    "static/js/2.1cccb82a.chunk.js",
-    "static/css/main.e9a48dab.chunk.css",
-    "static/js/main.3d633ce8.chunk.js"
+    "static/js/2.8f091be8.chunk.js",
+    "static/css/main.bcf8be21.chunk.css",
+    "static/js/main.81d42827.chunk.js"
   ]
 }
