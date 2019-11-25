@@ -165,6 +165,13 @@ public class ControlManager : MonoBehaviour {
     }
 
     /**
+     * Returns bool for Speed Up time button event
+     */
+    public bool SpeedUpButton() {
+        return inputButtons[(int)Button.speedUp].GetButton();
+    }
+
+    /**
      * Returns bool for Speed Up time button up event
      */
     public bool SpeedUpButtonUp() {

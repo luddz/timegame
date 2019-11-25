@@ -37,6 +37,12 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
     }
 
+    void Update() 
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == "Theme");
+        s.source.pitch = Time.timeScale;
+    }
+
     public void PlayCloneSound(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);

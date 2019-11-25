@@ -198,6 +198,7 @@ MonoBehaviour:
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
   laserDuration: 0.05
   speedUpMultiplier: 2
+  speedBuffer: 1
 --- !u!114 &5635826310379369544
 MonoBehaviour:
   m_ObjectHideFlags: 0

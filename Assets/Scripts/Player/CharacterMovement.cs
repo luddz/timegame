@@ -17,12 +17,14 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float laserDuration;
     [Space]
     [SerializeField] private float speedUpMultiplier;
+    [SerializeField] private float speedBuffer; //Time it takes to go from normal speed to speedMultiplier speed
 
     //Movement Variables
     private int jumpDelay;
     private bool facingRight = true; //Is the player facing right
     private bool speeding = false;
     private Vector2 tempVelocity; //The velocity I had before I started speeding up time
+    private float elapsedTimeSpeedUp; //Time since you pressed or let go of speed up button
 
     //Components
     private Rigidbody2D body;
@@ -48,30 +50,42 @@ public class CharacterMovement : MonoBehaviour
             return;
         }
 
-        //Speed up time
-        if (controller.SpeedUpButtonDown()) {
-            //Only if player
-            if (PlayerManager.Instance.IsPlayer(gameObject)) {
-                Time.timeScale = speedUpMultiplier;
-            }
-            tempVelocity = body.velocity;
-            body.constraints = RigidbodyConstraints2D.FreezeAll;
+        //set Speed up time
+        if (controller.SpeedUpButton() && body.velocity == Vector2.zero) {
             speeding = true;
         }
 
-        //Stop speeding up time
+        //set Stop speeding up time
         if (controller.SpeedUpButtonUp()) {
-            //Only if player
-            if (PlayerManager.Instance.IsPlayer(gameObject)) {
-                Time.timeScale = 1.0f;
-            }
-            body.constraints = RigidbodyConstraints2D.FreezeRotation;
-            body.velocity = tempVelocity;
             speeding = false;
         }
 
-        //If speeding, lock other input
-        if (speeding) {
+        //Speed up time
+        if(PlayerManager.Instance.IsPlayer(gameObject) && speeding && Time.timeScale != speedUpMultiplier) {
+            float t = elapsedTimeSpeedUp / speedBuffer;
+            if(t > 1.0f) {
+                Time.timeScale = speedUpMultiplier;
+                elapsedTimeSpeedUp = 0;
+            } else {
+                Time.timeScale = Mathf.Lerp(1.0f, speedUpMultiplier, t);
+            }
+            elapsedTimeSpeedUp += Time.deltaTime;
+        }
+
+        //Let go of speed
+        if (PlayerManager.Instance.IsPlayer(gameObject) && !speeding && Time.timeScale != 1.0f) {
+            float t = elapsedTimeSpeedUp / speedBuffer;
+            if (t > 1.0f) {
+                Time.timeScale = 1.0f;
+                elapsedTimeSpeedUp = 0;
+            } else {
+                Time.timeScale = Mathf.Lerp(speedUpMultiplier, 1.0f, t);
+            }
+            elapsedTimeSpeedUp += Time.deltaTime;
+        }
+
+        //If speeding or slowing down, lock other input
+        if (Time.timeScale != 1.0f) {
             return;
         }
 
@@ -83,21 +97,21 @@ public class CharacterMovement : MonoBehaviour
         float horizontalV = maxHorizontalVelocity * controller.Horizontal();
         if (Mathf.Abs(body.velocity.x) > Mathf.Abs(horizontalV)) { //Deceleration
             if (body.velocity.x > 0) {
-                body.velocity -= new Vector2(deceleration * Time.deltaTime, 0);
+                body.velocity -= new Vector2(deceleration * Time.deltaTime * Time.timeScale, 0);
                 if (body.velocity.x < horizontalV)
                     body.velocity = new Vector2(horizontalV, body.velocity.y);
             } else if (body.velocity.x < 0) {
-                body.velocity += new Vector2(deceleration * Time.deltaTime, 0);
+                body.velocity += new Vector2(deceleration * Time.deltaTime * Time.timeScale, 0);
                 if (body.velocity.x > horizontalV)
                     body.velocity = new Vector2(horizontalV, body.velocity.y);
             }
         } else if (Mathf.Abs(body.velocity.x) < Mathf.Abs(horizontalV)) { //Walk
             if (horizontalV > 0) {
-                body.velocity += new Vector2(acceleration * Time.deltaTime, 0);
+                body.velocity += new Vector2(acceleration * Time.deltaTime * Time.timeScale, 0);
                 if (body.velocity.x > horizontalV)
                     body.velocity = new Vector2(horizontalV, body.velocity.y);
             } else if (horizontalV < 0) {
-                body.velocity -= new Vector2(acceleration * Time.deltaTime, 0);
+                body.velocity -= new Vector2(acceleration * Time.deltaTime * Time.timeScale, 0);
                 if (body.velocity.x < horizontalV)
                     body.velocity = new Vector2(horizontalV, body.velocity.y);
             }
