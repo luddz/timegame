@@ -4,6 +4,7 @@ import './homepage.css'
 import Image from 'react-bootstrap/Image'
 import helloWorld from '../Assets/DemoScreenShot.png'
 import shortVideo from '../Assets/shortened.mp4'
+import asterBoi from '../Assets/AsterGuy.png'
 
 class Homepage extends Component {
   render() {
@@ -15,12 +16,25 @@ class Homepage extends Component {
           </h1>
         </header>
         <div className="App-content-container">
-          <div className="About-content">
-            <h2>About Timegame</h2>
-            <div>
-              The game is a 2D puzzle platformer in which the player controls a humanoid character in an open-world setting. The gameplay is centered around the use of a time mechanic that allows the character to interact with past versions of itself to solve puzzles in a creative, non-deterministic manner.
+          <div className="About-content-container">
+            <div className="about-header">
+              <h2>About Asters Planetai</h2>
             </div>
-            <Image className="imageCenter" src={helloWorld} rounded fluid/>
+            <div className="about-content">
+              <Image className="imageCenter" src={asterBoi} rounded fluid/>
+              <div className="about-text">
+                <p>
+                Ever dreamed about having the ability to control time, just to rewind it and let the past you play out what it just did. If you don't agree with it anymore just kill it off. Or maybe the dream have just been to be able to intreact with previous run of your self to do solve different puzzles.
+                </p>
+                <p>
+                In this puzzle game that is just what you have the oppertunity to do. You play as a humanoid with the ability to rewind time to a fixed point and let see the previous version preform the run they just did.
+                </p>
+                <p>
+                The game takes place in a 2D open-world setting, allowing for free roaming and explorative experince while solving puzzles in a non-deterministic manner.
+                </p>
+              </div>
+              <Image className="imageCenter" src={helloWorld} rounded fluid/>
+            </div>
           </div>
           <div className="videoTutorialContainer">
             <h2>A short video demo</h2>

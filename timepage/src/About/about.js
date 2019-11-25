@@ -11,12 +11,12 @@ class About extends Component {
   render(){
     return (
       <div className="aboutUsContainer">
-        <h1>About us</h1>
+        <h1>The team behind the game</h1>
         <div className="theTeam">
           <div>
             <Image className="imageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Alvin Hager</b></p>
-            <ul>
+            <ul className="role">
               <li>Level designer</li>
               <li>Enviorment designer</li>
               <li>Project over of the GDD</li>
@@ -25,7 +25,7 @@ class About extends Component {
           <div>
             <Image className="imageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Ludvig Kindberg</b></p>
-            <ul>
+            <ul className="role">
               <li>Project manager??</li>
               <li>Website</li>
               <li>Bussines plan</li>
@@ -35,15 +35,15 @@ class About extends Component {
           <div>
             <Image className="imageCenter" src={nathan} roundedCircle/>
             <p className="names"><b>Nathan Bhat</b></p>
-            <ul>
-              <li>Prgorammer</li>
+            <ul className="role">
+              <li>Programmer</li>
               <li>Level designer</li>
             </ul>
           </div>
           <div>
             <Image className="imageCenter" src={tom} roundedCircle />
             <p className="names"><b>Tom Axblad</b></p>
-            <ul>
+            <ul className="role">
               <li>Programmer</li>
               <li>Art designer</li>
             </ul>
