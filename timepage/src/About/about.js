@@ -14,7 +14,7 @@ class About extends Component {
         <h1>The team behind the game</h1>
         <div className="theTeam">
           <div>
-            <Image className="imageCenter" src={ludde} roundedCircle />
+            <Image className="aboutImageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Alvin Hager</b></p>
             <ul className="role">
               <li>Level designer</li>
@@ -23,7 +23,7 @@ class About extends Component {
             </ul>
           </div>
           <div>
-            <Image className="imageCenter" src={ludde} roundedCircle />
+            <Image className="aboutImageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Ludvig Kindberg</b></p>
             <ul className="role">
               <li>Project manager??</li>
@@ -33,7 +33,7 @@ class About extends Component {
             </ul>
           </div>
           <div>
-            <Image className="imageCenter" src={nathan} roundedCircle/>
+            <Image className="aboutImageCenter" src={nathan} roundedCircle/>
             <p className="names"><b>Nathan Bhat</b></p>
             <ul className="role">
               <li>Programmer</li>
@@ -41,7 +41,7 @@ class About extends Component {
             </ul>
           </div>
           <div>
-            <Image className="imageCenter" src={tom} roundedCircle />
+            <Image className="aboutImageCenter" src={tom} roundedCircle />
             <p className="names"><b>Tom Axblad</b></p>
             <ul className="role">
               <li>Programmer</li>

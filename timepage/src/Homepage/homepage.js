@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import './homepage.css'
 import Image from 'react-bootstrap/Image'
 import helloWorld from '../Assets/DemoScreenShot.png'
@@ -21,7 +21,7 @@ class Homepage extends Component {
               <h2>About Asters Planetai</h2>
             </div>
             <div className="about-content">
-              <Image className="imageCenter" src={asterBoi} rounded fluid/>
+              <Image className="imageLeft" src={asterBoi} rounded fluid/>
               <div className="about-text">
                 <p>
                 Ever dreamed about having the ability to control time, just to rewind it and let the past you play out what it just did. If you don't agree with it anymore just kill it off. Or maybe the dream have just been to be able to intreact with previous run of your self to do solve different puzzles.
@@ -33,7 +33,7 @@ class Homepage extends Component {
                 The game takes place in a 2D open-world setting, allowing for free roaming and explorative experince while solving puzzles in a non-deterministic manner.
                 </p>
               </div>
-              <Image className="imageCenter" src={helloWorld} rounded fluid/>
+              <Image className="imageRight" src={helloWorld} rounded fluid/>
             </div>
           </div>
           <div className="videoTutorialContainer">
