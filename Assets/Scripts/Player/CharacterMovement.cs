@@ -135,6 +135,8 @@ public class CharacterMovement : MonoBehaviour
         if (controller.SolidifyButtonDown() && analyser.IsGroundDown() && !analyser.IsCharacterOverlapping()) {
             gameObject.layer = 8;
             body.constraints = RigidbodyConstraints2D.FreezeAll;
+            if (PlayerManager.Instance.IsPlayer(gameObject))
+                AudioManager.Instance.Play("Solidify");
         }
 
         //Clearing Checkpoint
