@@ -19,7 +19,7 @@ class About extends Component {
             <ul className="role">
               <li>Level designer</li>
               <li>Enviorment designer</li>
-              <li>Project over of the GDD</li>
+              <li>Project owner of the GDD</li>
             </ul>
           </div>
           <div>
