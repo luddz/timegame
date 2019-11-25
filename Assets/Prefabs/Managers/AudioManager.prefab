@@ -68,7 +68,7 @@ MonoBehaviour:
   - name: Theme
     clip: {fileID: 8300000, guid: 54c94c2a0ff2b4b1aa848d086c8f8bca, type: 3}
     cloneVolume: 0.144
-    playervolume: 0.5
+    playervolume: 0.373
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -77,5 +77,19 @@ MonoBehaviour:
     cloneVolume: 0.144
     playervolume: 0.5
     pitch: 0.61
+    loop: 0
+    source: {fileID: 0}
+  - name: Walk
+    clip: {fileID: 8300000, guid: 16c3cd7720f7f418c9c913ae1fd09598, type: 3}
+    cloneVolume: 0.144
+    playervolume: 1
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Solidify
+    clip: {fileID: 8300000, guid: 14dfdf3dab30f4d5085037c74e08745f, type: 3}
+    cloneVolume: 0.144
+    playervolume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
