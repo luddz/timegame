@@ -66,6 +66,9 @@ public class TimeTravelManager: MonoBehaviour
             s.ResetSwitchable();
         }
 
+        //Reset Camera
+        CameraManager.Instance.SetPivot(CheckpointManager.Instance.GetCheckpointPivot());
+
         // reset position and velocities of player
         player.GetComponent<CharacterMovement> ().ResetCharacter();
         movementRecorder.ResetRecording();
