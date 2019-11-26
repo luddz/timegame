@@ -9,7 +9,6 @@ public class BalanceSplitter : BalanceComponent
 
     [SerializeField] private uint maxWeightChildren; //The max weight a child balancecomponent can bare before it stops moving.
     [SerializeField] private float maxMotion; //max distance in y-direction that the children objects can move from a balanced position
-    [Range(0.0f, 1.0f)]
     [SerializeField] private float catchUpSpeed;
 
     // Start is called before the first frame update

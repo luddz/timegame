@@ -5,20 +5,31 @@ using UnityEngine;
 public abstract class BalanceComponent : MonoBehaviour
 {
     private Vector2 moveTo; //Point to move towards smoothly
-    protected Vector2 balanced; 
+    private Vector2 moveFrom;
+    protected Vector2 balanced;
+
+    private float timeElapsed;
 
     void Start() {
         balanced = transform.localPosition;
         moveTo = balanced;
+        moveFrom = balanced;
     }
 
     void Update() {
         if (transform.parent.GetComponent<BalanceSplitter>() == null) //Only update if the parent is a balance splitter
             return;
 
-        float catchUpSpeed = transform.parent.GetComponent<BalanceSplitter>().GetCatchUpSpeed();
+        if(transform.localPosition.y != moveTo.y) {
+            float catchUpSpeed = transform.parent.GetComponent<BalanceSplitter>().GetCatchUpSpeed();
+            timeElapsed += Time.deltaTime;
+            float t = timeElapsed / catchUpSpeed;
+            if (t > 1.0f)
+                t = 1.0f;
 
-        transform.localPosition = Vector2.Lerp(transform.localPosition, moveTo, catchUpSpeed);
+            transform.localPosition = Vector2.Lerp(moveFrom, moveTo, 1 - Mathf.Pow(1-t, 3));
+        }
+        
     }
 
     public void RequestUpdate() {
@@ -43,7 +54,9 @@ public abstract class BalanceComponent : MonoBehaviour
 
         float t = (float) (weightModifier + parent.GetMaxWeightChildren()) /  (2 * parent.GetMaxWeightChildren()); //Finds a value between [0,1] where 0 means the bottom position and 1 means the top
 
+        moveFrom = transform.localPosition;
         moveTo = Vector2.Lerp(minHeight, maxHeight, t);
+        timeElapsed = 0;
     }
 
     public abstract uint GetWeight();
