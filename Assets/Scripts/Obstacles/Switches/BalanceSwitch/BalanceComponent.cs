@@ -5,7 +5,10 @@ using UnityEngine;
 public abstract class BalanceComponent : MonoBehaviour
 {
     private Vector2 moveTo; //Point to move towards smoothly
+    private Vector2 moveFrom;
     protected Vector2 balanced;
+
+    [SerializeField] float 
 
     void Start() {
         balanced = transform.localPosition;
@@ -43,6 +46,7 @@ public abstract class BalanceComponent : MonoBehaviour
 
         float t = (float) (weightModifier + parent.GetMaxWeightChildren()) /  (2 * parent.GetMaxWeightChildren()); //Finds a value between [0,1] where 0 means the bottom position and 1 means the top
 
+        moveFrom = transform.position;
         moveTo = Vector2.Lerp(minHeight, maxHeight, t);
     }
 

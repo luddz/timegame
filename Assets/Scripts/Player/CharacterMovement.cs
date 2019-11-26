@@ -65,9 +65,11 @@ public class CharacterMovement : MonoBehaviour
             float t = elapsedTimeSpeedUp / speedBuffer;
             if(t > 1.0f) {
                 Time.timeScale = speedUpMultiplier;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
                 elapsedTimeSpeedUp = 0;
             } else {
                 Time.timeScale = Mathf.Lerp(1.0f, speedUpMultiplier, t);
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
             }
             elapsedTimeSpeedUp += Time.deltaTime;
         }
@@ -77,9 +79,11 @@ public class CharacterMovement : MonoBehaviour
             float t = elapsedTimeSpeedUp / speedBuffer;
             if (t > 1.0f) {
                 Time.timeScale = 1.0f;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
                 elapsedTimeSpeedUp = 0;
             } else {
                 Time.timeScale = Mathf.Lerp(speedUpMultiplier, 1.0f, t);
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
             }
             elapsedTimeSpeedUp += Time.deltaTime;
         }
