@@ -50,5 +50,10 @@ public class AudioManager : MonoBehaviour
         s.source.volume = s.playervolume;
         s.source.Play();
     }
+
+    public void SetThemePitch(float pitch) {
+        Sound s = Array.Find(sounds, sound => sound.name == "Theme");
+        s.source.pitch = pitch;
+    }
     
 }

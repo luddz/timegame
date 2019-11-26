@@ -15,15 +15,20 @@ public class CharacterMovement : MonoBehaviour
     [Space]
     [SerializeField] private GameObject laser;
     [SerializeField] private float laserDuration;
+    [Space]
+    [SerializeField] private float solidifyDelay;
 
     //Movement Variables
     private int jumpDelay;
     private bool facingRight = true; //Is the player facing right
+    private float timeSinceSolidify = 0.0f;
+    private bool solidifying;
 
     //Components
     private Rigidbody2D body;
     private CollisionAnalysis analyser;
     private ControlManager controller;
+    private CharacterAnimation anim;
 
     // Start is called before the first frame update
     void Start() {
@@ -31,6 +36,7 @@ public class CharacterMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         analyser = GetComponent<CollisionAnalysis>();
         controller = GetComponent<ControlManager>();
+        anim = GetComponent<CharacterAnimation>();
     }
 
     void Update() {
@@ -101,11 +107,29 @@ public class CharacterMovement : MonoBehaviour
             jumpDelay += jumpDelay < maxJumpDelay ? 1 : 0;
 
         //Solidifying
+        if (solidifying) {
+            timeSinceSolidify += Time.deltaTime;
+            float t = timeSinceSolidify / solidifyDelay;
+            //Become solid
+            if(t >= 1.0f) {
+                gameObject.layer = 8;
+                body.constraints = RigidbodyConstraints2D.FreezeAll;
+                GetComponent<PolygonCollider2D>().enabled = false;
+                GetComponent<BoxCollider2D>().enabled = true;
+                //TODO change sprite and play sfx
+            }
+            body.velocity *= 1.0f - t;
+            anim.SetSpeed(1.0f - t);
+            //Changes that only happen when player solidifies
+            if(PlayerManager.Instance.IsPlayer(gameObject)) {
+                AudioManager.Instance.SetThemePitch(1.0f - t);
+            }
+            
+        }
+
+        //Initiate Solidifying
         if (controller.SolidifyButtonDown()) {
-            gameObject.layer = 8;
-            body.constraints = RigidbodyConstraints2D.FreezeAll;
-            GetComponent<PolygonCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = true;
+            solidifying = true;
         }
 
         //Clearing Checkpoint
@@ -169,6 +193,10 @@ public class CharacterMovement : MonoBehaviour
         facingRight = true;
         GetComponent<PolygonCollider2D>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = false;
+        anim.SetSpeed(1.0f);
+        AudioManager.Instance.SetThemePitch(1.0f);
+        solidifying = false;
+        timeSinceSolidify = 0.0f;
         gameObject.SetActive(true);
     }
 
