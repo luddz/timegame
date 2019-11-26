@@ -12,6 +12,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private Checkpoint startingCheckpoint;
 
     private Checkpoint activeCheckpoint;
+    private Transform activeCheckpointPivot;
     private Dictionary<Checkpoint, List<GameObject>> clones; //Dictionary of checkpoints and all clones that belong to each one
 
     public static CheckpointManager Instance { get { return instance; } }
@@ -37,6 +38,7 @@ public class CheckpointManager : MonoBehaviour
     //Set active checkpoint and create a List of clones for that checkpoint if none exists
     public void SetActiveCheckpoint(Checkpoint checkpoint) {
         activeCheckpoint = checkpoint;
+        activeCheckpointPivot = CameraManager.Instance.GetPivot();
         if (!clones.ContainsKey(activeCheckpoint))
             clones.Add(activeCheckpoint, new List<GameObject>());
     }
@@ -65,5 +67,9 @@ public class CheckpointManager : MonoBehaviour
     //Gets the active checkpoint
     public Checkpoint GetActiveCheckpoint() {
         return activeCheckpoint;
+    }
+
+    public Transform GetCheckpointPivot() {
+        return activeCheckpointPivot;
     }
 }
