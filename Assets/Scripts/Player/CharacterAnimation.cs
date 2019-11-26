@@ -30,6 +30,6 @@ public class CharacterAnimation : MonoBehaviour
     }
 
     public void SetSpeed(float speed) {
-        anim.speed = speed;
+        GetComponent<Animator>().speed = speed;
     }
 }

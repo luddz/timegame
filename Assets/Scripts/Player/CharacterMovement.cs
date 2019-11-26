@@ -116,7 +116,9 @@ public class CharacterMovement : MonoBehaviour
                 body.constraints = RigidbodyConstraints2D.FreezeAll;
                 GetComponent<PolygonCollider2D>().enabled = false;
                 GetComponent<BoxCollider2D>().enabled = true;
+                anim.SetSpeed(0.0f);
                 //TODO change sprite and play sfx
+                return;
             }
             body.velocity *= 1.0f - t;
             anim.SetSpeed(1.0f - t);
@@ -193,10 +195,10 @@ public class CharacterMovement : MonoBehaviour
         facingRight = true;
         GetComponent<PolygonCollider2D>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = false;
-        anim.SetSpeed(1.0f);
         AudioManager.Instance.SetThemePitch(1.0f);
         solidifying = false;
         timeSinceSolidify = 0.0f;
+        GetComponent<CharacterAnimation>().SetSpeed(1.0f);
         gameObject.SetActive(true);
     }
 

@@ -244,7 +244,7 @@ MonoBehaviour:
   shotOffset: 0.55
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
   laserDuration: 0.05
-  solidifyDelay: 1
+  solidifyDelay: 0.75
 --- !u!114 &5635826310379369544
 MonoBehaviour:
   m_ObjectHideFlags: 0
