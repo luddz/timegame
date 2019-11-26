@@ -101,9 +101,11 @@ public class CharacterMovement : MonoBehaviour
             jumpDelay += jumpDelay < maxJumpDelay ? 1 : 0;
 
         //Solidifying
-        if (controller.SolidifyButtonDown() && analyser.IsGroundDown() && !analyser.IsCharacterOverlapping()) {
+        if (controller.SolidifyButtonDown()) {
             gameObject.layer = 8;
             body.constraints = RigidbodyConstraints2D.FreezeAll;
+            GetComponent<PolygonCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = true;
         }
 
         //Clearing Checkpoint
@@ -165,6 +167,8 @@ public class CharacterMovement : MonoBehaviour
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
         facingRight = true;
+        GetComponent<PolygonCollider2D>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = false;
         gameObject.SetActive(true);
     }
 
