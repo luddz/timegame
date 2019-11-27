@@ -11,7 +11,7 @@ public class Laser : MonoBehaviour
 
     private LineRenderer line;
 
-    public void SetUpLaser (Vector3 startPoint, Vector3 endPoint, bool hit) {
+    public void SetUpLaser (Vector3 startPoint, Vector3 endPoint) {
         this.startPoint = startPoint;
         this.endPoint = endPoint;
         line = GetComponent<LineRenderer>();
