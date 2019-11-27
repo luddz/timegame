@@ -144,6 +144,7 @@ public class CharacterMovement : MonoBehaviour
 
         //Shooting
         if(controller.ShootButtonDown()) {
+            anim.StartShoot();
             Vector2 forwardVector = (facingRight) ? Vector2.right : Vector2.left;
             Vector2 origin = (Vector2)transform.position + forwardVector * shotOffset;
             RaycastHit2D hit = Physics2D.Raycast(origin, forwardVector, shotDistance, LayerMask.GetMask("Character") | LayerMask.GetMask("Ground")); //Raycast forward
