@@ -23,6 +23,8 @@ public class CharacterMovement : MonoBehaviour
     private bool facingRight = true; //Is the player facing right
     private float timeSinceSolidify = 0.0f;
     private bool solidifying;
+    private bool dead;
+
 
     //Components
     private Rigidbody2D body;
@@ -46,7 +48,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         //If solid or dead then stop moving.
-        if(gameObject.layer != 9) {
+        if(gameObject.layer != 9 || dead) {
             return;
         }
 
@@ -187,9 +189,9 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void ResetCharacter() {
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
         GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
         gameObject.layer = 9; //reset layer
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
         facingRight = true;
@@ -198,20 +200,22 @@ public class CharacterMovement : MonoBehaviour
         AudioManager.Instance.SetThemePitch(1.0f);
         solidifying = false;
         timeSinceSolidify = 0.0f;
+        GetComponent<CharacterAnimation>().ActivateSprite();
         GetComponent<CharacterAnimation>().SetSpeed(1.0f);
+        dead = false;
         gameObject.SetActive(true);
     }
 
     public void Die() {
-        if (PlayerManager.Instance.IsPlayer(gameObject))
-        {
-            AudioManager.Instance.Play("LaserWall");
-            TimeTravelManager.Instance.ResetTime(false); //Maybe also clear the checkpoint as punishment?
-        }
-        else
-        {
-            AudioManager.Instance.PlayCloneSound("LaserWall");
-            gameObject.SetActive(false); //Deactivating the player can mess with the movement recorder.
-        }
+        if (dead)
+            return;
+        if(PlayerManager.Instance.IsPlayer(gameObject))
+            GetComponent<MovementRecorder>().StopRecording();
+        transform.position = CameraManager.Instance.GetPivot().position; //This is to move out of the way for the laser that for some reson still noticed the collider
+        AudioManager.Instance.Play("LaserWall");
+        GetComponent<PolygonCollider2D>().enabled = false;
+        anim.DeactivateSprite();
+        body.constraints = RigidbodyConstraints2D.FreezeAll;
+        dead = true;
     }
 }

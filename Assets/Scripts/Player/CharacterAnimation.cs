@@ -32,4 +32,11 @@ public class CharacterAnimation : MonoBehaviour
     public void SetSpeed(float speed) {
         GetComponent<Animator>().speed = speed;
     }
+    
+    public void DeactivateSprite() {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+    public void ActivateSprite() {
+        GetComponent<SpriteRenderer>().enabled = true;
+    }
 }
