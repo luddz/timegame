@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Turret : SwitchableSystem
 {
-    [SerializeField] private float maxDistance;
+    [SerializeField] private float maxDistance; //The laser will go this far regardless of what it hits
     [SerializeField] private GameObject laser;
     [Space]
     [SerializeField] private bool steadyFire; //Is the turret shooting a constant laser?
@@ -28,19 +28,17 @@ public class Turret : SwitchableSystem
         timeElapsed += Time.deltaTime;
         if (steadyFire || (timeElapsed > shotDelay && timeElapsed <= shotDelay + shotDuration)) {
             laser.SetActive(true);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, maxDistance, LayerMask.GetMask("Character") | LayerMask.GetMask("Ground"));
-            Vector2 end;
-            if (hit.collider != null) {
-                end = hit.point;
-                if (hit.collider.gameObject.layer == 9) {
-                    hit.collider.gameObject.GetComponent<CharacterMovement>().Die();
-                }
-            } else {
-                end = transform.position + transform.right * maxDistance;
+            List<RaycastHit2D> hits = new List<RaycastHit2D>();
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.SetLayerMask(LayerMask.GetMask("Character"));
+            Physics2D.Raycast(transform.position, transform.right, filter, hits, maxDistance);
+            foreach (RaycastHit2D hit in hits) {
+                hit.collider.gameObject.GetComponent<CharacterMovement>().Die();
             }
 
             //Draw laser
-            laser.GetComponent<Laser>().SetUpLaser(transform.position, end, hit.collider != null);
+            Vector2 end = transform.position + transform.right * maxDistance;
+            laser.GetComponent<Laser>().SetUpLaser(transform.position, end);
         }
         if(!steadyFire) {
             if (timeElapsed < shotDelay)
