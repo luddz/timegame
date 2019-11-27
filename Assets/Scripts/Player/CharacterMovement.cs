@@ -116,7 +116,7 @@ public class CharacterMovement : MonoBehaviour
             if(t >= 1.0f) {
                 gameObject.layer = 8;
                 body.constraints = RigidbodyConstraints2D.FreezeAll;
-                GetComponent<PolygonCollider2D>().enabled = false;
+                GetComponent<EdgeCollider2D>().enabled = false;
                 GetComponent<BoxCollider2D>().enabled = true;
                 anim.SetSpeed(0.0f);
                 anim.StartSolid();
@@ -197,7 +197,7 @@ public class CharacterMovement : MonoBehaviour
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
         facingRight = true;
-        GetComponent<PolygonCollider2D>().enabled = true;
+        GetComponent<EdgeCollider2D>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = false;
         AudioManager.Instance.SetThemePitch(1.0f);
         solidifying = false;
@@ -214,7 +214,7 @@ public class CharacterMovement : MonoBehaviour
             GetComponent<MovementRecorder>().StopRecording();
         transform.position = CameraManager.Instance.GetPivot().position; //This is to move out of the way for the laser that for some reson still noticed the collider
         AudioManager.Instance.Play("LaserWall");
-        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<EdgeCollider2D>().enabled = false;
         anim.DeactivateSprite();
         body.constraints = RigidbodyConstraints2D.FreezeAll;
         dead = true;
