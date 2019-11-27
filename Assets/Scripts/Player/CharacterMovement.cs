@@ -154,11 +154,11 @@ public class CharacterMovement : MonoBehaviour
                     hit.collider.gameObject.SetActive(false);
                 }
                 GameObject currentLaser = Instantiate(laser);
-                currentLaser.GetComponent<Laser>().SetUpLaser(origin, hit.point, true);
+                currentLaser.GetComponent<Laser>().SetUpLaser(origin, hit.point);
                 Destroy(currentLaser, laserDuration);
             } else {
                 GameObject currentLaser = Instantiate(laser);
-                currentLaser.GetComponent<Laser>().SetUpLaser(origin, origin + forwardVector * shotDistance, false);
+                currentLaser.GetComponent<Laser>().SetUpLaser(origin, origin + forwardVector * shotDistance);
                 Destroy(currentLaser, laserDuration);
             }
             //Play SFX

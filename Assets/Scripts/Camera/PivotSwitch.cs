@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PivotSwitch : MonoBehaviour
 {
+    [SerializeField] private bool playerPivot;
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player") {
-            CameraManager.Instance.SetPivot(transform.parent);
+            Transform newPivot = (playerPivot) ? other.transform : transform.parent;
+            CameraManager.Instance.SetPivot(newPivot);
         }
     }
 }
