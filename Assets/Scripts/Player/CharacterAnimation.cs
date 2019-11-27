@@ -28,4 +28,8 @@ public class CharacterAnimation : MonoBehaviour
             sprite.flipX = false;
         }
     }
+
+    public void SetSpeed(float speed) {
+        GetComponent<Animator>().speed = speed;
+    }
 }
