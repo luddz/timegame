@@ -6,7 +6,7 @@ using UnityEngine;
  * Enum keeping track of all buttons, nrButtons is how many registered buttons there is in total (it has to be last!)
  */
 public enum Button {
-    left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot, nrButtons
+    left, right, up, down, jump, jumpAlt, resetTime, resetTimeAlt, solidify, solidifyAlt, clear, clearAlt, shoot, shootAlt, nrButtons
 }
 
 public class ControlManager : MonoBehaviour {
@@ -21,9 +21,13 @@ public class ControlManager : MonoBehaviour {
     [SerializeField] private KeyCode jump;
     [SerializeField] private KeyCode jumpAlt;
     [SerializeField] private KeyCode resetTime;
+    [SerializeField] private KeyCode resetTimeAlt;
     [SerializeField] private KeyCode solidify;
+    [SerializeField] private KeyCode solidifyAlt;
     [SerializeField] private KeyCode clear;
+    [SerializeField] private KeyCode clearAlt;
     [SerializeField] private KeyCode shoot;
+    [SerializeField] private KeyCode shootAlt;
 
     [SerializeField] private float joyStickDeadZone = 0.5f;
 
@@ -36,7 +40,7 @@ public class ControlManager : MonoBehaviour {
     void Awake() {
         syncMovementState = true;
         analyser = GetComponent<CollisionAnalysis>();
-        keyCodes = new KeyCode[] { left, right, up, down, jump, jumpAlt, resetTime, solidify, clear, shoot };
+        keyCodes = new KeyCode[] { left, right, up, down, jump, jumpAlt, resetTime, resetTimeAlt, solidify, solidifyAlt, clear, clearAlt, shoot, shootAlt };
         inputButtons = new InputButton[(int)Button.nrButtons];
         
 
@@ -54,6 +58,12 @@ public class ControlManager : MonoBehaviour {
      * Update function will only be called if this gameObject is player (enabled is set to false otherwise)
      */
     void Update() {
+        //Force directional buttons from controller axis
+        inputButtons[(int)Button.left].SetForcePress(Input.GetAxisRaw("LeftStickX") < -joyStickDeadZone);
+        inputButtons[(int)Button.right].SetForcePress(Input.GetAxisRaw("LeftStickX") > joyStickDeadZone);
+        inputButtons[(int)Button.up].SetForcePress(Input.GetAxisRaw("LeftStickY") > joyStickDeadZone);
+        inputButtons[(int)Button.down].SetForcePress(Input.GetAxisRaw("LeftStickY") < -joyStickDeadZone);
+
         for (int i = 0; i < (int)Button.nrButtons; i++) {
             inputButtons[i].Update();
         }
@@ -132,28 +142,28 @@ public class ControlManager : MonoBehaviour {
     * Returns bool for reset time button event
     */
     public bool ResetButtonUp() {
-        return inputButtons[(int)Button.resetTime].GetButtonUp();
+        return inputButtons[(int)Button.resetTime].GetButtonUp() || inputButtons[(int)Button.resetTimeAlt].GetButtonUp();
     }
 
     /**
      * Returns bool for Solidify button down event
      */
      public bool SolidifyButtonDown() {
-        return inputButtons[(int)Button.solidify].GetButtonDown();
+        return inputButtons[(int)Button.solidify].GetButtonDown() || inputButtons[(int)Button.solidifyAlt].GetButtonDown();
      }
 
     /**
      * Returns bool for Clear button down event
      */
     public bool ClearButtonDown() {
-        return inputButtons[(int)Button.clear].GetButtonDown();
+        return inputButtons[(int)Button.clear].GetButtonDown() || inputButtons[(int)Button.clearAlt].GetButtonDown();
     }
 
     /**
      * Returns bool for Shoot button down event
      */
     public bool ShootButtonDown() {
-        return inputButtons[(int)Button.shoot].GetButtonDown();
+        return inputButtons[(int)Button.shoot].GetButtonDown() || inputButtons[(int)Button.shootAlt].GetButtonDown();
     }
 
     /**
