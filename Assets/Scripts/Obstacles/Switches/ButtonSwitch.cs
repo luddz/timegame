@@ -28,8 +28,9 @@ public class ButtonSwitch : SwitchSystem
         foreach(SwitchableSystem s in switchables) {
             s.Switch();
         }
-        
+
         //TODO add animation and SFX
+        GetComponent<Animator>().Play("pressed");
     }
 
     protected override void DeactivateSwitch() {
@@ -41,6 +42,7 @@ public class ButtonSwitch : SwitchSystem
         }
 
         //TODO add animation and SFX
+        GetComponent<Animator>().Play("unpressed");
     }
 
     public override void ResetSwitch() {

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52,
         type: 3}
       propertyPath: m_Name
-      value: CloneLaser Variant
+      value: CloneLaser
       objectReference: {fileID: 0}
     - target: {fileID: 1955087918281264216, guid: a95a777269f298344b53af7d5a432a52,
         type: 3}
@@ -70,7 +70,17 @@ PrefabInstance:
     - target: {fileID: 1955087918281264218, guid: a95a777269f298344b53af7d5a432a52,
         type: 3}
       propertyPath: color.g
-      value: 0.67560244
+      value: 0.73255813
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955087918281264218, guid: a95a777269f298344b53af7d5a432a52,
+        type: 3}
+      propertyPath: color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955087918281264218, guid: a95a777269f298344b53af7d5a432a52,
+        type: 3}
+      propertyPath: color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a95a777269f298344b53af7d5a432a52, type: 3}

@@ -119,7 +119,8 @@ public class CharacterMovement : MonoBehaviour
                 GetComponent<PolygonCollider2D>().enabled = false;
                 GetComponent<BoxCollider2D>().enabled = true;
                 anim.SetSpeed(0.0f);
-                //TODO change sprite and play sfx
+                anim.StartSolid();
+                //TODO play sfx
                 return;
             }
             body.velocity *= 1.0f - t;
@@ -144,6 +145,7 @@ public class CharacterMovement : MonoBehaviour
 
         //Shooting
         if(controller.ShootButtonDown()) {
+            anim.StartShoot();
             Vector2 forwardVector = (facingRight) ? Vector2.right : Vector2.left;
             Vector2 origin = (Vector2)transform.position + forwardVector * shotOffset;
             RaycastHit2D hit = Physics2D.Raycast(origin, forwardVector, shotDistance, LayerMask.GetMask("Character") | LayerMask.GetMask("Ground")); //Raycast forward
@@ -200,8 +202,7 @@ public class CharacterMovement : MonoBehaviour
         AudioManager.Instance.SetThemePitch(1.0f);
         solidifying = false;
         timeSinceSolidify = 0.0f;
-        GetComponent<CharacterAnimation>().ActivateSprite();
-        GetComponent<CharacterAnimation>().SetSpeed(1.0f);
+        GetComponent<CharacterAnimation>().ResetAnimations();
         dead = false;
         gameObject.SetActive(true);
     }

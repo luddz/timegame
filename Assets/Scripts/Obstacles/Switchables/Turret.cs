@@ -48,6 +48,13 @@ public class Turret : SwitchableSystem
         }
     }
 
+    void LateUpdate() {
+        if (isOn)
+            GetComponent<Animator>().Play("on");
+        else
+            GetComponent<Animator>().Play("off");
+    }
+
     // Open door
     protected override void SwitchOn() {
         laser.SetActive(true); //TODO add animations and SFX
