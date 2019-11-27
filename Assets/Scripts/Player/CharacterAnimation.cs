@@ -13,7 +13,8 @@ public class CharacterAnimation : MonoBehaviour
     private CollisionAnalysis analyser;
 
     //Helping variables
-    [SerializeField] private bool shooting;
+    private bool shooting;
+    private bool solid;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class CharacterAnimation : MonoBehaviour
         }
 
         //Don't update animations if shooting or solid or dead
-        if (shooting)
+        if (shooting || solid)
             return;
 
         //Idle
@@ -64,6 +65,11 @@ public class CharacterAnimation : MonoBehaviour
         shooting = false;
     }
 
+    public void StartSolid() {
+        solid = true;
+        anim.Play("playerSolidify");
+    }
+
     public void SetSpeed(float speed) {
         GetComponent<Animator>().speed = speed;
     }
@@ -73,5 +79,13 @@ public class CharacterAnimation : MonoBehaviour
     }
     public void ActivateSprite() {
         GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void ResetAnimations() {
+        SetSpeed(1.0f);
+        ActivateSprite();
+        shooting = false;
+        solid = false;
+        GetComponent<Animator>().Play("playerIdle");
     }
 }

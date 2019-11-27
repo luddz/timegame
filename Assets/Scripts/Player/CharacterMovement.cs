@@ -119,7 +119,8 @@ public class CharacterMovement : MonoBehaviour
                 GetComponent<PolygonCollider2D>().enabled = false;
                 GetComponent<BoxCollider2D>().enabled = true;
                 anim.SetSpeed(0.0f);
-                //TODO change sprite and play sfx
+                anim.StartSolid();
+                //TODO play sfx
                 return;
             }
             body.velocity *= 1.0f - t;
@@ -201,8 +202,7 @@ public class CharacterMovement : MonoBehaviour
         AudioManager.Instance.SetThemePitch(1.0f);
         solidifying = false;
         timeSinceSolidify = 0.0f;
-        GetComponent<CharacterAnimation>().ActivateSprite();
-        GetComponent<CharacterAnimation>().SetSpeed(1.0f);
+        GetComponent<CharacterAnimation>().ResetAnimations();
         dead = false;
         gameObject.SetActive(true);
     }
