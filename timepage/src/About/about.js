@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ludde from './ludvig-kindberg-bw.png';
+import ludde from '../Assets/ludvig-kindberg-bw.png';
 import nathan from '../Assets/Nathan-bw.jpg';
+import tom from '../Assets/Tom-bw.jpeg';
 import 'bootstrap/dist/css/bootstrap.css';
 import './about.css'
 import Image from 'react-bootstrap/Image'
@@ -10,47 +11,42 @@ class About extends Component {
   render(){
     return (
       <div className="aboutUsContainer">
-        <h1>About us</h1>
+        <h1>The team behind the game</h1>
         <div className="theTeam">
           <div>
-            <Image className="imageCenter" src={ludde} roundedCircle />
-            <p className="names"><b>Ludvig Kindberg</b></p>
-            <ul>
-              <li>Placeholder</li>
-              <li>Placeholder</li>
-            </ul>
-            <p><b>What I have learned:</b></p>
-            <p>Placeholder text, Placeholder Placeholder placeholder</p>
-          </div>
-          <div>
-            <Image className="imageCenter" src={ludde} roundedCircle />
-            <p className="names"><b>Tom Axblad</b></p>
-            <ul>
-              <li>Placeholder</li>
-              <li>placeholder</li>
-            </ul>
-            <p><b>What I have learned:</b></p>
-            <p>Placeholder text, Placeholder Placeholder placeholder </p>
-          </div>
-          <div>
-            <Image className="imageCenter" src={nathan} roundedCircle/>
-            <p className="names"><b>Nathan Bhat</b></p>
-            <ul>
-              <li>Placeholder</li>
-              <li>Placeholder</li>
-            </ul>
-            <p><b>What I have learned:</b></p>
-            <p>Placeholder text placeholder placeholder</p>
-          </div>
-          <div>
-            <Image className="imageCenter" src={ludde} roundedCircle />
+            <Image className="aboutImageCenter" src={ludde} roundedCircle />
             <p className="names"><b>Alvin Hager</b></p>
-            <ul>
-              <li>Placeholder</li>
-              <li>Placeholder</li>
+            <ul className="role">
+              <li>Level designer</li>
+              <li>Enviorment designer</li>
+              <li>Project owner of the GDD</li>
             </ul>
-            <p><b>What I have learned:</b></p>
-            <p>Placeholder text placeholder text placeholder</p>
+          </div>
+          <div>
+            <Image className="aboutImageCenter" src={ludde} roundedCircle />
+            <p className="names"><b>Ludvig Kindberg</b></p>
+            <ul className="role">
+              <li>Project manager??</li>
+              <li>Website</li>
+              <li>Bussines plan</li>
+              <li>Sound effects</li>
+            </ul>
+          </div>
+          <div>
+            <Image className="aboutImageCenter" src={nathan} roundedCircle/>
+            <p className="names"><b>Nathan Bhat</b></p>
+            <ul className="role">
+              <li>Programmer</li>
+              <li>Level designer</li>
+            </ul>
+          </div>
+          <div>
+            <Image className="aboutImageCenter" src={tom} roundedCircle />
+            <p className="names"><b>Tom Axblad</b></p>
+            <ul className="role">
+              <li>Programmer</li>
+              <li>Art designer</li>
+            </ul>
           </div>
         </div>
       </div>

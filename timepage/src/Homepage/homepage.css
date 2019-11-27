@@ -17,16 +17,48 @@
 
 .App-content-container{
   display: grid;
-  grid-template-columns: auto auto;
+  /* grid-template-columns: auto auto; */
   grid-template-rows: auto auto;
 }
 
-.About-content{
+.about-header > h2{
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  margin: 5vh;
+}
+
+.about-content{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  height: 20vh;
+}
+
+.about-text{
+  text-align: center;
+  align-items: center;
+  position: relative;
+  max-width: 75vh;
+}
+
+.About-content-container{
+  display: grid;
+  grid-template-rows: auto auto;
   margin: 10px;
 }
 
+.imageLeft{
+  display: flex;
+}
+.imageRight{
+  display: block;
+  height: inherit;
+  margin-left: 2vh;
+  margin-right: 2vh;
+}
+
 .imageCenter {
-    display: block;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
 }
@@ -35,7 +67,15 @@
 .videoTutorialContainer {
     display: grid;
     grid-template-rows: auto auto;
-    padding: 5% 20% 5% 20%;
+    /* padding: 5% 20% 5% 20%; */
+}
+
+.videoGitGrid{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 10%;
+  padding: 5% 10% 5% 10%;
+
 }
 
 .video {

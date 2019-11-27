@@ -1,0 +1,9 @@
+.gitGrid{
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 10px;
+}
+.gitGrid > p {
+  text-align: center;
+  margin: 5px;
+}

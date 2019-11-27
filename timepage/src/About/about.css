@@ -5,6 +5,7 @@
     display: grid;
     grid-template-rows: auto auto;
     grid-row-gap: 100px;
+    min-height: 100vh;
 }
 
 .aboutApp {
@@ -41,9 +42,14 @@
     border-radius:50%;
 }
 
-.imageCenter {
+.aboutImageCenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
     height: 175px;
+}
+
+.role{
+    text-align: left;
+    margin-left: 5px;
 }
