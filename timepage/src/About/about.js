@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Fade from 'react-reveal/Fade';
 import ludde from '../Assets/ludvig-kindberg-bw.png';
 import nathan from '../Assets/Nathan-bw.jpg';
 import tom from '../Assets/Tom-bw.jpeg';
@@ -10,46 +11,51 @@ import Image from 'react-bootstrap/Image'
 class About extends Component {
   render(){
     return (
+      <Fade>
       <div className="aboutUsContainer">
-        <h1>The team behind the game</h1>
-        <div className="theTeam">
-          <div>
-            <Image className="aboutImageCenter" src={ludde} roundedCircle />
-            <p className="names"><b>Alvin Hager</b></p>
-            <ul className="role">
-              <li>Level designer</li>
-              <li>Enviorment designer</li>
-              <li>Project owner of the GDD</li>
-            </ul>
+          <h1>The team behind the game</h1>
+        <Fade Bottom delay={1000}>
+          <div className="theTeam">
+            <div>
+              <Image className="aboutImageCenter" src={ludde} roundedCircle />
+              <p className="names"><b>Alvin Hager</b></p>
+              <ul className="role">
+                <li>Level designer</li>
+                <li>Enviorment designer</li>
+                <li>Project owner of the GDD</li>
+              </ul>
+            </div>
+            <div>
+              <Image className="aboutImageCenter" src={ludde} roundedCircle />
+              <p className="names"><b>Ludvig Kindberg</b></p>
+              <ul className="role">
+                <li>Project manager??</li>
+                <li>Website</li>
+                <li>Bussines plan</li>
+                <li>Sound effects</li>
+              </ul>
+            </div>
+            <div>
+              <Image className="aboutImageCenter" src={nathan} roundedCircle/>
+              <p className="names"><b>Nathan Bhat</b></p>
+              <ul className="role">
+                <li>Programmer</li>
+                <li>Level designer</li>
+              </ul>
+            </div>
+            <div>
+              <Image className="aboutImageCenter" src={tom} roundedCircle />
+              <p className="names"><b>Tom Axblad</b></p>
+              <ul className="role">
+                <li>Programmer</li>
+                <li>Art designer</li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <Image className="aboutImageCenter" src={ludde} roundedCircle />
-            <p className="names"><b>Ludvig Kindberg</b></p>
-            <ul className="role">
-              <li>Project manager??</li>
-              <li>Website</li>
-              <li>Bussines plan</li>
-              <li>Sound effects</li>
-            </ul>
-          </div>
-          <div>
-            <Image className="aboutImageCenter" src={nathan} roundedCircle/>
-            <p className="names"><b>Nathan Bhat</b></p>
-            <ul className="role">
-              <li>Programmer</li>
-              <li>Level designer</li>
-            </ul>
-          </div>
-          <div>
-            <Image className="aboutImageCenter" src={tom} roundedCircle />
-            <p className="names"><b>Tom Axblad</b></p>
-            <ul className="role">
-              <li>Programmer</li>
-              <li>Art designer</li>
-            </ul>
-          </div>
-        </div>
+        </Fade>
       </div>
+      </Fade>
+
     );
   }
 }
