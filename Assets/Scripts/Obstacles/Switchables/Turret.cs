@@ -28,7 +28,7 @@ public class Turret : SwitchableSystem
         timeElapsed += Time.deltaTime;
         if (steadyFire || (timeElapsed > shotDelay && timeElapsed <= shotDelay + shotDuration)) {
             laser.SetActive(true);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, maxDistance, LayerMask.GetMask("Character") | LayerMask.GetMask("Ground"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right, maxDistance, LayerMask.GetMask("Character") | LayerMask.GetMask("Ground"));
             Vector2 end;
             if (hit.collider != null) {
                 end = hit.point;
@@ -36,7 +36,7 @@ public class Turret : SwitchableSystem
                     hit.collider.gameObject.GetComponent<CharacterMovement>().Die();
                 }
             } else {
-                end = transform.position + transform.right * maxDistance;
+                end = transform.position - transform.right * maxDistance;
             }
 
             //Draw laser
@@ -48,6 +48,13 @@ public class Turret : SwitchableSystem
             if (timeElapsed > shotDelay + shotDuration)
                 timeElapsed = 0;
         }
+    }
+
+    void LateUpdate() {
+        if (isOn)
+            GetComponent<Animator>().Play("on");
+        else
+            GetComponent<Animator>().Play("off");
     }
 
     // Open door
