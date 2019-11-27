@@ -86,6 +86,5 @@ public class CharacterAnimation : MonoBehaviour
         ActivateSprite();
         shooting = false;
         solid = false;
-        GetComponent<Animator>().Play("playerIdle");
     }
 }
