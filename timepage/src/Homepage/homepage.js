@@ -37,31 +37,31 @@ class Homepage extends Component {
               <Image className="imageRight" src={helloWorld} rounded fluid/>
             </div>
           </div>
-        <div className="videoGitGrid">
-          <div className="videoTutorialContainer">
-            <h2>A short video demo</h2>
-            <div className="video">
-              <video width="640" height="480" controls>
-                <source src={shortVideo} type="video/mp4"/>
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          <div className="downloadContrainer">
-            <h2>The code and download</h2>
-            <p> All of the code, for both the game and this webpage can be found on </p>
-            <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'>
-              <div className="gitGrid">
-                <p>GitHub</p>
-                <Image className="githubImage" src={gitLogo} fluid/>
+          <div className="videoGitGrid">
+            <div className="videoTutorialContainer">
+              <h2>A short video demo</h2>
+              <div className="video">
+                <video width="640" height="480" controls>
+                  <source src={shortVideo} type="video/mp4"/>
+                  Your browser does not support the video tag.
+                </video>
               </div>
-            </a>
-            <p>
-            The game can be downloaded throught the github page. </p>
-            <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'><p>LINK TO ZIP FOR WINDOW.</p> </a>
-            <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'><p>LINK TO ZIP FOR MAC.</p> </a>
-            <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'><p>LINK TO ZIP FOR LINUX.</p> </a>
-          </div>
+            </div>
+            <div className="downloadContrainer">
+              <h2>The code and download</h2>
+              <p> All of the code, for both the game and this webpage can be found on </p>
+              <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'>
+                <div className="gitGrid">
+                  <p>GitHub</p>
+                  <Image className="githubImage" src={gitLogo} fluid/>
+                </div>
+              </a>
+              <p>
+              The game can be downloaded throught the github page. </p>
+              <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'><p>LINK TO ZIP FOR WINDOW.</p> </a>
+              <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'><p>LINK TO ZIP FOR MAC.</p> </a>
+              <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'><p>LINK TO ZIP FOR LINUX.</p> </a>
+            </div>
           </div>
         </div>
       </div>
