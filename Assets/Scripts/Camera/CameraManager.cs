@@ -39,4 +39,8 @@ public class CameraManager: MonoBehaviour
     public void SetPivot(Transform pivot) {
         roomPivot = pivot;
     }
+
+    public Transform GetPivot() {
+        return roomPivot;
+    }
 }
