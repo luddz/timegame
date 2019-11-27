@@ -9,23 +9,39 @@ public class CharacterAnimation : MonoBehaviour
     private Animator anim;
     private Rigidbody2D body;
     private SpriteRenderer sprite;
+    private CollisionAnalysis analyser;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator> ();
         body = GetComponent<Rigidbody2D> ();
         sprite = GetComponent<SpriteRenderer> ();
+        analyser = GetComponent<CollisionAnalysis>();
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        //Flip sprite appropriately
         if(body.velocity.x < -flipDeadZone) {
             sprite.flipX = true;
         }
 
         if(body.velocity.x > flipDeadZone) {
             sprite.flipX = false;
+        }
+
+        //Idle
+        if(analyser.IsGroundDown() && Mathf.Abs(body.velocity.x) < flipDeadZone) {
+            anim.SetTrigger("idle");
+        }
+        //Run
+        else if(analyser.IsGroundDown() && Mathf.Abs(body.velocity.x) > flipDeadZone) {
+            anim.SetTrigger("run");
+        }
+        //Jump
+        else if(!analyser.IsGroundDown()) {
+            anim.SetTrigger("jump");
         }
     }
 
