@@ -25,6 +25,7 @@ public class CharacterMovement : MonoBehaviour
     private bool solidifying;
     private bool dead;
 
+
     //Components
     private Rigidbody2D body;
     private CollisionAnalysis analyser;

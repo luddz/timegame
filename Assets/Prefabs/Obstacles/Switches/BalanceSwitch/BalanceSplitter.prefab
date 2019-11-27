@@ -95,4 +95,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxWeightChildren: 1
   maxMotion: 1
-  catchUpSpeed: 0.1
+  catchUpSpeed: 0.5
