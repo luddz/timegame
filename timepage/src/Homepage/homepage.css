@@ -67,7 +67,15 @@
 .videoTutorialContainer {
     display: grid;
     grid-template-rows: auto auto;
-    padding: 5% 20% 5% 20%;
+    /* padding: 5% 20% 5% 20%; */
+}
+
+.videoGitGrid{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 10%;
+  padding: 5% 10% 5% 10%;
+
 }
 
 .video {
