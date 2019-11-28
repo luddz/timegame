@@ -12,7 +12,7 @@ public class TimeTravelManager: MonoBehaviour
     private List<SwitchableSystem> switchables;
     private List<SwitchSystem> switches;
 
-    private GameObject currentClone;
+    private (GameObject, Checkpoint) currentClone;
 
     public static TimeTravelManager Instance { get { return instance; } }
 
@@ -45,7 +45,7 @@ public class TimeTravelManager: MonoBehaviour
         newClone.transform.SetParent(cloneWrapper.transform);
         newClone.GetComponent<CharacterMovement>().SetStartPosition(CheckpointManager.Instance.GetActiveCheckpoint().GetSpawnPoint());
         newClone.SetActive(false);
-        currentClone = newClone;
+        currentClone = (newClone, CheckpointManager.Instance.GetActiveCheckpoint());
     }
 
     /**
@@ -59,10 +59,9 @@ public class TimeTravelManager: MonoBehaviour
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
         movementRecorder.StopRecording();
 
-        currentClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
-        CheckpointManager.Instance.AddClone(currentClone);
-
         if (createClone) {
+            currentClone.Item1.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
+            CheckpointManager.Instance.AddClone(currentClone.Item1, currentClone.Item2);
             CreateClone();
         }
 
