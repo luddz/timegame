@@ -37,11 +37,17 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
     }
 
-    public void PlayCloneSound(string name)
+    public void PlayCloneSound(string name, Vector3 clonePos)
     {
+        Vector3 playerPos = PlayerManager.Instance.transform.position;
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.volume = s.cloneVolume;
-        s.source.Play();
+        
+        if (Vector3.Distance(playerPos,clonePos) < s.maxDistance)
+        {
+            s.source.volume = s.cloneVolume;
+            s.source.Play();
+        }
+        
     }        
 
     public void Play(string name)

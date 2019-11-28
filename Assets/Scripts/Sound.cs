@@ -18,6 +18,8 @@ public class Sound
 
     public bool loop;
 
+    public float maxDistance;
+
     [HideInInspector]
     public AudioSource source;
 }
