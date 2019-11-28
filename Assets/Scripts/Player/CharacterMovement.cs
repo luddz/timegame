@@ -96,7 +96,7 @@ public class CharacterMovement : MonoBehaviour
             if (PlayerManager.Instance.IsPlayer(gameObject))
                 AudioManager.Instance.Play("playerJump");
             else
-                AudioManager.Instance.PlayCloneSound("playerJump");
+                AudioManager.Instance.PlayCloneSound("playerJump",transform.position);
 
             jumpDelay = maxJumpDelay;
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
@@ -169,7 +169,7 @@ public class CharacterMovement : MonoBehaviour
             if (PlayerManager.Instance.IsPlayer(gameObject))
                AudioManager.Instance.Play("LaserShoot");
             else
-                AudioManager.Instance.PlayCloneSound("LaserShoot");
+                AudioManager.Instance.PlayCloneSound("LaserShoot",transform.position);
         }
     }
 
