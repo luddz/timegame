@@ -12,6 +12,8 @@ public class TimeTravelManager: MonoBehaviour
     private List<SwitchableSystem> switchables;
     private List<SwitchSystem> switches;
 
+    private GameObject currentClone;
+
     public static TimeTravelManager Instance { get { return instance; } }
 
     void Awake() {
@@ -27,6 +29,7 @@ public class TimeTravelManager: MonoBehaviour
     }
 
     void Start() {
+        CreateClone();
     }
 
     public void AddSwitch(SwitchSystem toAdd) {
@@ -37,23 +40,30 @@ public class TimeTravelManager: MonoBehaviour
         switchables.Add(toAdd);
     }
 
+    private void CreateClone() {
+        GameObject newClone = Instantiate(clonePrefab);
+        newClone.transform.SetParent(cloneWrapper.transform);
+        newClone.GetComponent<CharacterMovement>().SetStartPosition(CheckpointManager.Instance.GetActiveCheckpoint().GetSpawnPoint());
+        newClone.SetActive(false);
+        currentClone = newClone;
+    }
+
     /**
      * Resets time for the player and all clones.
      */
     public void ResetTime(bool createClone) {
         //Play SFX
         AudioManager.Instance.Play("resetPlayer");
-        
+
         // create new clone based on recorded input events from player
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
         movementRecorder.StopRecording();
 
+        currentClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
+        CheckpointManager.Instance.AddClone(currentClone);
+
         if (createClone) {
-            GameObject newClone = Instantiate(clonePrefab);
-            newClone.transform.SetParent(cloneWrapper.transform);
-            newClone.GetComponent<CharacterMovement>().SetStartPosition(CheckpointManager.Instance.GetActiveCheckpoint().GetSpawnPoint());
-            newClone.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
-            CheckpointManager.Instance.AddClone(newClone);
+            CreateClone();
         }
 
         //Reset Switches
