@@ -225,8 +225,8 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   maxHorizontalVelocity: 4
   jumpVelocity: 13
-  acceleration: 10
-  deceleration: 10
+  acceleration: 15
+  deceleration: 15
   terminalVelocity: 10
   maxJumpDelay: 5
   shotDistance: 5
