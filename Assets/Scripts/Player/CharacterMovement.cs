@@ -98,6 +98,9 @@ public class CharacterMovement : MonoBehaviour
             else
                 AudioManager.Instance.PlayCloneSound("playerJump",transform.position);
 
+            //Set Animation
+            anim.StartJump();
+
             jumpDelay = maxJumpDelay;
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
         }
