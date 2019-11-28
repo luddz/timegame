@@ -89,7 +89,7 @@ public class CharacterMovement : MonoBehaviour
 
         //Jumping
         if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
-            //Play SFX 
+            //Play SFX
             if (PlayerManager.Instance.IsPlayer(gameObject))
                 AudioManager.Instance.Play("playerJump");
             else
@@ -129,7 +129,7 @@ public class CharacterMovement : MonoBehaviour
             if(PlayerManager.Instance.IsPlayer(gameObject)) {
                 AudioManager.Instance.SetThemePitch(1.0f - t);
             }
-            
+
         }
 
         //Initiate Solidifying
@@ -177,10 +177,8 @@ public class CharacterMovement : MonoBehaviour
      * Sets a new start position
      */
     public void SetStartPosition(Vector3 newStartPosition, Checkpoint newCheckpoint) {
-        TimeTravelManager.Instance.ResetTime(true); // Reset time before you set a new start position and creates a clone from the last start point
         startPosition = newStartPosition; //Set new start position
         CheckpointManager.Instance.SetActiveCheckpoint(newCheckpoint); //Set new checkpoint
-        TimeTravelManager.Instance.ResetTime(false); // Reset time using the new startPosition
     }
 
     /**
