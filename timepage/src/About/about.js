@@ -6,6 +6,8 @@ import tom from '../Assets/Tom-bw.jpeg';
 import 'bootstrap/dist/css/bootstrap.css';
 import './about.css'
 import Image from 'react-bootstrap/Image'
+import gitLogo from '../Assets/GitHub-Mark-Light-32px.png'
+import linkedIn from '../Assets/LI-Logo.png'
 // import '../App.css'
 
 class About extends Component {
@@ -34,6 +36,17 @@ class About extends Component {
                 <li>Bussines plan</li>
                 <li>Sound effects</li>
               </ul>
+              <div className="contactDiv">
+                <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'>
+                  <div className="gitGrid">
+                    <p>Luddz</p>
+                    <Image className="githubImage" src={gitLogo} fluid/>
+                    </div>
+                  </a>
+                <a href='https://www.linkedin.com/in/ludvig-kindberg/' target='_blank' rel="noreferrer noopener">
+                    <Image className="linkedInImg" src={linkedIn}/>
+                </a>
+              </div>
             </div>
             <div>
               <Image className="aboutImageCenter" src={nathan} roundedCircle/>
