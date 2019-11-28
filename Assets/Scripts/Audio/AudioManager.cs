@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     private static AudioManager instance;
 
     [SerializeField] private Sound[] sounds;
-
+    [SerializeField] private float distanceCutOff; //Distance until sound cuts off completely
 
     public static AudioManager Instance { get { return instance; } }
 
@@ -42,9 +42,13 @@ public class AudioManager : MonoBehaviour
         Vector3 playerPos = PlayerManager.Instance.transform.position;
         Sound s = Array.Find(sounds, sound => sound.name == name);
         
-        if (Vector3.Distance(playerPos,clonePos) < s.maxDistance)
+        if (Vector3.Distance(playerPos,clonePos) < distanceCutOff)
         {
-            s.source.volume = s.cloneVolume;
+            float t = Vector3.Distance(playerPos, clonePos) / distanceCutOff;
+            if (t < 0.0f || t > 1.0f)
+                return;
+
+            s.source.volume = Mathf.Lerp(1.0f, 0.0f, t) * s.cloneVolume;
             s.source.Play();
         }
         
@@ -55,6 +59,20 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.volume = s.playervolume;
         s.source.Play();
+    }
+
+    public void Play(string name, Vector3 originPos) {
+        Vector3 playerPos = PlayerManager.Instance.transform.position;
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (Vector3.Distance(playerPos, originPos) < distanceCutOff) {
+            float t = Vector3.Distance(playerPos, originPos) / distanceCutOff;
+            if (t < 0.0f || t > 1.0f)
+                return;
+
+            s.source.volume = Mathf.Lerp(1.0f, 0.0f, t);
+            s.source.Play();
+        }
     }
 
     public void SetThemePitch(float pitch) {
