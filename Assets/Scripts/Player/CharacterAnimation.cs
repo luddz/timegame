@@ -51,7 +51,7 @@ public class CharacterAnimation : MonoBehaviour
         //Run
         else if(!jumpingUp && analyser.IsGroundDown() && Mathf.Abs(body.velocity.x) > flipDeadZone) {
             anim.Play("playerRun");
-            anim.SetFloat("RunSpeed", Mathf.Abs(body.velocity.x) / 4.0f);
+            anim.SetFloat("RunSpeed", Mathf.Abs(body.velocity.x) / GetComponent<CharacterMovement> ().GetRunSpeed());
         }
         //Jump
         else if(!analyser.IsGroundDown() && Mathf.Abs(body.velocity.y) < minArcVelocity) {

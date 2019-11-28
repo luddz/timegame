@@ -225,4 +225,8 @@ public class CharacterMovement : MonoBehaviour
         body.constraints = RigidbodyConstraints2D.FreezeAll;
         dead = true;
     }
+
+    public float GetRunSpeed() {
+        return maxHorizontalVelocity;
+    }
 }
