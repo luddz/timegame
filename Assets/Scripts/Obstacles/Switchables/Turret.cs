@@ -31,13 +31,13 @@ public class Turret : SwitchableSystem
             List<RaycastHit2D> hits = new List<RaycastHit2D>();
             ContactFilter2D filter = new ContactFilter2D();
             filter.SetLayerMask(LayerMask.GetMask("Character"));
-            Physics2D.Raycast(transform.position, transform.right, filter, hits, maxDistance);
+            Physics2D.Raycast(transform.position, -transform.right, filter, hits, maxDistance);
             foreach (RaycastHit2D hit in hits) {
                 hit.collider.gameObject.GetComponent<CharacterMovement>().Die();
             }
 
             //Draw laser
-            Vector2 end = transform.position + transform.right * maxDistance;
+            Vector2 end = transform.position + -transform.right * maxDistance;
             laser.GetComponent<Laser>().SetUpLaser(transform.position, end);
         }
         if(!steadyFire) {

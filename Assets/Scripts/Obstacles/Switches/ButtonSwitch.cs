@@ -13,6 +13,10 @@ public class ButtonSwitch : SwitchSystem
     void Awake()
     {
         currentPlayers = 0;
+	if(activated)
+	    GetComponent<Animator>().Play("pressed");
+	else
+	    GetComponent<Animator>().Play("unpressed");
     }
 
     // Update is called once per frame
