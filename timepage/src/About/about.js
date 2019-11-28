@@ -37,7 +37,7 @@ class About extends Component {
                 <li>Sound effects</li>
               </ul>
               <div className="contactDiv">
-                <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'>
+                <a href='http://www.github.com/luddz' rel="noreferrer noopener" target='_blank'>
                   <div className="gitGrid">
                     <p>Luddz</p>
                     <Image className="githubImage" src={gitLogo} fluid/>
