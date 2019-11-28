@@ -56,6 +56,10 @@ public class CheckpointManager : MonoBehaviour
         clones[activeCheckpoint].Add(clone);
     }
 
+    public void AddClone(GameObject clone, Checkpoint checkpoint) {
+        clones[checkpoint].Add(clone);
+    }
+
     //Remove all clones from the current checkpoint
     public void ClearCheckpoint() {
         foreach(GameObject clone in clones[activeCheckpoint]) {
