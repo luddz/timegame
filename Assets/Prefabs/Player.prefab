@@ -152,7 +152,6 @@ EdgeCollider2D:
   - {x: -0.15, y: -0.5}
   - {x: 0.15, y: -0.5}
   - {x: 0.15, y: 0.4}
-  - {x: -0.15, y: 0.4}
 --- !u!61 &2600344550524840570
 BoxCollider2D:
   m_ObjectHideFlags: 0
