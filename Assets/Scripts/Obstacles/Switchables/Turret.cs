@@ -23,6 +23,7 @@ public class Turret : SwitchableSystem
 
     // Update is called once per frame
     void Update() {
+        GetComponent<BoxCollider2D>().enabled = isOn;
         if (!isOn)
             return;
         timeElapsed += Time.deltaTime;
@@ -67,5 +68,10 @@ public class Turret : SwitchableSystem
 
     public override void ResetSwitchable() {
         timeElapsed = 0;
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Player" || other.tag == "GameController")
+            other.GetComponent<CharacterMovement>().Die();
     }
 }
