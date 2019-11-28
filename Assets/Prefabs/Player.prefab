@@ -232,6 +232,7 @@ MonoBehaviour:
   maxJumpDelay: 5
   shotDistance: 5
   shotOffset: 0.55
+  gravityScale: 4
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
   laserDuration: 0.05
   solidifyDelay: 0.75

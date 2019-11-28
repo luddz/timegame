@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private int maxJumpDelay; //Amount of updates after falling off of a ledge where you can still jump
     [SerializeField] private float shotDistance; //Distance that you can shoot
     [SerializeField] private float shotOffset; //How far from the center of the player does the shot emerge from
+    [SerializeField] private float gravityScale;
     [Space]
     [SerializeField] private GameObject laser;
     [SerializeField] private float laserDuration;
@@ -24,7 +25,6 @@ public class CharacterMovement : MonoBehaviour
     private float timeSinceSolidify = 0.0f;
     private bool solidifying;
     private bool dead;
-
 
     //Components
     private Rigidbody2D body;
@@ -39,6 +39,9 @@ public class CharacterMovement : MonoBehaviour
         analyser = GetComponent<CollisionAnalysis>();
         controller = GetComponent<ControlManager>();
         anim = GetComponent<CharacterAnimation>();
+
+        //Variable set up
+        body.gravityScale = gravityScale;
     }
 
     void Update() {
@@ -135,6 +138,7 @@ public class CharacterMovement : MonoBehaviour
         //Initiate Solidifying
         if (controller.SolidifyButtonDown()) {
             solidifying = true;
+            body.gravityScale = 0;
         }
 
         //Clearing Checkpoint
@@ -189,8 +193,9 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void ResetCharacter() {
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
+        GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
         GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+        GetComponent<Rigidbody2D> ().gravityScale = gravityScale;
         gameObject.layer = 9; //reset layer
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
