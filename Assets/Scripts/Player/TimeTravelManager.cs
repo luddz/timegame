@@ -63,6 +63,9 @@ public class TimeTravelManager: MonoBehaviour
             currentClone.Item1.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
             CheckpointManager.Instance.AddClone(currentClone.Item1, currentClone.Item2);
             CreateClone();
+        } else {
+            Destroy(currentClone.Item1);
+            CreateClone();
         }
 
         //Reset Switches
