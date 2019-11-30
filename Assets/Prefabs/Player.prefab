@@ -126,7 +126,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 29988f8bac9a07f44aa147d2161a0ed8, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -152,7 +152,6 @@ EdgeCollider2D:
   - {x: -0.15, y: -0.5}
   - {x: 0.15, y: -0.5}
   - {x: 0.15, y: 0.4}
-  - {x: -0.15, y: 0.4}
 --- !u!61 &2600344550524840570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,14 +223,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  maxHorizontalVelocity: 6
-  jumpVelocity: 15
-  acceleration: 20
-  deceleration: 20
-  terminalVelocity: 20
+  maxHorizontalVelocity: 4
+  jumpVelocity: 13
+  acceleration: 15
+  deceleration: 15
+  terminalVelocity: 10
   maxJumpDelay: 5
   shotDistance: 5
   shotOffset: 0.55
+  gravityScale: 3
   laser: {fileID: 1955087918281264221, guid: a95a777269f298344b53af7d5a432a52, type: 3}
   laserDuration: 0.05
   solidifyDelay: 0.75
@@ -247,10 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1cc98b985d0334cb857e14290a33b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upRightEdge: {x: 0.1, y: 0.5}
-  upLeftEdge: {x: -0.1, y: 0.5}
-  downRightEdge: {x: 0.1, y: -0.6}
-  downLeftEdge: {x: -0.1, y: -0.6}
+  upRightEdge: {x: 0.15, y: 0.5}
+  upLeftEdge: {x: -0.15, y: 0.5}
+  downRightEdge: {x: 0.15, y: -0.6}
+  downLeftEdge: {x: -0.15, y: -0.6}
   rightUpEdge: {x: 0.2, y: 0.4}
   rightDownEdge: {x: 0.2, y: -0.5}
   leftUpEdge: {x: -0.2, y: 0.4}
@@ -308,7 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f89f7be13f916da8e826fe11c43ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flipDeadZone: 0.1
+  flipDeadZone: 1
+  minArcVelocity: 1
 --- !u!114 &-1089850751362981485
 MonoBehaviour:
   m_ObjectHideFlags: 0

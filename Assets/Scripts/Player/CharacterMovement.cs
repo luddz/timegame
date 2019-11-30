@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private int maxJumpDelay; //Amount of updates after falling off of a ledge where you can still jump
     [SerializeField] private float shotDistance; //Distance that you can shoot
     [SerializeField] private float shotOffset; //How far from the center of the player does the shot emerge from
+    [SerializeField] private float gravityScale;
     [Space]
     [SerializeField] private GameObject laser;
     [SerializeField] private float laserDuration;
@@ -24,7 +25,6 @@ public class CharacterMovement : MonoBehaviour
     private float timeSinceSolidify = 0.0f;
     private bool solidifying;
     private bool dead;
-
 
     //Components
     private Rigidbody2D body;
@@ -39,6 +39,9 @@ public class CharacterMovement : MonoBehaviour
         analyser = GetComponent<CollisionAnalysis>();
         controller = GetComponent<ControlManager>();
         anim = GetComponent<CharacterAnimation>();
+
+        //Variable set up
+        body.gravityScale = gravityScale;
     }
 
     void Update() {
@@ -89,11 +92,14 @@ public class CharacterMovement : MonoBehaviour
 
         //Jumping
         if (controller.JumpButtonDown() && jumpDelay < maxJumpDelay) {
-            //Play SFX 
+            //Play SFX
             if (PlayerManager.Instance.IsPlayer(gameObject))
                 AudioManager.Instance.Play("playerJump");
             else
-                AudioManager.Instance.PlayCloneSound("playerJump");
+                AudioManager.Instance.PlayCloneSound("playerJump",transform.position);
+
+            //Set Animation
+            anim.StartJump();
 
             jumpDelay = maxJumpDelay;
             body.velocity = new Vector2(body.velocity.x, jumpVelocity);
@@ -129,12 +135,13 @@ public class CharacterMovement : MonoBehaviour
             if(PlayerManager.Instance.IsPlayer(gameObject)) {
                 AudioManager.Instance.SetThemePitch(1.0f - t);
             }
-            
+
         }
 
         //Initiate Solidifying
         if (controller.SolidifyButtonDown()) {
             solidifying = true;
+            body.gravityScale = 0;
         }
 
         //Clearing Checkpoint
@@ -165,7 +172,7 @@ public class CharacterMovement : MonoBehaviour
             if (PlayerManager.Instance.IsPlayer(gameObject))
                AudioManager.Instance.Play("LaserShoot");
             else
-                AudioManager.Instance.PlayCloneSound("LaserShoot");
+                AudioManager.Instance.PlayCloneSound("LaserShoot",transform.position);
         }
     }
 
@@ -177,10 +184,8 @@ public class CharacterMovement : MonoBehaviour
      * Sets a new start position
      */
     public void SetStartPosition(Vector3 newStartPosition, Checkpoint newCheckpoint) {
-        TimeTravelManager.Instance.ResetTime(true); // Reset time before you set a new start position and creates a clone from the last start point
         startPosition = newStartPosition; //Set new start position
         CheckpointManager.Instance.SetActiveCheckpoint(newCheckpoint); //Set new checkpoint
-        TimeTravelManager.Instance.ResetTime(false); // Reset time using the new startPosition
     }
 
     /**
@@ -191,8 +196,9 @@ public class CharacterMovement : MonoBehaviour
     }
 
     public void ResetCharacter() {
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
+        GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation; //reset constraints
         GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+        GetComponent<Rigidbody2D> ().gravityScale = gravityScale;
         gameObject.layer = 9; //reset layer
         transform.position = startPosition;
         transform.rotation = Quaternion.identity;
@@ -218,5 +224,9 @@ public class CharacterMovement : MonoBehaviour
         anim.DeactivateSprite();
         body.constraints = RigidbodyConstraints2D.FreezeAll;
         dead = true;
+    }
+
+    public float GetRunSpeed() {
+        return maxHorizontalVelocity;
     }
 }
