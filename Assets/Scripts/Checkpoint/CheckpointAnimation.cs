@@ -22,12 +22,10 @@ public class CheckpointAnimation : MonoBehaviour
 
     public void Activate() {
         anim.SetBool("isActive", true);
-        Debug.Log("ACtive");
     }
 
     public void Deactivate() {
         anim.SetBool("isActive", false);
-        Debug.Log("inACtive");
     }
 
 
