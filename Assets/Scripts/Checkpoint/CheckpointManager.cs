@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /**
@@ -37,7 +36,10 @@ public class CheckpointManager : MonoBehaviour
 
     //Set active checkpoint and create a List of clones for that checkpoint if none exists
     public void SetActiveCheckpoint(Checkpoint checkpoint) {
+        if (activeCheckpoint != null)
+            activeCheckpoint.GetComponent<CheckpointAnimation>().Deactivate();
         activeCheckpoint = checkpoint;
+        activeCheckpoint.GetComponent<CheckpointAnimation>().Activate();
         activeCheckpointPivot = CameraManager.Instance.GetPivot();
         if (!clones.ContainsKey(activeCheckpoint))
             clones.Add(activeCheckpoint, new List<GameObject>());

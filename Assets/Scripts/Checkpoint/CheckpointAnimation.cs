@@ -9,7 +9,7 @@ public class CheckpointAnimation : MonoBehaviour
     private Animator anim;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
     }
@@ -20,12 +20,12 @@ public class CheckpointAnimation : MonoBehaviour
        
     }
 
-    public void setActive() {
+    public void Activate() {
         anim.SetBool("isActive", true);
         Debug.Log("ACtive");
     }
 
-    public void setInactive() {
+    public void Deactivate() {
         anim.SetBool("isActive", false);
         Debug.Log("inACtive");
     }
