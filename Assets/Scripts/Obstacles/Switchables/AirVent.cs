@@ -5,6 +5,10 @@ public class AirVent : SwitchableSystem
 
     [SerializeField] float windPressure; 
 
+    void Awake() {
+        GetComponent<BoxCollider2D>().enabled = isOn;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
