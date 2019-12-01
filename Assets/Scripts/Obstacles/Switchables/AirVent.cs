@@ -18,9 +18,9 @@ public class AirVent : SwitchableSystem
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (isOn && PlayerManager.Instance.IsPlayer(other.gameObject))
+        if (isOn && other.gameObject.layer == 9)
         {
-            Rigidbody2D playerBody = other.gameObject.GetComponent<Rigidbody2D>();
+           Rigidbody2D playerBody = other.gameObject.GetComponent<Rigidbody2D>();
 
            float dist = Vector2.Distance(other.gameObject.transform.position, transform.position);
            float height= GetComponent<BoxCollider2D>().size.y;
@@ -40,12 +40,12 @@ public class AirVent : SwitchableSystem
 
     protected override void SwitchOff()
     {
-        isOn = false;
+
     }
 
     protected override void SwitchOn()
     {
-        isOn = true;
+
     }
 
 }
