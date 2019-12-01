@@ -268,6 +268,9 @@ MonoBehaviour:
   checkpoint:
     serializedVersion: 2
     m_Bits: 1024
+  vent:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &104869223437697638
 MonoBehaviour:
   m_ObjectHideFlags: 0

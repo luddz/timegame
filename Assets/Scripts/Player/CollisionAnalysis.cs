@@ -26,6 +26,7 @@ public class CollisionAnalysis : MonoBehaviour {
     [SerializeField] private LayerMask ground;
     [SerializeField] private LayerMask character;
     [SerializeField] private LayerMask checkpoint;
+    [SerializeField] private LayerMask vent;
 
     /**
 	 * Returns whether or not there is ground above.
@@ -62,6 +63,43 @@ public class CollisionAnalysis : MonoBehaviour {
         Vector2 leftUpWorld = (Vector2)transform.position + leftUpEdge;
         Vector2 leftDownWorld = (Vector2)transform.position + leftDownEdge;
         return Physics2D.OverlapPoint(leftUpWorld, ground) || Physics2D.OverlapPoint(leftDownWorld, ground);
+    }
+
+    /**
+ * Returns whether or not there is vent above.
+ */
+    public bool IsVentUp() {
+        Vector2 upRightWorld = (Vector2)transform.position + upRightEdge;
+        Vector2 upLeftWorld = (Vector2)transform.position + upLeftEdge;
+        return Physics2D.OverlapPoint(upRightWorld, vent) || Physics2D.OverlapPoint(upLeftWorld, vent);
+    }
+
+    /**
+	 * Returns whether or not there is vent below.
+	 */
+    public bool IsVentDown() {
+        Vector2 downRightWorld = (Vector2)transform.position + downRightEdge;
+        Vector2 downLeftWorld = (Vector2)transform.position + downLeftEdge;
+        return Physics2D.OverlapPoint(downRightWorld, vent) || Physics2D.OverlapPoint(downLeftWorld, vent);
+
+    }
+
+    /**
+	 * Returns whether or not there is vent to the right.
+	 */
+    public bool IsVentRight() {
+        Vector2 rightUpWorld = (Vector2)transform.position + rightUpEdge;
+        Vector2 rightDownWorld = (Vector2)transform.position + rightDownEdge;
+        return Physics2D.OverlapPoint(rightUpWorld, vent) || Physics2D.OverlapPoint(rightDownWorld, vent);
+    }
+
+    /**
+	 * Returns whether or not there is vent to the left.
+	 */
+    public bool IsVentLeft() {
+        Vector2 leftUpWorld = (Vector2)transform.position + leftUpEdge;
+        Vector2 leftDownWorld = (Vector2)transform.position + leftDownEdge;
+        return Physics2D.OverlapPoint(leftUpWorld, vent) || Physics2D.OverlapPoint(leftDownWorld, vent);
     }
 
     public bool IsCharacterOverlapping() {
