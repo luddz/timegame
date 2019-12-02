@@ -146,6 +146,7 @@ public class CharacterMovement : MonoBehaviour
             }
             body.velocity *= 1.0f - t;
             anim.SetSpeed(1.0f - t);
+            anim.TurnGray(t);
             //Changes that only happen when player solidifies
             if(PlayerManager.Instance.IsPlayer(gameObject)) {
                 AudioManager.Instance.SetThemePitch(1.0f - t);

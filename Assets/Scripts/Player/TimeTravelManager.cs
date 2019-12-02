@@ -100,6 +100,7 @@ public class TimeTravelManager: MonoBehaviour
      */
     public void ResetPositions() {
         foreach (GameObject clone in CheckpointManager.Instance.GetClones()) {
+            clone.GetComponent<ControlManager>().StopEvents();
             clone.transform.position = clone.GetComponent<CharacterMovement>().GetStartPosition();
         }
     }

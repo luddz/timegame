@@ -18,6 +18,7 @@ public class CharacterAnimation : MonoBehaviour
     private bool solid;
     private bool jumpingUp;
     private bool dying;
+    private Color color;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class CharacterAnimation : MonoBehaviour
         body = GetComponent<Rigidbody2D> ();
         sprite = GetComponent<SpriteRenderer> ();
         analyser = GetComponent<CollisionAnalysis>();
+        color = sprite.color;
     }
 
     // Update is called once per frame
@@ -80,7 +82,7 @@ public class CharacterAnimation : MonoBehaviour
 
     public void StartSolid() {
         solid = true;
-        anim.Play("playerSolidify");
+        sprite.color = Color.gray;
     }
 
     public void StartJump() {
@@ -113,10 +115,16 @@ public class CharacterAnimation : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
     }
 
+    public void TurnGray(float t) {
+        sprite.color = Color.Lerp(color, Color.gray, t);
+    }
+
     public void ResetAnimations() {
         SetSpeed(1.0f);
         ActivateSprite();
         GetComponent<Animator>().Rebind();
+        if (sprite != null)
+            sprite.color = color;
         shooting = false;
         solid = false;
         dying = false;
