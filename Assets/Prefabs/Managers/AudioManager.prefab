@@ -79,18 +79,11 @@ MonoBehaviour:
     pitch: 0.61
     loop: 0
     source: {fileID: 0}
-  - name: Walk
-    clip: {fileID: 8300000, guid: 16c3cd7720f7f418c9c913ae1fd09598, type: 3}
-    cloneVolume: 0.144
-    playervolume: 1
-    pitch: 0.1
-    loop: 0
-    source: {fileID: 0}
-  - name: Solidify
-    clip: {fileID: 8300000, guid: 14dfdf3dab30f4d5085037c74e08745f, type: 3}
-    cloneVolume: 0.144
-    playervolume: 1
+  - name: Die
+    clip: {fileID: 8300000, guid: 8f860a70522ddba46bf943b33d608da1, type: 3}
+    cloneVolume: 0.5
+    playervolume: 0.9
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  distanceCutOff: 0
+  distanceCutOff: 10

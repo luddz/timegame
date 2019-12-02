@@ -17,6 +17,8 @@ public class CharacterAnimation : MonoBehaviour
     private bool shooting;
     private bool solid;
     private bool jumpingUp;
+    private bool dying;
+    private Color color;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +27,16 @@ public class CharacterAnimation : MonoBehaviour
         body = GetComponent<Rigidbody2D> ();
         sprite = GetComponent<SpriteRenderer> ();
         analyser = GetComponent<CollisionAnalysis>();
+        color = sprite.color;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+        //To correct for late dying
+        if(dying && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDie")) {
+            Debug.Log("Here");
+        }
 
         //Flip sprite appropriately
         if(body.velocity.x < -flipDeadZone) {
@@ -41,7 +48,7 @@ public class CharacterAnimation : MonoBehaviour
         }
 
         //Don't update animations if shooting or solid or dead
-        if (shooting || solid)
+        if (shooting || solid || dying)
             return;
 
         //Idle
@@ -75,7 +82,7 @@ public class CharacterAnimation : MonoBehaviour
 
     public void StartSolid() {
         solid = true;
-        anim.Play("playerSolidify");
+        sprite.color = Color.gray;
     }
 
     public void StartJump() {
@@ -92,6 +99,11 @@ public class CharacterAnimation : MonoBehaviour
         jumpingUp = false;
     }
 
+    public void StartDie() {
+        anim.Play("playerDie");
+        dying = true;
+    }
+
     public void SetSpeed(float speed) {
         GetComponent<Animator>().speed = speed;
     }
@@ -103,10 +115,18 @@ public class CharacterAnimation : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
     }
 
+    public void TurnGray(float t) {
+        sprite.color = Color.Lerp(color, Color.gray, t);
+    }
+
     public void ResetAnimations() {
         SetSpeed(1.0f);
         ActivateSprite();
+        GetComponent<Animator>().Rebind();
+        if (sprite != null)
+            sprite.color = color;
         shooting = false;
         solid = false;
+        dying = false;
     }
 }
