@@ -25,6 +25,8 @@ public class CharacterMovement : MonoBehaviour
     private float timeSinceSolidify = 0.0f;
     private bool solidifying;
     private bool dead;
+    private bool resetTime;
+    private int resetDelay;
 
     //Components
     private Rigidbody2D body;
@@ -45,13 +47,26 @@ public class CharacterMovement : MonoBehaviour
     }
 
     void Update() {
+        //Slow down the reset time a little so the raycast from the turret doesn't hit it.
+        if(resetTime) {
+            resetDelay++;
+            if(resetDelay >= 5) {
+                resetTime = false;
+                resetDelay = 0;
+                TimeTravelManager.Instance.ResetTime(true);
+            }
+        }
+
         // player presses reset time button
         if (PlayerManager.Instance.IsPlayer(gameObject) && controller.ResetButtonUp()) {
-            TimeTravelManager.Instance.ResetTime(true);
+            GetComponent<MovementRecorder>().StopRecording();
+            transform.position = startPosition;
+            TimeTravelManager.Instance.ResetPositions();
+            resetTime = true;
         }
 
         //If solid or dead then stop moving.
-        if(gameObject.layer != 9 || dead) {
+        if (gameObject.layer != 9 || dead) {
             return;
         }
 
@@ -158,7 +173,7 @@ public class CharacterMovement : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(origin, forwardVector, shotDistance, LayerMask.GetMask("Character") | LayerMask.GetMask("Ground")); //Raycast forward
             if (hit.collider != null) {
                 if (hit.collider.gameObject.layer == 9 && hit.collider.gameObject.tag != "Player") {
-                    hit.collider.gameObject.SetActive(false);
+                    hit.collider.gameObject.GetComponent<CharacterMovement>().Die();
                 }
                 GameObject currentLaser = Instantiate(laser);
                 currentLaser.GetComponent<Laser>().SetUpLaser(origin, hit.point);
@@ -205,7 +220,6 @@ public class CharacterMovement : MonoBehaviour
         facingRight = true;
         GetComponent<EdgeCollider2D>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = false;
-        AudioManager.Instance.SetThemePitch(1.0f);
         solidifying = false;
         timeSinceSolidify = 0.0f;
         GetComponent<CharacterAnimation>().ResetAnimations();
@@ -216,12 +230,13 @@ public class CharacterMovement : MonoBehaviour
     public void Die() {
         if (dead)
             return;
-        if(PlayerManager.Instance.IsPlayer(gameObject))
+        if (PlayerManager.Instance.IsPlayer(gameObject)) {
             GetComponent<MovementRecorder>().StopRecording();
-        transform.position = CameraManager.Instance.GetPivot().position; //This is to move out of the way for the laser that for some reson still noticed the collider
-        AudioManager.Instance.Play("LaserWall");
+            AudioManager.Instance.Play("Die");
+        } else
+            AudioManager.Instance.PlayCloneSound("Die", transform.position);
         GetComponent<EdgeCollider2D>().enabled = false;
-        anim.DeactivateSprite();
+        anim.StartDie();
         body.constraints = RigidbodyConstraints2D.FreezeAll;
         dead = true;
     }

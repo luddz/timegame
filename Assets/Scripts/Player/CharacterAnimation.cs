@@ -17,6 +17,7 @@ public class CharacterAnimation : MonoBehaviour
     private bool shooting;
     private bool solid;
     private bool jumpingUp;
+    private bool dying;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,10 @@ public class CharacterAnimation : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        //To correct for late dying
+        if(dying && !anim.GetCurrentAnimatorStateInfo(0).IsName("playerDie")) {
+            Debug.Log("Here");
+        }
 
         //Flip sprite appropriately
         if(body.velocity.x < -flipDeadZone) {
@@ -41,7 +46,7 @@ public class CharacterAnimation : MonoBehaviour
         }
 
         //Don't update animations if shooting or solid or dead
-        if (shooting || solid)
+        if (shooting || solid || dying)
             return;
 
         //Idle
@@ -92,6 +97,11 @@ public class CharacterAnimation : MonoBehaviour
         jumpingUp = false;
     }
 
+    public void StartDie() {
+        anim.Play("playerDie");
+        dying = true;
+    }
+
     public void SetSpeed(float speed) {
         GetComponent<Animator>().speed = speed;
     }
@@ -106,7 +116,9 @@ public class CharacterAnimation : MonoBehaviour
     public void ResetAnimations() {
         SetSpeed(1.0f);
         ActivateSprite();
+        GetComponent<Animator>().Rebind();
         shooting = false;
         solid = false;
+        dying = false;
     }
 }

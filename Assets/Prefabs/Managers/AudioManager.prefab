@@ -50,7 +50,6 @@ MonoBehaviour:
     playervolume: 0.284
     pitch: 1
     loop: 0
-    maxDistance: 10
     source: {fileID: 0}
   - name: resetPlayer
     clip: {fileID: 8300000, guid: cb6e1933c43c94585aa187bf641ede8b, type: 3}
@@ -58,7 +57,6 @@ MonoBehaviour:
     playervolume: 0.9
     pitch: 1
     loop: 0
-    maxDistance: 0
     source: {fileID: 0}
   - name: LaserWall
     clip: {fileID: 8300000, guid: f720f1f37d05c485b8a316d8a7824d93, type: 3}
@@ -66,7 +64,6 @@ MonoBehaviour:
     playervolume: 0.5
     pitch: 1
     loop: 0
-    maxDistance: 10
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 54c94c2a0ff2b4b1aa848d086c8f8bca, type: 3}
@@ -74,7 +71,6 @@ MonoBehaviour:
     playervolume: 0.373
     pitch: 1
     loop: 1
-    maxDistance: 0
     source: {fileID: 0}
   - name: LaserShoot
     clip: {fileID: 8300000, guid: f8f2ca548e53c453c9c0ae9b74b99408, type: 3}
@@ -82,21 +78,12 @@ MonoBehaviour:
     playervolume: 0.5
     pitch: 0.61
     loop: 0
-    maxDistance: 10
     source: {fileID: 0}
-  - name: Walk
-    clip: {fileID: 8300000, guid: 16c3cd7720f7f418c9c913ae1fd09598, type: 3}
-    cloneVolume: 0.144
-    playervolume: 1
-    pitch: 0.1
-    loop: 0
-    maxDistance: 0
-    source: {fileID: 0}
-  - name: Solidify
-    clip: {fileID: 8300000, guid: 14dfdf3dab30f4d5085037c74e08745f, type: 3}
-    cloneVolume: 0.144
-    playervolume: 1
+  - name: Die
+    clip: {fileID: 8300000, guid: 8f860a70522ddba46bf943b33d608da1, type: 3}
+    cloneVolume: 0.5
+    playervolume: 0.9
     pitch: 1
     loop: 0
-    maxDistance: 0
     source: {fileID: 0}
+  distanceCutOff: 10

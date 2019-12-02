@@ -57,7 +57,6 @@ public class TimeTravelManager: MonoBehaviour
 
         // create new clone based on recorded input events from player
         MovementRecorder movementRecorder = player.GetComponent<MovementRecorder>();
-        movementRecorder.StopRecording();
 
         if (createClone) {
             currentClone.Item1.GetComponent<ControlManager>().SetEvents(movementRecorder.GetRecordedInputEvents());
@@ -81,6 +80,9 @@ public class TimeTravelManager: MonoBehaviour
         //Reset Camera
         CameraManager.Instance.SetPivot(CheckpointManager.Instance.GetCheckpointPivot());
 
+        //Reset Audio
+        AudioManager.Instance.SetThemePitch(1.0f);
+
         // reset position and velocities of player
         player.GetComponent<CharacterMovement> ().ResetCharacter();
         movementRecorder.ResetRecording();
@@ -90,6 +92,15 @@ public class TimeTravelManager: MonoBehaviour
             cloneControlManager.StopEvents();
             clone.GetComponent<CharacterMovement>().ResetCharacter();
             cloneControlManager.StartEvents();
+        }
+    }
+
+    /**
+     * Resets positions for all clones
+     */
+    public void ResetPositions() {
+        foreach (GameObject clone in CheckpointManager.Instance.GetClones()) {
+            clone.transform.position = clone.GetComponent<CharacterMovement>().GetStartPosition();
         }
     }
 }
