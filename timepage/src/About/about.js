@@ -26,6 +26,14 @@ class About extends Component {
                 <li>Enviorment designer</li>
                 <li>Project owner of the GDD</li>
               </ul>
+              <div className="contactDiv">
+                <a href='https://github.com/alvinhager' rel="noreferrer noopener" target='_blank'>
+                  <div className="gitGrid">
+                    <p>alvinhager</p>
+                    <Image className="githubImage" src={gitLogo} fluid/>
+                    </div>
+                  </a>
+              </div>
             </div>
             <div>
               <Image className="aboutImageCenter" src={ludde} roundedCircle />
@@ -39,7 +47,7 @@ class About extends Component {
               <div className="contactDiv">
                 <a href='http://www.github.com/luddz' rel="noreferrer noopener" target='_blank'>
                   <div className="gitGrid">
-                    <p>Luddz</p>
+                    <p>luddz</p>
                     <Image className="githubImage" src={gitLogo} fluid/>
                     </div>
                   </a>
@@ -55,6 +63,17 @@ class About extends Component {
                 <li>Programmer</li>
                 <li>Level designer</li>
               </ul>
+              <div className="contactDiv">
+                <a href='https://github.com/bhatnathan' rel="noreferrer noopener" target='_blank'>
+                  <div className="gitGrid">
+                    <p>bhatnathan</p>
+                    <Image className="githubImage" src={gitLogo} fluid/>
+                    </div>
+                  </a>
+                <a href='https://www.linkedin.com/in/nathan-bhat-055152152/' target='_blank' rel="noreferrer noopener">
+                    <Image className="linkedInImg" src={linkedIn}/>
+                </a>
+              </div>
             </div>
             <div>
               <Image className="aboutImageCenter" src={tom} roundedCircle />
@@ -63,6 +82,17 @@ class About extends Component {
                 <li>Programmer</li>
                 <li>Art designer</li>
               </ul>
+              <div className="contactDiv">
+                <a href='https://github.com/mangoglass' rel="noreferrer noopener" target='_blank'>
+                  <div className="gitGrid">
+                    <p>mangoglass</p>
+                    <Image className="githubImage" src={gitLogo} fluid/>
+                    </div>
+                  </a>
+                <a href='https://www.linkedin.com/in/tom-axblad-73243410b/' target='_blank' rel="noreferrer noopener">
+                    <Image className="linkedInImg" src={linkedIn}/>
+                </a>
+              </div>
             </div>
           </div>
         </Fade>
