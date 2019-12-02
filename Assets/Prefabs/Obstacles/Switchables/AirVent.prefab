@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6507819045763009536}
   - component: {fileID: 6507819045763009543}
   - component: {fileID: 6507819045763009542}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AirVent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

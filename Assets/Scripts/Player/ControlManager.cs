@@ -187,7 +187,11 @@ public class ControlManager : MonoBehaviour {
             if ( analyser.IsGroundUp()      != inputEvent.movementState.isGroundUp      ||
                  analyser.IsGroundDown()    != inputEvent.movementState.isGroundDown    ||
                  analyser.IsGroundRight()   != inputEvent.movementState.isGroundRight   ||
-                 analyser.IsGroundLeft()    != inputEvent.movementState.isGroundLeft
+                 analyser.IsGroundLeft()    != inputEvent.movementState.isGroundLeft    ||
+                 analyser.IsVentUp()        != inputEvent.movementState.isVentUp        ||
+                 analyser.IsVentDown()      != inputEvent.movementState.isVentDown      ||
+                 analyser.IsVentRight()     != inputEvent.movementState.isVentRight     ||
+                 analyser.IsVentLeft()      != inputEvent.movementState.isVentLeft 
                  ) {
                 syncMovementState = false;
             }

@@ -7,6 +7,10 @@ public class MovementState {
     public bool isGroundDown;
     public bool isGroundRight;
     public bool isGroundLeft;
+    public bool isVentUp;
+    public bool isVentDown;
+    public bool isVentRight;
+    public bool isVentLeft;
 
     public MovementState(GameObject gameObject) {
         Rigidbody2D rigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -18,6 +22,10 @@ public class MovementState {
         isGroundDown = collisionAnalysis.IsGroundDown();
         isGroundRight = collisionAnalysis.IsGroundRight();
         isGroundLeft = collisionAnalysis.IsGroundLeft();
+        isVentUp = collisionAnalysis.IsVentUp();
+        isVentDown = collisionAnalysis.IsVentDown();
+        isVentRight = collisionAnalysis.IsVentRight();
+        isVentLeft = collisionAnalysis.IsVentLeft();
     }
 
     public MovementState(MovementState state) {
@@ -27,5 +35,9 @@ public class MovementState {
         isGroundDown = state.isGroundDown;
         isGroundRight = state.isGroundRight;
         isGroundLeft = state.isGroundLeft;
+        isVentUp = state.isVentUp;
+        isVentDown = state.isVentDown;
+        isVentRight = state.isVentRight;
+        isVentLeft = state.isVentLeft;
     }
 }

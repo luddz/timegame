@@ -5,6 +5,10 @@ public class AirVent : SwitchableSystem
 
     [SerializeField] float windPressure; 
 
+    void Awake() {
+        GetComponent<BoxCollider2D>().enabled = isOn;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +22,7 @@ public class AirVent : SwitchableSystem
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (isOn && other.gameObject.layer == 9)
+        if (other.gameObject.layer == 9)
         {
            Rigidbody2D playerBody = other.gameObject.GetComponent<Rigidbody2D>();
 
@@ -40,12 +44,12 @@ public class AirVent : SwitchableSystem
 
     protected override void SwitchOff()
     {
-
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     protected override void SwitchOn()
     {
-
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
 }
