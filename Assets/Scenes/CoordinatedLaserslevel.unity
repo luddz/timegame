@@ -12256,7 +12256,7 @@ PrefabInstance:
         type: 3}
       propertyPath: roomPivot
       value: 
-      objectReference: {fileID: 921358759}
+      objectReference: {fileID: 1678931901}
     - target: {fileID: 7936040614786272561, guid: 056b1211c34103e4fa135ad4222a2cb8,
         type: 3}
       propertyPath: m_AllowDynamicResolution
