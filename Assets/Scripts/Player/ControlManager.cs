@@ -58,15 +58,15 @@ public class ControlManager : MonoBehaviour {
      * Update function will only be called if this gameObject is player (enabled is set to false otherwise)
      */
     void Update() {
-        //Force directional buttons from controller axis
-        inputButtons[(int)Button.left].SetForcePress(Input.GetAxisRaw("LeftStickX") < -joyStickDeadZone);
-        inputButtons[(int)Button.right].SetForcePress(Input.GetAxisRaw("LeftStickX") > joyStickDeadZone);
-        inputButtons[(int)Button.up].SetForcePress(Input.GetAxisRaw("LeftStickY") > joyStickDeadZone);
-        inputButtons[(int)Button.down].SetForcePress(Input.GetAxisRaw("LeftStickY") < -joyStickDeadZone);
-
         for (int i = 0; i < (int)Button.nrButtons; i++) {
             inputButtons[i].Update();
         }
+
+        //Force directional buttons from controller axis
+        inputButtons[(int)Button.left].SetButton(Input.GetAxisRaw("LeftStickX") < -joyStickDeadZone);
+        inputButtons[(int)Button.right].SetButton(Input.GetAxisRaw("LeftStickX") > joyStickDeadZone);
+        inputButtons[(int)Button.up].SetButton(Input.GetAxisRaw("LeftStickY") > joyStickDeadZone);
+        inputButtons[(int)Button.down].SetButton(Input.GetAxisRaw("LeftStickY") < -joyStickDeadZone);
     }
 
     /**
