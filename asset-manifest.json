@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/timegame/static/css/main.728db1ce.chunk.css",
-    "main.js": "/timegame/static/js/main.7264d756.chunk.js",
-    "main.js.map": "/timegame/static/js/main.7264d756.chunk.js.map",
+    "main.css": "/timegame/static/css/main.c5a72bad.chunk.css",
+    "main.js": "/timegame/static/js/main.c6f2083c.chunk.js",
+    "main.js.map": "/timegame/static/js/main.c6f2083c.chunk.js.map",
     "runtime-main.js": "/timegame/static/js/runtime-main.b9e1e91f.js",
     "runtime-main.js.map": "/timegame/static/js/runtime-main.b9e1e91f.js.map",
     "static/css/2.510409cd.chunk.css": "/timegame/static/css/2.510409cd.chunk.css",
-    "static/js/2.d6665b47.chunk.js": "/timegame/static/js/2.d6665b47.chunk.js",
-    "static/js/2.d6665b47.chunk.js.map": "/timegame/static/js/2.d6665b47.chunk.js.map",
+    "static/js/2.d9cbd776.chunk.js": "/timegame/static/js/2.d9cbd776.chunk.js",
+    "static/js/2.d9cbd776.chunk.js.map": "/timegame/static/js/2.d9cbd776.chunk.js.map",
     "index.html": "/timegame/index.html",
-    "precache-manifest.5b6bb773e468ea28f1c4af739440c067.js": "/timegame/precache-manifest.5b6bb773e468ea28f1c4af739440c067.js",
+    "precache-manifest.718921158f5c642e2e82907dba94a2b7.js": "/timegame/precache-manifest.718921158f5c642e2e82907dba94a2b7.js",
     "service-worker.js": "/timegame/service-worker.js",
     "static/css/2.510409cd.chunk.css.map": "/timegame/static/css/2.510409cd.chunk.css.map",
-    "static/css/main.728db1ce.chunk.css.map": "/timegame/static/css/main.728db1ce.chunk.css.map",
+    "static/css/main.c5a72bad.chunk.css.map": "/timegame/static/css/main.c5a72bad.chunk.css.map",
     "static/media/DemoScreenShot.png": "/timegame/static/media/DemoScreenShot.b85267ec.png",
+    "static/media/LI-Logo.png": "/timegame/static/media/LI-Logo.c24cde28.png",
     "static/media/Nathan-bw.jpg": "/timegame/static/media/Nathan-bw.7315562a.jpg",
     "static/media/Tom-bw.jpeg": "/timegame/static/media/Tom-bw.1267a980.jpeg",
     "static/media/ludvig-kindberg-bw.png": "/timegame/static/media/ludvig-kindberg-bw.bf779840.png",
@@ -22,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.b9e1e91f.js",
     "static/css/2.510409cd.chunk.css",
-    "static/js/2.d6665b47.chunk.js",
-    "static/css/main.728db1ce.chunk.css",
-    "static/js/main.7264d756.chunk.js"
+    "static/js/2.d9cbd776.chunk.js",
+    "static/css/main.c5a72bad.chunk.css",
+    "static/js/main.c6f2083c.chunk.js"
   ]
 }
