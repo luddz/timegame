@@ -4,6 +4,7 @@ import './homepage.css'
 import Image from 'react-bootstrap/Image'
 import helloWorld from '../Assets/DemoScreenShot.png'
 import shortVideo from '../Assets/shortened.mp4'
+import trailerV1 from '../Assets/trailerV1.mp4'
 import asterBoi from '../Assets/AsterGuy.png'
 import gitLogo from '../Assets/GitHub-Mark-Light-32px.png'
 import Fade from 'react-reveal/Fade';
@@ -45,7 +46,14 @@ class Homepage extends Component {
           <div className="videoGitGrid">
             <Fade bottom>
               <div className="videoTutorialContainer">
-                <h2>A short video demo</h2>
+                <h2>Video demo</h2>
+                <div className="video">
+                  <video width="640" height="480" controls>
+                    <source src={trailerV1} type="video/mp4"/>
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <h2>Hello world video</h2>
                 <div className="video">
                   <video width="640" height="480" controls>
                     <source src={shortVideo} type="video/mp4"/>
