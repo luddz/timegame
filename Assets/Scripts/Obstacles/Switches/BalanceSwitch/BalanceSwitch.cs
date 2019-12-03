@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class BalanceSwitch : SwitchSystem
 {
-    private bool lateStart = true;
+    private BalanceSplitter splitter;
+    private bool init = true;
+    
+    void Awake() {
+        splitter = transform.GetChild(0).GetComponent<BalanceSplitter>();
+    }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(lateStart) {
-            lateStart = false;
-
-            transform.GetChild(0).GetComponent<BalanceSplitter>().UpdateBalance();
+    void Update() {
+        if(init) {
+            splitter.UpdateBalance();
+            init = false;
         }
 
         //Check if Balance system is fulfilled
-        if (transform.GetChild(0).GetComponent<BalanceSplitter>().IsFulfilled())
+        if (splitter.IsFulfilled())
             ActivateSwitch();
         else if (!permanent)
             DeactivateSwitch();
@@ -47,6 +50,6 @@ public class BalanceSwitch : SwitchSystem
 
     public override void ResetSwitch() {
         DeactivateSwitch();
-        transform.GetChild(0).GetComponent<BalanceSplitter>().Reset();
+        splitter.Reset();
     }
 }

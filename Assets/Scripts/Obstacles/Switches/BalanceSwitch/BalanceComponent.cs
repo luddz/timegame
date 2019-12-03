@@ -7,6 +7,7 @@ public abstract class BalanceComponent : MonoBehaviour
     private Vector2 moveTo; //Point to move towards smoothly
     private Vector2 moveFrom;
     protected Vector2 balanced;
+    protected GameObject chain;
 
     private float timeElapsed;
 
@@ -14,6 +15,10 @@ public abstract class BalanceComponent : MonoBehaviour
         balanced = transform.localPosition;
         moveTo = balanced;
         moveFrom = balanced;
+
+        Vector3 chainPos = -transform.localPosition / 2;
+        chain.transform.localPosition = new Vector3(0, chainPos.y, 0);
+        chain.GetComponent<SpriteRenderer>().size = new Vector2(1, Mathf.Abs(transform.localPosition.y));
     }
 
     void Update() {
@@ -28,6 +33,10 @@ public abstract class BalanceComponent : MonoBehaviour
                 t = 1.0f;
 
             transform.localPosition = Vector2.Lerp(moveFrom, moveTo, 1 - Mathf.Pow(1-t, 3));
+
+            Vector3 chainPos = -transform.localPosition / 2;
+            chain.transform.localPosition = new Vector3(0, chainPos.y, 0);
+            chain.GetComponent<SpriteRenderer>().size = new Vector2(1, Mathf.Abs(transform.localPosition.y));
         }
         
     }
