@@ -11,6 +11,7 @@ public class InputButton {
     private bool pressed;
     private bool buttonDown;
     private bool buttonUp;
+    private bool forcePressed;
 
 
     public InputButton(KeyCode button) {
@@ -21,7 +22,7 @@ public class InputButton {
     public void Update() {
         buttonDown = (Input.GetKeyDown(button));
 
-        pressed = (Input.GetKey(button));
+        pressed = (Input.GetKey(button) || forcePressed);
 
         buttonUp = (Input.GetKeyUp(button));
     }
@@ -52,5 +53,9 @@ public class InputButton {
 
     public KeyCode GetKeyCode() {
         return button;
+    }
+
+    public void ForcePress(bool press) {
+        forcePressed = press;
     }
 }
