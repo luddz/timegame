@@ -18,7 +18,7 @@ public class BalanceSwitch : SwitchSystem
         //Check if Balance system is fulfilled
         if (transform.GetChild(0).GetComponent<BalanceSplitter>().IsFulfilled())
             ActivateSwitch();
-        else
+        else if (!permanent)
             DeactivateSwitch();
         
     }
