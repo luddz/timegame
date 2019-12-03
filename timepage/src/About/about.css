@@ -1,27 +1,20 @@
 .aboutUsContainer {
     background-color: #282c30;
+    background-image: radial-gradient(circle, black, grey 75%);
+    /* background-image: radial-gradient(circle, black, #282c34 75%); */
+    /* background-image: radial-gradient(circle, black, grey); */
     color:white;
     padding: 5% 20% 5% 20%;
     display: grid;
     grid-template-rows: auto auto;
-    grid-row-gap: 100px;
+    grid-row-gap: 50px;
     min-height: 100vh;
 }
 
-.aboutApp {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 30px;
-    font-size: 18px;
-}
-
-.aboutImage {
-    background-color: #EA4242;
-    padding: 5% 5% 5% 5%;
-}
-
-.aboutAppContainer > h2 {
-    padding: 0;
+.aboutUsContainer > h1 {
+  vertical-align: middle;
+  max-height: inherit;
+  margin-top: 10%;
 }
 
 .theTeam {
@@ -52,4 +45,15 @@
 .role{
     text-align: left;
     margin-left: 5px;
+}
+
+
+.linkedInImg{
+  height: 32px;
+}
+
+.contactDiv{
+  display: inline-grid;
+  grid-auto-rows: auto auto;
+  grid-row-gap: 10px;
 }

@@ -2,8 +2,13 @@
   display: inline-grid;
   grid-template-columns: auto auto;
   grid-column-gap: 10px;
+  margin-top: 2%;
 }
 .gitGrid > p {
   text-align: center;
   margin: 5px;
+}
+
+body {
+  background-color: black;
 }
