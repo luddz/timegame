@@ -59,10 +59,10 @@ public class ControlManager : MonoBehaviour {
      */
     void Update() {
         //Force directional buttons from controller axis
-        inputButtons[(int)Button.left].SetForcePress(Input.GetAxisRaw("LeftStickX") < -joyStickDeadZone);
-        inputButtons[(int)Button.right].SetForcePress(Input.GetAxisRaw("LeftStickX") > joyStickDeadZone);
-        inputButtons[(int)Button.up].SetForcePress(Input.GetAxisRaw("LeftStickY") > joyStickDeadZone);
-        inputButtons[(int)Button.down].SetForcePress(Input.GetAxisRaw("LeftStickY") < -joyStickDeadZone);
+        inputButtons[(int)Button.left].ForcePress(Input.GetAxisRaw("LeftStickX") < -joyStickDeadZone);
+        inputButtons[(int)Button.right].ForcePress(Input.GetAxisRaw("LeftStickX") > joyStickDeadZone);
+        inputButtons[(int)Button.up].ForcePress(Input.GetAxisRaw("LeftStickY") > joyStickDeadZone);
+        inputButtons[(int)Button.down].ForcePress(Input.GetAxisRaw("LeftStickY") < -joyStickDeadZone);
 
         for (int i = 0; i < (int)Button.nrButtons; i++) {
             inputButtons[i].Update();
