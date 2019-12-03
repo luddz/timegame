@@ -3,21 +3,13 @@
 public class AirVent : SwitchableSystem
 {
 
-    [SerializeField] float windPressure; 
+    [SerializeField] float windPressure;
+    private ParticleSystem particles;
 
     void Awake() {
         GetComponent<BoxCollider2D>().enabled = isOn;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        particles = GetComponent<ParticleSystem>();
+        if(!isOn) particles.Pause();
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -45,11 +37,13 @@ public class AirVent : SwitchableSystem
     protected override void SwitchOff()
     {
         GetComponent<BoxCollider2D>().enabled = false;
+        particles.Stop();
     }
 
     protected override void SwitchOn()
     {
         GetComponent<BoxCollider2D>().enabled = true;
+        particles.Play();
     }
 
 }
