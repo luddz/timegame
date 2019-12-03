@@ -88,36 +88,22 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Solidify
     clip: {fileID: 8300000, guid: 0fc5d9dbbca8a9e408b3524750bf6251, type: 3}
-    cloneVolume: 0.5
-    playervolume: 0.9
+    cloneVolume: 0.3
+    playervolume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Button
     clip: {fileID: 8300000, guid: 892df337b7d105a4a9758cb71bd44fc8, type: 3}
     cloneVolume: 0.5
-    playervolume: 0.9
+    playervolume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Checkpoint
     clip: {fileID: 8300000, guid: b6ecee5e1e63f6a45a447e3d1c339a77, type: 3}
     cloneVolume: 0.5
-    playervolume: 0.9
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BalanceAdjust
-    clip: {fileID: 8300000, guid: 4b67f79937b1b614085ce4ff7a658587, type: 3}
-    cloneVolume: 0.5
-    playervolume: 0.9
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: BalanceSuccess
-    clip: {fileID: 8300000, guid: ecb42ebd439c9e64fbeb36bd9cef6046, type: 3}
-    cloneVolume: 0.5
-    playervolume: 0.9
+    playervolume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
