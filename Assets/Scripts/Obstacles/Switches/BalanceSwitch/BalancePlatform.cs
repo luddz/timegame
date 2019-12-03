@@ -10,6 +10,7 @@ public class BalancePlatform : BalanceComponent
 
     void Awake() {
         objectsOnPlatform = new Dictionary<GameObject, Vector3>();
+        chain = transform.GetChild(0).gameObject;
     }
 
     public override uint GetWeight() {
