@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ce28d56fc3a4439e7b9229fec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0.9
+  parallaxAmount: 0.98
 --- !u!1 &846649459855174425
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ce28d56fc3a4439e7b9229fec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0.7
+  parallaxAmount: 0.96
 --- !u!1 &846649460226956258
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ce28d56fc3a4439e7b9229fec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0.6
+  parallaxAmount: 0.95
 --- !u!1 &846649460340352378
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ce28d56fc3a4439e7b9229fec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0.8
+  parallaxAmount: 0.97
 --- !u!1 &846649460688053724
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ce28d56fc3a4439e7b9229fec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0.5
+  parallaxAmount: 0.9
 --- !u!1 &846649460947437953
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ce28d56fc3a4439e7b9229fec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0.4
+  parallaxAmount: 0.6
 --- !u!1 &1431959518262912821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7ce28d56fc3a4439e7b9229fec5209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxAmount: 0.3
+  parallaxAmount: 0.2
 --- !u!1 &9126965612915964101
 GameObject:
   m_ObjectHideFlags: 0
