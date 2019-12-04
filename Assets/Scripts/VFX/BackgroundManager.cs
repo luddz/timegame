@@ -20,15 +20,23 @@ public class BackgroundManager : MonoBehaviour
         } else {
             instance = this;
         }
+    }
 
-        if(isOverground) {
+    void Start() {
+        if (isOverground) {
             SwitchBackgroundByAmount(1.0f);
+            AudioManager.Instance.InterpolateSandstorm(1.0f);
+            transform.GetChild(2).GetComponent<ParticleSystem>().Play();
         } else {
             SwitchBackgroundByAmount(0.0f);
+            AudioManager.Instance.InterpolateSandstorm(0.0f);
+            transform.GetChild(2).GetComponent<ParticleSystem>().Stop();
         }
     }
 
     void Update() {
+        transform.GetChild(2).position = new Vector3(CameraManager.Instance.transform.position.x, CameraManager.Instance.transform.position.y, 10); //Set the sandstorm to the camera view
+
         if (!switching)
             return;
 
@@ -42,8 +50,10 @@ public class BackgroundManager : MonoBehaviour
 
         if(isOverground) {
             SwitchBackgroundByAmount(t);
+            AudioManager.Instance.InterpolateSandstorm(t);
         } else {
             SwitchBackgroundByAmount(1.0f - t);
+            AudioManager.Instance.InterpolateSandstorm(1.0f - t);
         }
     }
 
@@ -52,6 +62,11 @@ public class BackgroundManager : MonoBehaviour
         timeElapsed = 0.0f;
         switching = true;
         isOverground = overground;
+        if(overground) {
+            transform.GetChild(2).GetComponent<ParticleSystem>().Play();
+        } else {
+            transform.GetChild(2).GetComponent<ParticleSystem>().Stop();
+        }
     }
 
     private void SwitchBackgroundByAmount(float t) {
