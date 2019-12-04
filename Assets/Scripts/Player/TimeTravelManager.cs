@@ -80,6 +80,9 @@ public class TimeTravelManager: MonoBehaviour
         //Reset Camera
         CameraManager.Instance.SetPivot(CheckpointManager.Instance.GetCheckpointPivot());
 
+        //Reset Background
+        BackgroundManager.Instance.SetBackground(CheckpointManager.Instance.GetCheckpointBackground());
+
         //Reset Audio
         AudioManager.Instance.SetThemePitch(1.0f);
 
