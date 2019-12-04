@@ -35,6 +35,7 @@ public class ButtonSwitch : SwitchSystem
 
         //TODO add animation and SFX
         GetComponent<Animator>().Play("pressed");
+        AudioManager.Instance.Play("Button", transform.position);
     }
 
     protected override void DeactivateSwitch() {
@@ -47,6 +48,7 @@ public class ButtonSwitch : SwitchSystem
 
         //TODO add animation and SFX
         GetComponent<Animator>().Play("unpressed");
+        AudioManager.Instance.Play("Button", transform.position);
     }
 
     public override void ResetSwitch() {

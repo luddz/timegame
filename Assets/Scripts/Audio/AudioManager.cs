@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
             if (t < 0.0f || t > 1.0f)
                 return;
 
-            s.source.volume = Mathf.Lerp(1.0f, 0.0f, t);
+            s.source.volume = Mathf.Lerp(1.0f, 0.0f, t) * s.playervolume;
             s.source.Play();
         }
     }
