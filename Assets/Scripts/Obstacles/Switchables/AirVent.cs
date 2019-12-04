@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 
+/** Air vent/geyser that causes the player to move along transform.up of the air vent
+    To use set terminal velocity and wind pressure and use the collision box to set the area where the air blows */
 public class AirVent : SwitchableSystem
 {
-
+    // controls how strong the air that blows is 
     [SerializeField] float windPressure;
-    [SerializeField] float terminalVelocity = 10;
+    // when the player's velocity exceeds this value, then the player is unaffected by wind blowing out of AirVent
+    [SerializeField] float terminalVelocity;
+    private ParticleSystem particles;
 
     void Awake() {
         GetComponent<BoxCollider2D>().enabled = isOn;
+        particles = GetComponent<ParticleSystem>();
+        if(!isOn) particles.Pause();
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -29,15 +35,18 @@ public class AirVent : SwitchableSystem
                 float airVentWidth = GetComponent<BoxCollider2D>().size.x;
                 float airVentHeight = GetComponent<BoxCollider2D>().size.y;
 
+                // get the height of the object above the player by calculating distance from bottom of air vent
                 Vector2 linePt1 = transform.position;
                 Vector2 linePt2 = transform.position + transform.right.normalized * airVentWidth;
                 Vector2 point = other.gameObject.transform.position;
                 float heightAboveAirVent = distanceBetweenLineAndPoint(linePt1, linePt2, point);
 
-                // percentage of height of air vent
+                // percentage representation of height with respect to height of the air vent
                 float h = (heightAboveAirVent / airVentHeight);
                 Vector2 upVector = new Vector2(transform.up.x, transform.up.y);
 
+                // Set the velocity according to a function that takes into account height above the geyser
+               
                 otherBody.velocity = otherBody.velocity + upVector * weightFunction(h) * windPressure;
             }
 
@@ -50,10 +59,10 @@ public class AirVent : SwitchableSystem
        
     }
 
-    // input value needs to be between 0 and 1, returns a weight between 0 and 1
+    // Returns a weight function that has to take in a value between 0 and 1, and then returns a value 0-1
     private float weightFunction(float x) {
 
-        // f(x) = (x-2)^(-2*k)-2^(-2*k)*(1-x) with k=3 is a good weight funtion with expontential properties
+        // f(x) = (x-2)^(-2*k)-2^(-2*k)*(1-x) with k=3 is a good weight funtion with expontential properties, kinda like exponential decay!
         // invert it by using (1-x) instead of 'x'
 
         // exponential increase from 0 to 1 giving values 0-1;
@@ -90,11 +99,13 @@ public class AirVent : SwitchableSystem
     protected override void SwitchOff()
     {
         GetComponent<BoxCollider2D>().enabled = false;
+        particles.Stop();
     }
 
     protected override void SwitchOn()
     {
         GetComponent<BoxCollider2D>().enabled = true;
+        particles.Play();
     }
 
 }
