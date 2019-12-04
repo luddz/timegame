@@ -86,12 +86,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Solidify
-    clip: {fileID: 8300000, guid: 0fc5d9dbbca8a9e408b3524750bf6251, type: 3}
+  - name: Sandstorm
+    clip: {fileID: 8300000, guid: 23d9e5f698ada664899785c2b5d5502d, type: 3}
     cloneVolume: 0.3
-    playervolume: 0.6
+    playervolume: 0.5
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: Button
     clip: {fileID: 8300000, guid: 892df337b7d105a4a9758cb71bd44fc8, type: 3}
