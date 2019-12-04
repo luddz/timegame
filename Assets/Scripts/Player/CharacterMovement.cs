@@ -124,7 +124,7 @@ public class CharacterMovement : MonoBehaviour
             body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2); //Can be changed from 2, it's just that 2 worked pretty nicely.
 
         //Jumping after fall
-        if (analyser.IsGroundDown() && body.velocity.y == 0)
+        if (analyser.IsGroundDown() && body.velocity.y < 0.5f) //A little buffer so it does not need to be exactly 0
             jumpDelay = 0;
         else
             jumpDelay += jumpDelay < maxJumpDelay ? 1 : 0;
