@@ -102,8 +102,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Checkpoint
     clip: {fileID: 8300000, guid: b6ecee5e1e63f6a45a447e3d1c339a77, type: 3}
-    cloneVolume: 0.5
-    playervolume: 0.5
+    cloneVolume: 0.3
+    playervolume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}

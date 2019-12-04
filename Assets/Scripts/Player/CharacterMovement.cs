@@ -141,10 +141,6 @@ public class CharacterMovement : MonoBehaviour
                 GetComponent<BoxCollider2D>().enabled = true;
                 anim.SetSpeed(0.0f);
                 anim.StartSolid();
-                if(PlayerManager.Instance.IsPlayer(gameObject))
-                    AudioManager.Instance.Play("Solidify");
-                else
-                    AudioManager.Instance.PlayCloneSound("Solidify", transform.position);
                 //TODO play sfx
                 return;
             }
