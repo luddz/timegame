@@ -27,8 +27,7 @@ public class BalanceSplitter : BalanceComponent
 
         chain = transform.GetChild(4).gameObject;
 
-        if (IsFulfilled()) GetComponent<Animator>().Play("active");
-        else GetComponent<Animator>().Play("deactive");
+        GetComponent<Animator>().Play("deactive");
     }
 
 
