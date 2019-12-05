@@ -86,4 +86,25 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Sandstorm
+    clip: {fileID: 8300000, guid: 23d9e5f698ada664899785c2b5d5502d, type: 3}
+    cloneVolume: 0.3
+    playervolume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: 892df337b7d105a4a9758cb71bd44fc8, type: 3}
+    cloneVolume: 0.5
+    playervolume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Checkpoint
+    clip: {fileID: 8300000, guid: b6ecee5e1e63f6a45a447e3d1c339a77, type: 3}
+    cloneVolume: 0.3
+    playervolume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   distanceCutOff: 10

@@ -12,6 +12,7 @@ public class CheckpointManager : MonoBehaviour
 
     private Checkpoint activeCheckpoint;
     private Transform activeCheckpointPivot;
+    private bool activeCheckpointBackground;
     private Dictionary<Checkpoint, List<GameObject>> clones; //Dictionary of checkpoints and all clones that belong to each one
 
     public static CheckpointManager Instance { get { return instance; } }
@@ -41,6 +42,7 @@ public class CheckpointManager : MonoBehaviour
         activeCheckpoint = checkpoint;
         activeCheckpoint.GetComponent<CheckpointAnimation>().Activate();
         activeCheckpointPivot = CameraManager.Instance.GetPivot();
+        activeCheckpointBackground = BackgroundManager.Instance.GetIsOverground();
         if (!clones.ContainsKey(activeCheckpoint))
             clones.Add(activeCheckpoint, new List<GameObject>());
     }
@@ -78,4 +80,9 @@ public class CheckpointManager : MonoBehaviour
     public Transform GetCheckpointPivot() {
         return activeCheckpointPivot;
     }
+
+    public bool GetCheckpointBackground() {
+        return activeCheckpointBackground;
+    }
+
 }

@@ -29,12 +29,15 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             
-        } 
+        }
+
+        Play("Theme");
+        Play("Sandstorm");
     }
 
     void Start()
     {
-        Play("Theme");
+        
     }
 
     public void PlayCloneSound(string name, Vector3 clonePos)
@@ -70,7 +73,7 @@ public class AudioManager : MonoBehaviour
             if (t < 0.0f || t > 1.0f)
                 return;
 
-            s.source.volume = Mathf.Lerp(1.0f, 0.0f, t);
+            s.source.volume = Mathf.Lerp(1.0f, 0.0f, t) * s.playervolume;
             s.source.Play();
         }
     }
@@ -78,6 +81,11 @@ public class AudioManager : MonoBehaviour
     public void SetThemePitch(float pitch) {
         Sound s = Array.Find(sounds, sound => sound.name == "Theme");
         s.source.pitch = pitch;
+    }
+
+    public void InterpolateSandstorm(float t) {
+        Sound s = Array.Find(sounds, sound => sound.name == "Sandstorm");
+        s.source.volume = s.playervolume * t;
     }
     
 }

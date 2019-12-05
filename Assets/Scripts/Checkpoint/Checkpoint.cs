@@ -24,7 +24,8 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         //TODO add an animation or some buffer period so you don't suddenly snap to the startposition
         if(PlayerManager.Instance.IsPlayer(other.gameObject) && !CheckpointManager.Instance.IsActiveCheckpoint(this)) {
-            other.gameObject.GetComponent<CharacterMovement>().SetStartPosition(GetSpawnPoint(), this); //Then Set Start Position and Reset
+            other.gameObject.GetComponent<CharacterMovement>().SetStartPosition(GetSpawnPoint(), this); //Then Set Start Position
+            AudioManager.Instance.Play("Checkpoint");
         }
     }
 
