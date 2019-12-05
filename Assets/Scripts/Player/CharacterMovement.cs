@@ -86,7 +86,7 @@ public class CharacterMovement : MonoBehaviour
                 if (body.velocity.x > horizontalV)
                     body.velocity = new Vector2(horizontalV, body.velocity.y);
             }
-        } else if (Mathf.Abs(body.velocity.x) < Mathf.Abs(horizontalV)) { //Walk
+        } else if (Mathf.Abs(body.velocity.x) <= Mathf.Abs(horizontalV)) { //Walk
             if (horizontalV > 0) {
                 body.velocity += new Vector2(acceleration * Time.deltaTime, 0);
                 if (body.velocity.x > horizontalV)
