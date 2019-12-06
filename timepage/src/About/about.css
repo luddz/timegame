@@ -1,6 +1,6 @@
 .aboutUsContainer {
     background-color: #282c30;
-    background-image: radial-gradient(circle, black, grey 75%);
+    background-image: radial-gradient(circle, #38201A, #231314 75%);
     /* background-image: radial-gradient(circle, black, #282c34 75%); */
     /* background-image: radial-gradient(circle, black, grey); */
     color:white;
