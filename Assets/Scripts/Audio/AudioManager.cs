@@ -28,6 +28,8 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.playervolume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.rolloffMode = AudioRolloffMode.Linear;
+            s.source.maxDistance = 10000;
             
         }
 

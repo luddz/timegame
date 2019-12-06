@@ -56,6 +56,13 @@ public class InputButton {
     }
 
     public void ForcePress(bool press) {
+        if(forcePressed != press) {
+            if(!forcePressed) {
+                buttonDown = true;
+            } else {
+                buttonUp = true;
+            }
+        }
         forcePressed = press;
     }
 }
