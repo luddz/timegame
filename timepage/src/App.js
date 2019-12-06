@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import About from './About/about'
 import Homepage from './Homepage/homepage'
+import Gdd from './Gdd/gdd'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import gitLogo from './Assets/GitHub-Mark-Light-32px.png'
@@ -20,6 +21,7 @@ class App extends Component {
               <Nav className="mr-auto">
                 <Nav.Link href="#/">Home</Nav.Link>
                 <Nav.Link href="#/about">The team</Nav.Link>
+                <Nav.Link href="#/gdd">The GDD</Nav.Link>
               </Nav>
             </Navbar.Collapse>
                 <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'>
@@ -34,6 +36,9 @@ class App extends Component {
           </Route>
           <Route exact path="/about">
             <About />
+          </Route>
+          <Route exact path="/gdd">
+            <Gdd />
           </Route>
         </Switch>
       </div>
