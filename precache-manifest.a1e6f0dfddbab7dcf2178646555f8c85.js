@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8824de1df76842aca1e5373659257afb",
+    "revision": "e1bc2c325ace1b49f0570fcfc65eef42",
     "url": "/timegame/index.html"
   },
   {
-    "revision": "26b8e078cdb8ccf04e84",
+    "revision": "535ee529827a2781e984",
     "url": "/timegame/static/css/2.510409cd.chunk.css"
   },
   {
-    "revision": "01d00910086536bfabb6",
-    "url": "/timegame/static/css/main.f4e07ae4.chunk.css"
+    "revision": "731a47c4ca6c94a4bfa2",
+    "url": "/timegame/static/css/main.3217bce2.chunk.css"
   },
   {
-    "revision": "26b8e078cdb8ccf04e84",
-    "url": "/timegame/static/js/2.0abac2c5.chunk.js"
+    "revision": "535ee529827a2781e984",
+    "url": "/timegame/static/js/2.f79edf3e.chunk.js"
   },
   {
-    "revision": "01d00910086536bfabb6",
-    "url": "/timegame/static/js/main.b6629983.chunk.js"
+    "revision": "731a47c4ca6c94a4bfa2",
+    "url": "/timegame/static/js/main.280b815f.chunk.js"
   },
   {
     "revision": "9940d4241d894a40a114",
