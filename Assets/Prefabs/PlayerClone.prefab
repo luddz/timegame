@@ -103,6 +103,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5635826310379369546, guid: 2da52b95146225b4585b0f531f196d4b,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5635826310379369548, guid: 2da52b95146225b4585b0f531f196d4b,
         type: 3}
       propertyPath: m_CollisionDetection
