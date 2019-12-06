@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b566a89e76b859b5f01eba639a474f24",
+    "revision": "8824de1df76842aca1e5373659257afb",
     "url": "/timegame/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/timegame/static/css/2.510409cd.chunk.css"
   },
   {
-    "revision": "7cd0ad1ba7b8a2cfa6f4",
-    "url": "/timegame/static/css/main.6cbed5a8.chunk.css"
+    "revision": "01d00910086536bfabb6",
+    "url": "/timegame/static/css/main.f4e07ae4.chunk.css"
   },
   {
     "revision": "26b8e078cdb8ccf04e84",
     "url": "/timegame/static/js/2.0abac2c5.chunk.js"
   },
   {
-    "revision": "7cd0ad1ba7b8a2cfa6f4",
+    "revision": "01d00910086536bfabb6",
     "url": "/timegame/static/js/main.b6629983.chunk.js"
   },
   {
@@ -42,6 +42,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "bf77984092082970848b4130e7323b16",
     "url": "/timegame/static/media/ludvig-kindberg-bw.bf779840.png"
+  },
+  {
+    "revision": "492f6c0627f43fa983f606ffcaa5d55c",
+    "url": "/timegame/static/media/overground-background.492f6c06.png"
   },
   {
     "revision": "e278838567d8ed1be894a3f92ec5b4fa",
