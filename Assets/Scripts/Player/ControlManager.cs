@@ -104,7 +104,9 @@ public class ControlManager : MonoBehaviour {
 	 * Returns value of horizontal movement.
 	 */
     public float Horizontal() {
-        if (inputButtons[(int)Button.left].GetButton())
+        if (inputButtons[(int)Button.left].GetButton() && inputButtons[(int)Button.right].GetButton())
+            return 0;
+        else if (inputButtons[(int)Button.left].GetButton())
             return -1f;
         else if (inputButtons[(int)Button.right].GetButton())
             return 1f;
