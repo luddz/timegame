@@ -1,0 +1,17 @@
+
+.gddContainer {
+    background-color: #282c30;
+    background-image: radial-gradient(circle, #38201A, #231314 75%);
+    color:white;
+    padding: 5% 20% 5% 20%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-row-gap: 50px;
+    min-height: 100vh;
+}
+
+.gddContainer > h1 {
+  vertical-align: middle;
+  max-height: inherit;
+  margin-top: 10%;
+}

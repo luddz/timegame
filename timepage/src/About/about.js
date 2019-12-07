@@ -16,7 +16,7 @@ class About extends Component {
       <Fade>
       <div className="aboutUsContainer">
           <h1>The team behind the game</h1>
-        <Fade Bottom delay={1000}>
+        <Fade Bottom delay={500}>
           <div className="theTeam">
             <div>
               <Image className="aboutImageCenter" src={ludde} roundedCircle />
@@ -39,7 +39,7 @@ class About extends Component {
               <Image className="aboutImageCenter" src={ludde} roundedCircle />
               <p className="names"><b>Ludvig Kindberg</b></p>
               <ul className="role">
-                <li>Project manager??</li>
+                <li>Project manager</li>
                 <li>Website</li>
                 <li>Bussines plan</li>
                 <li>Sound effects</li>
@@ -62,6 +62,8 @@ class About extends Component {
               <ul className="role">
                 <li>Programmer</li>
                 <li>Level designer</li>
+                <li>Enviorment designer</li>
+                <li>Music and SFX creater</li>
               </ul>
               <div className="contactDiv">
                 <a href='https://github.com/bhatnathan' rel="noreferrer noopener" target='_blank'>
