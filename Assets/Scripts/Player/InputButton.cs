@@ -12,19 +12,24 @@ public class InputButton {
     private bool buttonDown;
     private bool buttonUp;
     private bool forcePressed;
+    private bool skipUpdate;
 
 
     public InputButton(KeyCode button) {
         this.button = button;
-        pressed = Input.GetKey(button);
+        forcePressed = false;
     }
 
     public void Update() {
-        buttonDown = (Input.GetKeyDown(button));
+        if(!skipUpdate)
+            buttonDown = (Input.GetKeyDown(button));
 
         pressed = (Input.GetKey(button) || forcePressed);
 
-        buttonUp = (Input.GetKeyUp(button));
+        if(!skipUpdate)
+            buttonUp = (Input.GetKeyUp(button));
+
+        skipUpdate = false;
     }
 
     public void SetButtonDown(bool buttonDown) {
@@ -57,6 +62,7 @@ public class InputButton {
 
     public void ForcePress(bool press) {
         if(forcePressed != press) {
+            skipUpdate = true;
             if(!forcePressed) {
                 buttonDown = true;
             } else {
