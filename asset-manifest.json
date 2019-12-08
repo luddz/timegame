@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/timegame/static/css/main.ab8ba337.chunk.css",
-    "main.js": "/timegame/static/js/main.be517c63.chunk.js",
-    "main.js.map": "/timegame/static/js/main.be517c63.chunk.js.map",
+    "main.css": "/timegame/static/css/main.54e84ab0.chunk.css",
+    "main.js": "/timegame/static/js/main.05959bd6.chunk.js",
+    "main.js.map": "/timegame/static/js/main.05959bd6.chunk.js.map",
     "runtime-main.js": "/timegame/static/js/runtime-main.b9e1e91f.js",
     "runtime-main.js.map": "/timegame/static/js/runtime-main.b9e1e91f.js.map",
     "static/css/2.510409cd.chunk.css": "/timegame/static/css/2.510409cd.chunk.css",
-    "static/js/2.7e949011.chunk.js": "/timegame/static/js/2.7e949011.chunk.js",
-    "static/js/2.7e949011.chunk.js.map": "/timegame/static/js/2.7e949011.chunk.js.map",
+    "static/js/2.5c2622db.chunk.js": "/timegame/static/js/2.5c2622db.chunk.js",
+    "static/js/2.5c2622db.chunk.js.map": "/timegame/static/js/2.5c2622db.chunk.js.map",
     "index.html": "/timegame/index.html",
-    "precache-manifest.32c3fd397255f9b14d42fd142f6b753b.js": "/timegame/precache-manifest.32c3fd397255f9b14d42fd142f6b753b.js",
+    "precache-manifest.d0432a22d9a68593a70b605cad8939e4.js": "/timegame/precache-manifest.d0432a22d9a68593a70b605cad8939e4.js",
     "service-worker.js": "/timegame/service-worker.js",
     "static/css/2.510409cd.chunk.css.map": "/timegame/static/css/2.510409cd.chunk.css.map",
-    "static/css/main.ab8ba337.chunk.css.map": "/timegame/static/css/main.ab8ba337.chunk.css.map",
-    "static/media/DemoScreenShot.png": "/timegame/static/media/DemoScreenShot.b85267ec.png",
+    "static/css/main.54e84ab0.chunk.css.map": "/timegame/static/css/main.54e84ab0.chunk.css.map",
+    "static/media/DemoScreenShot.png": "/timegame/static/media/DemoScreenShot.1157203e.png",
     "static/media/Final_trailer.mp4": "/timegame/static/media/Final_trailer.7d1b2510.mp4",
     "static/media/LI-Logo.png": "/timegame/static/media/LI-Logo.c24cde28.png",
     "static/media/Nathan-bw.jpg": "/timegame/static/media/Nathan-bw.7315562a.jpg",
@@ -21,14 +21,13 @@
     "static/media/gdd.pdf": "/timegame/static/media/gdd.0e5a27af.pdf",
     "static/media/ludvig-kindberg-bw.png": "/timegame/static/media/ludvig-kindberg-bw.bf779840.png",
     "static/media/homepage.css": "/timegame/static/media/overground-background.492f6c06.png",
-    "static/media/shortened.mp4": "/timegame/static/media/shortened.e2788385.mp4",
-    "static/media/trailerV1.mp4": "/timegame/static/media/trailerV1.46a212a7.mp4"
+    "static/media/shortened.mp4": "/timegame/static/media/shortened.e2788385.mp4"
   },
   "entrypoints": [
     "static/js/runtime-main.b9e1e91f.js",
     "static/css/2.510409cd.chunk.css",
-    "static/js/2.7e949011.chunk.js",
-    "static/css/main.ab8ba337.chunk.css",
-    "static/js/main.be517c63.chunk.js"
+    "static/js/2.5c2622db.chunk.js",
+    "static/css/main.54e84ab0.chunk.css",
+    "static/js/main.05959bd6.chunk.js"
   ]
 }
