@@ -1,11 +1,15 @@
 .App {
-  background-color: #282c34;
+  background-color: #231314;
   color: white;
   text-align: center;
 }
 
 .App-header {
-  background-image: radial-gradient(circle, black, grey, #282c34);
+  /* background-image: radial-gradient(circle, black, grey, #282c34); */
+  background-image: url("../Assets/overground-background.png");
+  /* background-position: left; */
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -66,7 +70,8 @@
 
 .videoTutorialContainer {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-row-gap: 10px;
     /* padding: 5% 20% 5% 20%; */
 }
 

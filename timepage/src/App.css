@@ -10,5 +10,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #353A40;
+  /* background: linear-gradient(to bottom, #DB2B39 50%,#2B303A 50%); */
+  /* background-color: linear-gradient(right, #353A40 50%, #231314 50%); */
 }
