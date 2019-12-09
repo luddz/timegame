@@ -18,10 +18,8 @@ class Gdd extends Component {
     return(
       <div className="gddContainer">
         <h1> The GDD</h1>
-        <p> The GDD can either be accessed, here on the webpage. But if does not load correctly it can be accessed on
-        <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'>Google drive. </a>
-         Or it can be download from the
-        <a href='http://www.github.com/luddz/timegame' rel="noreferrer noopener" target='_blank'> GitHub repository. </a>
+        <p> The GDD can either be accessed, here on the webpage. But if does not load correctly it can be accessed on or download from the
+        <a href='https://github.com/luddz/timegame/blob/webpage/GDD.pdf' rel="noreferrer noopener" target='_blank'> GitHub repository. </a>
         </p>
         <Document
           file={gddPDf}
