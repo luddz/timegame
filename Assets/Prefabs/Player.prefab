@@ -289,13 +289,13 @@ MonoBehaviour:
   up: 119
   down: 115
   jump: 32
-  jumpAlt: 332
+  jumpAlt: 330
   resetTime: 114
-  resetTimeAlt: 333
+  resetTimeAlt: 332
   solidify: 113
   solidifyAlt: 331
   clear: 101
-  clearAlt: 330
+  clearAlt: 333
   shoot: 99
   shootAlt: 335
   joyStickDeadZone: 0.5
