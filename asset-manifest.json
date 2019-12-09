@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/timegame/static/css/main.54e84ab0.chunk.css",
-    "main.js": "/timegame/static/js/main.05959bd6.chunk.js",
-    "main.js.map": "/timegame/static/js/main.05959bd6.chunk.js.map",
+    "main.js": "/timegame/static/js/main.310212db.chunk.js",
+    "main.js.map": "/timegame/static/js/main.310212db.chunk.js.map",
     "runtime-main.js": "/timegame/static/js/runtime-main.b9e1e91f.js",
     "runtime-main.js.map": "/timegame/static/js/runtime-main.b9e1e91f.js.map",
     "static/css/2.510409cd.chunk.css": "/timegame/static/css/2.510409cd.chunk.css",
     "static/js/2.5c2622db.chunk.js": "/timegame/static/js/2.5c2622db.chunk.js",
     "static/js/2.5c2622db.chunk.js.map": "/timegame/static/js/2.5c2622db.chunk.js.map",
     "index.html": "/timegame/index.html",
-    "precache-manifest.d0432a22d9a68593a70b605cad8939e4.js": "/timegame/precache-manifest.d0432a22d9a68593a70b605cad8939e4.js",
+    "precache-manifest.aeb90bb1a92005ca20b308f970fba1d0.js": "/timegame/precache-manifest.aeb90bb1a92005ca20b308f970fba1d0.js",
     "service-worker.js": "/timegame/service-worker.js",
     "static/css/2.510409cd.chunk.css.map": "/timegame/static/css/2.510409cd.chunk.css.map",
     "static/css/main.54e84ab0.chunk.css.map": "/timegame/static/css/main.54e84ab0.chunk.css.map",
@@ -28,6 +28,6 @@
     "static/css/2.510409cd.chunk.css",
     "static/js/2.5c2622db.chunk.js",
     "static/css/main.54e84ab0.chunk.css",
-    "static/js/main.05959bd6.chunk.js"
+    "static/js/main.310212db.chunk.js"
   ]
 }
